@@ -10,6 +10,7 @@
     
     @include responsive($desktop) {
         @include flex(column, flex-start, flex-start);
+        margin-top: 100px;
     }
 
     h3 {
