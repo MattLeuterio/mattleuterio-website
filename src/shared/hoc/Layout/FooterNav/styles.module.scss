@@ -1,0 +1,36 @@
+@import '../../../../shared/sass/partials/_variables.scss';
+@import '../../../../shared/sass/partials/mixins';
+
+.FooterNav {
+    z-index: 1;
+    position: fixed;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    background: linear-gradient(0deg, #282c34 60%, #282c3400 210%);
+    display: none;
+
+    @include responsive($desktop) {
+
+        @include flex(row, center, center);
+
+    }
+
+    nav {
+        a  {
+            margin: 0 25px;
+            text-transform: uppercase;
+            letter-spacing: 13px;
+
+            &:hover {
+                color: $secondary-color;
+            }
+        }
+        .active {
+            color: $secondary-color;
+        }
+    }
+}
+
+
+

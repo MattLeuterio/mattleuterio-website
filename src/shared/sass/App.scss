@@ -1,0 +1,23 @@
+// Commons
+@import 'partials/variables';
+@import 'partials/mixins';
+
+.App {
+  position: relative;;
+  width: 100%;
+  background-image: url(https://i.ibb.co/c1fbDrY/bg-logo.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @include responsive($desktop) {
+    padding: 0;
+    height: 100vh;
+  }
+
+  a {
+   @include reset-a; 
+   
+  }
+}
+

@@ -1,0 +1,12 @@
+@import '../../../../shared/sass/partials/_variables.scss';
+@import '../../../../shared/sass/partials/mixins';
+
+.Skills-film {
+    @include flex(row, center, center);
+    flex-wrap: wrap; 
+}
+
+
+
+
+

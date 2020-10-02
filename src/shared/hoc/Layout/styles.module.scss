@@ -1,0 +1,26 @@
+@import '../../../shared/sass/partials/_variables.scss';
+@import '../../../shared/sass/partials/mixins';
+
+.Layout {
+    height: 100%;
+    width: 100%;
+    margin-top: 142px;
+    @include flex(column, center, center);
+    
+    @include responsive($desktop) {
+        margin-top: 50px;
+    }
+
+    main {
+        flex-grow: 1;
+        width: 100%;
+        padding: 25px 10px;
+
+        @include responsive($desktop) {
+            padding: 100px 30px;
+        }
+    }
+
+}
+
+

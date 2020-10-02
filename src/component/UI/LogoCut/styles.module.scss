@@ -1,0 +1,14 @@
+@import '../../../shared/sass/partials/_variables.scss';
+@import '../../../shared/sass/partials/mixins';
+
+.Logo-img {
+    z-index: -1;
+    position: absolute;
+    bottom: -660px;
+    right: -947px;
+
+    @include responsive($tablet) {
+        bottom: -460px;
+        right: -897px;
+    }
+}

@@ -1,0 +1,33 @@
+@import '../../shared/sass/partials/_variables.scss';
+@import '../../shared/sass/partials/mixins';
+
+
+.Ctn-icon {
+    @include flex(column, center, center);
+    width: 120px;
+
+    @include responsive($desktop) {
+        width: 200px;
+    }
+    
+    &--img {
+        @include flex(column, center, center);
+        width: 50px;
+        height: 80px;
+    }
+
+    &--name {
+        padding: 10px;
+
+        h2 {
+            font-size: 0.7rem;
+            font-weight: $fw-regular;
+        }
+        @include responsive($desktop) {
+            h2 {
+                font-size: 0.9rem;
+            }
+
+        }
+    }
+}

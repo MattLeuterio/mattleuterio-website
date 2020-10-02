@@ -1,0 +1,19 @@
+@import '../../../../shared/sass/partials/_variables.scss';
+@import '../../../../shared/sass/partials/mixins';
+
+.Header {
+    @include flex(column, center, center);
+    width: 100%;
+    height: 20%;
+
+    h1,
+    h2 {
+        font-size: 0.8rem;
+        font-weight: $fw-regular;
+        letter-spacing: 13px;
+        padding: 5px 0;
+    }
+}
+
+
+
