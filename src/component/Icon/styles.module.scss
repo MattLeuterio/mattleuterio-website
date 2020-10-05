@@ -4,10 +4,14 @@
 
 .Ctn-icon {
     @include flex(column, center, center);
-    width: 120px;
+    width: calc(100% / 2);
+
+    @include responsive($tablet) {
+        width: calc(100% / 3);
+    }
 
     @include responsive($desktop) {
-        width: 200px;
+        width: calc(100% / 4);
     }
     
     &--img {
