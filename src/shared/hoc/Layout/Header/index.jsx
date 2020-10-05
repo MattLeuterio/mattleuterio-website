@@ -11,6 +11,7 @@ const animationHeader = {
   },
   visible: {
     y: 0,
+    overflow: "hidden",
     transition: { duration: .7, delay: .4},
   },
   exit: {
