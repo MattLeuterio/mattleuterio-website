@@ -1,179 +1,162 @@
 {
-    "skills" : {
-        "dev": [
-            {
-                "path": "/img/skills/dev/html5.png",
-                "name": "HTML 5"
-            },
-            {
-                "path": "/img/skills/dev/css3.png",
-                "name": "CSS 3"
-            }, 
-            {
-                "path": "/img/skills/dev/javascript.png",
-                "name": "JAVASCRIPT"
-            }, 
-            {
-                "path": "/img/skills/dev/vue.png",
-                "name": "VUE.JS"
-            }, 
-            {
-                "path": "/img/skills/dev/react.png",
-                "name": "REACT"
-            },
-            {
-                "path": "/img/skills/dev/wordpress.png",
-                "name": "WORDPRESS"
-            }, 
-            {
-                "path": "/img/skills/dev/jquery.png",
-                "name": "JQUERY"
-            }, 
-            {
-                "path": "/img/skills/dev/handlebars.png",
-                "name": "HANDLEBARS"
-            }, 
-            {
-                "path": "/img/skills/dev/bootstrap.png",
-                "name": "BOOTSTRAP"
-            },
-            {
-                "path": "/img/skills/dev/mysql.png",
-                "name": "MYSQL"
-            }, 
-            {
-                "path": "/img/skills/dev/laravel.png",
-                "name": "LARAVEL"
-            }, 
-            {
-                "path": "/img/skills/dev/php.png",
-                "name": "PHP"
-            }
+  "skills": {
+    "dev": [
+      {
+        "path": "/img/skills/dev/html5.png",
+        "name": "HTML 5"
+      },
+      {
+        "path": "/img/skills/dev/css3.png",
+        "name": "CSS 3"
+      },
+      {
+        "path": "/img/skills/dev/javascript.png",
+        "name": "JAVASCRIPT"
+      },
+      {
+        "path": "/img/skills/dev/vue.png",
+        "name": "VUE.JS"
+      },
+      {
+        "path": "/img/skills/dev/react.png",
+        "name": "REACT"
+      },
+      {
+        "path": "/img/skills/dev/wordpress.png",
+        "name": "WORDPRESS"
+      },
+      {
+        "path": "/img/skills/dev/jquery.png",
+        "name": "JQUERY"
+      },
+      {
+        "path": "/img/skills/dev/handlebars.png",
+        "name": "HANDLEBARS"
+      },
+      {
+        "path": "/img/skills/dev/bootstrap.png",
+        "name": "BOOTSTRAP"
+      },
+      {
+        "path": "/img/skills/dev/mysql.png",
+        "name": "MYSQL"
+      },
+      {
+        "path": "/img/skills/dev/laravel.png",
+        "name": "LARAVEL"
+      },
+      {
+        "path": "/img/skills/dev/php.png",
+        "name": "PHP"
+      }
+    ],
+    "film": [
+      {
+        "path": "/img/skills/film/photoshop.png",
+        "name": "PHOTOSHOP"
+      },
+      {
+        "path": "/img/skills/film/premiere-pro.png",
+        "name": "PREMIERE PRO"
+      },
+      {
+        "path": "/img/skills/film/after-effects.png",
+        "name": "AFTER EFFECTS"
+      },
+      {
+        "path": "/img/skills/film/audition.png",
+        "name": "AUDITION"
+      },
+      {
+        "path": "/img/skills/film/sketch.png",
+        "name": "SKETCH"
+      },
+      {
+        "path": "/img/skills/film/davinci-resolve.png",
+        "name": "DA VINCI"
+      },
+      {
+        "path": "/img/skills/film/final-cut-pro.png",
+        "name": "FINAL CUT PRO"
+      },
+      {
+        "path": "/img/skills/film/figma.png",
+        "name": "FIGMA"
+      }
+    ]
+  },
+  "projects": {
+    "dev": [
+      {
+        "id": 1,
+        "title": "Matflix",
+        "mainImg": "https://i.ibb.co/WWLrHXM/matflix-cover.png",
+        "links": [
+          ["Web", "https://mattleuterio.github.io/ajax-ex-boolflix/"],
+          ["GitHub", "https://github.com/MattLeuterio/ajax-ex-boolflix"]
         ],
-        "film": [
-            {
-            "path": "/img/skills/film/photoshop.png",
-            "name": "PHOTOSHOP"
-            },
-            {
-            "path": "/img/skills/film/premiere-pro.png",
-            "name": "PREMIERE PRO"
-            }, 
-            {
-            "path": "/img/skills/film/after-effects.png",
-            "name": "AFTER EFFECTS"
-            },
-            {
-            "path": "/img/skills/film/audition.png",
-            "name": "AUDITION"
-            }, 
-            {
-            "path": "/img/skills/film/sketch.png",
-            "name": "SKETCH"
-            },
-            {
-            "path": "/img/skills/film/davinci-resolve.png",
-            "name": "DA VINCI"
-            }, 
-            {
-            "path": "/img/skills/film/final-cut-pro.png",
-            "name": "FINAL CUT PRO"
-            },
-            {
-            "path": "/img/skills/film/figma.png",
-            "name": "FIGMA"
-            }
-        ]
-    },
-    "projects": {
-        "dev": [
-            {
-                "id": 1,
-                "title": "Matflix",
-                "mainImg": "https://i.ibb.co/WWLrHXM/matflix-cover.png",
-                "links": [
-                    [
-                        "Web",
-                        "https://mattleuterio.github.io/ajax-ex-boolflix/"
-                    ],
-                    [
-                        "GitHub",
-                        "https://github.com/MattLeuterio/ajax-ex-boolflix"
-                    ]
-                ],
-                "tech": [
-                    "HTML 5", 
-                    "CSS 3",
-                    "JavaScript",
-                    "Handlebars.JS", 
-                    "Ajax", 
-                    "jQuery",
-                    "FontAwesome"
-                ],
-                "content": "Tutto è partito da un esercizio da realizzare in un weekend ma ben presto, si è trasformato in un avventura ricca di colpi di scena ed endpoint. Il progetto richiama nello stile, e nel nome, Netflix.com. Sfruttando l'API di moviedb.org permette di ricercare Film e Serie-TV ed ottenere alcune informazioni sulle stesse. Nella Home propone i 10 attori, i 10 Film e le 10 Serie-TV più cercate nell'ultima settimana."
-            },
-            {
-                "id": 2,
-                "title": "Duckbnb",
-                "mainImg": "https://i.ibb.co/6JrNfhC/duckbnb-cover.png",
-                "links": [
-                    [
-                        "Web",
-                        "https://dbnb.herokuapp.com/"
-                    ],
-                    [
-                        "GitHub",
-                        "https://github.com/BenoitGaudieri/duckbnb"
-                    ]
-                ],
-                "tech": [
-                    "HTML 5", 
-                    "CSS 3", 
-                    "JavaScript",
-                    "Laravel",
-                    "PHP",
-                    "SASS",
-                    "Chart.JS",
-                    "Handlebars.JS",
-                    "Places.JS",
-                    "Bootstrap 4.5"
-                ],
-                "content": "DuckBNB is a web application made with Laravel, Handlebars, Chart.js and SASS, which offers services similar to those offered by AirBnb. Search functionality is powered by Algolia search and places.js. DuckBNB is designed for mobile and desktop devices. "
-            }
+        "tech": [
+          "HTML 5",
+          "CSS 3",
+          "JavaScript",
+          "Handlebars.JS",
+          "Ajax",
+          "jQuery",
+          "FontAwesome"
         ],
-        "film": [
-            {
-                "id": 1,
-                "title": "Pirelli",
-                "mainImg": "https://i.ibb.co/CnjR9G8/Tiano-Group-work.png",
-                "links": [
-                    [
-                        "Youtube",
-                        "https://www.youtube.com/watch?v=ILdTkPgErQk"
-                    ]
-                ],
-                "tech": ["Adobe Premiere Pro", "Sony FS5", "DJI Mavic Pro"],
-                "content": "Video realizzato per i 50 anni dell'azienda Tiano. Il video è stato presentato in occasione della festa, organizzata da Pirelli, per l'occasione." 
-            },
-            {
-                "id": 2,
-                "title": "Dance The Audition",
-                "mainImg": "https://i.ibb.co/S3ZRwG5/theaudition-cover.jpg",
-                "links": [
-                    [
-                        "Rai Play",
-                        "https://www.raiplay.it/video/2020/01/dance-the-audition-18ef5ba5-c95e-42f1-adee-0c4281f2f82c.html"
-                    ]
-                ],
-                "tech": [
-                    "Adobe Premiere Pro", 
-                    "Adobe After Effects", 
-                    "Sony FS5",
-                    "Sony A7S",
-                    "DJI Mavic Pro"
-                ],
-                "content": "Poesia dell'anima in movimento. Fatica, sacrificio e momenti di difficoltà caratterizzano il percorso della carriera di ogni ballerino, ma grazie al coraggio e alla voglia di apprendere, dando il meglio di sé stessi, si possono raggiungere equilibrio e importanti traguardi."
-            }
-        ]
-    }
+        "content": "It all started from an assignment I had to accomplish in a weekend but soon it turned into an adventure full of twists and endpoints. The project recalls, in style and name, Netflix.com. Using the API of moviedb.org, it allows you to search movies, TV series and get some information about them. On the Home page it also suggests you the ten actors, the ten movies and the ten TV series most sought-out in the last week."
+      },
+      {
+        "id": 2,
+        "title": "Duckbnb",
+        "mainImg": "https://i.ibb.co/6JrNfhC/duckbnb-cover.png",
+        "links": [
+          ["Web", "https://dbnb.herokuapp.com/"],
+          ["GitHub", "https://github.com/BenoitGaudieri/duckbnb"]
+        ],
+        "tech": [
+          "HTML 5",
+          "CSS 3",
+          "JavaScript",
+          "Laravel",
+          "PHP",
+          "SASS",
+          "Chart.JS",
+          "Handlebars.JS",
+          "Places.JS",
+          "Bootstrap 4.5"
+        ],
+        "content": "DuckBNB is a web application made with Laravel, Handlebars, Chart.js and SASS, which offers services similar to those offered by AirBnb. Search functionality is powered by Algolia search and places.js. DuckBNB is designed for mobile and desktop devices. "
+      }
+    ],
+    "film": [
+      {
+        "id": 1,
+        "title": "Pirelli",
+        "mainImg": "https://i.ibb.co/CnjR9G8/Tiano-Group-work.png",
+        "links": [["Youtube", "https://www.youtube.com/watch?v=ILdTkPgErQk"]],
+        "tech": ["Adobe Premiere Pro", "Sony FS5", "DJI Mavic Pro"],
+        "content": "Video made for the 50th anniversary of the Tiano Company and presented during the celebration organized for the occasion by Pirelli."
+      },
+      {
+        "id": 2,
+        "title": "Dance The Audition",
+        "mainImg": "https://i.ibb.co/S3ZRwG5/theaudition-cover.jpg",
+        "links": [
+          [
+            "Rai Play",
+            "https://www.raiplay.it/video/2020/01/dance-the-audition-18ef5ba5-c95e-42f1-adee-0c4281f2f82c.html"
+          ]
+        ],
+        "tech": [
+          "Adobe Premiere Pro",
+          "Adobe After Effects",
+          "Sony FS5",
+          "Sony A7S",
+          "DJI Mavic Pro"
+        ],
+        "content": "The poetry soul in motion. Effort, sacrifice and difficult moments characterize the career of every dancer, but due to strength and desire to learn, giving the best of oneself, balance and important goals are achievable."
+      }
+    ]
   }
+}

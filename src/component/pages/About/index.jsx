@@ -25,18 +25,18 @@ const about = () => {
         </section>
 
         <section className={classes.Summary}>
-          <p>Ambizioso e curioso, amante della tecnologia e del codice.</p>
+          <p>Ambitious and curious, I am a technology and coding enthusiast.</p>
           <p>
-            Amo vedere le mie creazioni prendere forma e discuterne con le
-            persone per migliorarne ogni dettaglio. Tutto ciò ha contribuito a
-            far nascere in me la passione per il front-end e la user experience.
+            I love seeing my creations take shape and I am open to discussions
+            and suggestions in order to improve every detail. All this gave
+            birth to my passion for the front-end and the user experience.
           </p>
           <p>
-            Ho lavorato come Videomaker cercando ogni giorno di migliorarmi sia
-            come persona che come professionista ed affinando le mie skills sono
-            arrivato a lavorare alla produzione di un documentario a New York.
+            I worked as a videomaker, trying every day to improve myself both as
+            a person and as a professional and refining my skills I got to work
+            on the production of a documentary in New York.
           </p>
-          <p>Adoro le sfide ed il codice pulito ed efficiente.</p>
+          <p>I enjoy challenges and the clean and efficient code.</p>
         </section>
       </motion.div>
     </Layout>
