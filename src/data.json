@@ -127,6 +127,26 @@
           "Bootstrap 4.5"
         ],
         "content": "DuckBNB is a web application made with Laravel, Handlebars, Chart.js and SASS, which offers services similar to those offered by AirBnb. Search functionality is powered by Algolia search and places.js. DuckBNB is designed for mobile and desktop devices. "
+      },
+      {
+        "id": 3,
+        "title": "Flat Earth Esports",
+        "mainImg": "https://i.ibb.co/yn63gg2/fte-website.png",
+        "links": [
+          ["Web", "https://www.flatearthesports.com/"],
+          ["GitHub", "https://github.com/MattLeuterio/fte-website"]
+        ],
+        "tech": [
+          "HTML 5",
+          "CSS 3",
+          "JavaScript",
+          "React",
+          "SASS",
+          "styled-components",
+          "Contentful",
+          "emailjs"
+        ],
+        "content": "Flat Earth Esports is a web application made with React and styled-components . Website's contents are powered by Contentful. The application is designed mobile-first for mobile and desktop devices."
       }
     ],
     "film": [
