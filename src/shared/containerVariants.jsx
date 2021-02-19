@@ -1,18 +1,14 @@
  const containerVariants = {
     hidden: { 
-      scale: 0,
-      overflow: "hidden"
+      opacity: 0,
     },
     visible: {
-      scale: 1,
-      transition: { duration: .7},
-      overflow: "visible"
+      opacity: 1,
+      transition: { duration: .6,},
     },
     exit: {
-      scale: 10,
       opacity: 0,
-      overflow: "hidden",
-      transition: { duration: .7, ease: 'easeIn' }
+      transition: { duration: .6, ease: 'easeIn' },
     }
   }
 

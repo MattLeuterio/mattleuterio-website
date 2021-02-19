@@ -1,114 +1,110 @@
-@import '../../../../shared/sass/partials/_variables.scss';
-@import '../../../../shared/sass/partials/mixins';
+@import "../../../../shared/sass/partials/_variables.scss";
+@import "../../../../shared/sass/partials/mixins";
 
 .SingleProject {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+
+  @include flex(column, center, center);
+
+  @include responsive($desktop) {
+    @include flex(column, flex-start, flex-start);
+    margin-top: 190px;
+    padding: 0 120px;
+  }
+
+  h3 {
+    margin-bottom: 10px;
+  }
+
+  &-title {
+    margin-bottom: 20px;
     width: 100%;
-    height: 100%;
-    overflow: auto;
-    
-    @include flex(column, center, center);
-    
+    word-wrap: break-word;
+
+    h1 {
+      letter-spacing: 13px;
+      font-weight: $fw-light;
+      text-transform: uppercase;
+      text-align: center;
+    }
+  }
+
+  &-cover {
+    width: 100%;
+    height: 320px;
+
     @include responsive($desktop) {
-        @include flex(column, flex-start, flex-start);
-        margin-top: 100px;
-        padding: 0 120px;
+      height: 600px;
     }
 
-    h3 {
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 13px;
+    }
+  }
+
+  &-info {
+    width: 100%;
+    padding: 20px 0;
+    @include flex(column, center, center);
+
+    @include responsive($desktop) {
+      @include flex();
+    }
+
+    &--tech {
+      width: 100%;
+      margin-bottom: 20px;
+
+      @include responsive($desktop) {
+        width: 25%;
+        margin-bottom: 0;
+      }
+
+      ul {
+        @include reset-list;
+
+        li {
+          background-color: $primary-color;
+          cursor: default;
+          max-width: fit-content;
+          padding: 3px 6px;
+          border-radius: 4px;
+          margin: 4px;
+          display: inline-block;
+        }
+      }
+    }
+
+    &--content {
+      width: 100%;
+
+      @include responsive($desktop) {
+        width: 75%;
+      }
+
+      &-description {
         margin-bottom: 10px;
+      }
+
+      &-links {
+        &--list {
+          @include flex(row, flex-start, center);
+
+          a {
+            border: 1px solid $secondary-color;
+            max-width: fit-content;
+            padding: 6px 26px;
+            border-radius: 4px;
+            margin-right: 6px;
+            display: inline-block;
+          }
+        }
+      }
     }
-
-    &-title {
-        margin-bottom: 20px;
-        width: 100%;
-
-        h1 {
-            letter-spacing: 13px;
-            font-weight: $fw-light;
-            text-transform: uppercase;
-            text-align: center;
-        }
-    }
-
-    &-cover {
-        width: 100%;
-        height: 320px;
-        
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 13px;
-        }
-    }
-
-    &-info {
-        width: 100%;
-        padding: 20px 0;
-        @include flex(column, center, center);
-
-        @include responsive($desktop) {
-            @include flex();
-        }
-
-        &--tech {
-            width: 100%;
-            margin-bottom: 20px;
-
-            @include responsive($desktop) {
-                width: 25%;
-                margin-bottom: 0;
-            }
-
-            ul {
-                @include reset-list;
-                
-                li {
-                    background-color: $primary-color;
-                    cursor: default;
-                    max-width: fit-content;
-                    padding: 3px 6px;
-                    border-radius: 4px;
-                    margin: 4px;
-                    display: inline-block;
-                }
-            }
-        }
-
-        &--content {
-            width: 100%;
-
-            @include responsive($desktop) {
-                width: 75%;
-            }
-
-            &-description {
-                margin-bottom: 10px;
-            }
-
-            &-links {
-                
-                &--list {
-                    @include flex(row, flex-start, center);
-        
-        
-                    a {
-                        border: 1px solid $secondary-color;
-                        max-width: fit-content;
-                        padding: 6px 26px;
-                        border-radius: 4px;
-                        margin-right: 6px;
-                        display: inline-block;
-                    }
-                }
-        
-            }
-        }
-    }
+  }
 }
-
-
-
-
-
-
