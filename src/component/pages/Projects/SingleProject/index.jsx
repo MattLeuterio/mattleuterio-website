@@ -14,12 +14,8 @@ const SingleProject = () => {
   const {id} = useParams();
 
   let projs = "";
-  
-  if (document.location.search === "?f") {
-    projs = listProjs.projects.film;
-  }  else {
-    projs = listProjs.projects.dev;
-  }
+  console.log(id)
+  document.location.search === "?f" ? projs = listProjs.projects.film : projs = listProjs.projects.dev;
   
   return (
     <Layout>
@@ -30,9 +26,8 @@ const SingleProject = () => {
         exit="exit"
       >
       {
-        projs.map((dev) => {
-          if(dev.id == id) {
-            return (
+        // eslint-disable-next-line
+        projs.map((dev) => dev.id == id && (
               <React.Fragment key={dev.id}>
                 <div className={classes[`SingleProject-title`]}>
                   <h1>{dev.title}</h1>
@@ -60,27 +55,27 @@ const SingleProject = () => {
                       <h3>Links</h3>
                       <div className={classes[`SingleProject-info--content-links--list`]}>
                         {
-                          dev.links.map( (link, index) => {
-                          return  <motion.a 
-                                    key={index} 
-                                    href={link[1]} 
-                                    target="_blank"
-                                    whileHover={{
-                                      backgroundColor: "#B740F0"
-                                    }}
-                                    >{link[0]}</motion.a>
-                          })
+                          dev.links.map( (link, index) => (
+                          <motion.a 
+                            key={index} 
+                            href={link[1]} 
+                            target="_blank"
+                            whileHover={{
+                              backgroundColor: "#B740F0"
+                            }}
+                            >
+                              {link[0]}
+                            </motion.a>
+                          ))
                         }
                       </div>
                     </div>
                   </div>
                 </div>
               </React.Fragment >
-  
-              )
-          }
-          })
-        }
+            )
+        )
+      }
       </motion.div>
     </Layout>
   )
