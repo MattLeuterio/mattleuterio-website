@@ -8,12 +8,19 @@
     "@testing-library/user-event": "^7.2.1",
     "framer": "^1.2.6",
     "framer-motion": "^2.6.13",
+    "gsap": "^3.6.0",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-gsap": "^2.2.1",
+    "react-helmet": "^6.1.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "react-scrollmagic": "^2.2.0",
+    "rellax": "^1.12.1",
+    "scrollmagic": "^2.0.8",
+    "styled-components": "^5.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
