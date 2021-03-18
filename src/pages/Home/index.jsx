@@ -1,9 +1,7 @@
 import React from "react";
-import ImageMatflix from "../../ui/assets/img/matflix.png";
-import ImageFTE from "../../ui/assets/img/fte.png";
 
 import { Container, Hello } from "./style";
-import { HelmetMeta, Image } from "../../atoms";
+import { HelmetMeta, } from "../../atoms";
 import { motion } from "framer-motion";
 
 const Home = () => {

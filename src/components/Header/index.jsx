@@ -5,9 +5,9 @@ import { Image } from "../../atoms";
 import Logo from "../../ui/assets/img/logo.png";
 import { Container, Name, Nav } from "./style";
 
-const Header = () => {
+const Header = ({theme}) => {
   return (
-    <Container>
+    <Container theme={theme}>
       <Name>
         <Link to="/">Matt Leuterio</Link>
       </Name>
@@ -24,8 +24,7 @@ const Header = () => {
 };
 
 Header.propTypes = {
-  titlePage: PropTypes.string,
-  path: PropTypes.string,
+  theme: PropTypes.string,
 };
 
 export default Header;

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import theme from '../../ui/theme';
 
 export const Container = styled.div`
+  background: ${props => props.theme === 'dark' ? 'white' : 'black'};
   z-index: ${theme.zIndex.menus};
   position: fixed;
   padding: 0 20px;
@@ -14,7 +15,6 @@ export const Container = styled.div`
   font-size: 10px;
   text-transform: uppercase;
   font-weight: 700;
-  mix-blend-mode: difference;
 
   > a > div {
     cursor: pointer;
