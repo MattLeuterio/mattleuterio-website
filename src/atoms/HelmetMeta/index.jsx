@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import PropTypes from "prop-types";
-import Thumb from "../../ui/assets/img/thumbnail.jpg";
+import Thumb from "../../ui/assets/img/header-logo-white.png";
 
 const HelmetMeta = ({ titlePage, path, description, image }) => {
   return (

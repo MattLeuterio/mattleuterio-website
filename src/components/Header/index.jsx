@@ -2,24 +2,34 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Image } from "../../atoms";
-import Logo from "../../ui/assets/img/logo.png";
-import { Container, Name, Nav } from "./style";
+import Logo from "../../ui/assets/img/header-logo-white.png";
+import {
+  BackgroundBlur,
+  Container,
+  LeftCtn,
+  Name,
+  Nav,
+  RightCtn,
+} from "./style";
 
-const Header = ({theme}) => {
+const Header = ({ theme }) => {
   return (
-    <Container theme={theme}>
-      <Name>
-        <Link to="/">Matt Leuterio</Link>
-      </Name>
-      <Link to="/">
-        <Image src={Logo} width="50px" />
-      </Link>
-      <Nav>
-        <Link to="/projects">Projects</Link>
-        <Link to="/profile">Profile</Link>
-        <Link to="/contacts">Contacts</Link>
-      </Nav>
-    </Container>
+    <>
+      <Container theme={theme}>
+        <LeftCtn>
+          <Image src={Logo} width="24px" />
+          <Name>Matt Leuterio</Name>
+        </LeftCtn>
+        <RightCtn>
+          <Nav>
+            <Link to="/projects">Projects</Link>
+            <Link to="/profile">Profile</Link>
+            <Link to="/contacts">Contacts</Link>
+          </Nav>
+        </RightCtn>
+        <BackgroundBlur />
+      </Container>
+    </>
   );
 };
 

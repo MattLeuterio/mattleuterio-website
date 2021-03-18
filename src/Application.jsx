@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Route, Switch, useLocation } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 import { App } from "./appStyles";
-// Pages Components
-import { Contacts, Home, Profile, Projects } from "./pages";
-import { GlobalLayout, Header } from "./components";
-import { selectTheme } from "./features/settings/settingsSlice";
+
+import Bg from "./ui/assets/img/backgrounds/dark/bg-rocks-dark.jpg";
+
+// Layout Components
+import { Header } from "./components";
 
 function Application() {
-  const location = useLocation();
-  const themes = useSelector(selectTheme);
-  const [theme, setTheme] = useState(themes);
+  const initialTheme = !!localStorage.getItem("theme")
+    ? localStorage.getItem("theme")
+    : "dark";
+  const [theme, setTheme] = useState(initialTheme);
+
   const thumbnailVariants = {
     hidden: {
       transform: "translateY(100%)",
@@ -29,15 +30,17 @@ function Application() {
   };
 
   const handleOnClickThemeToggle = () => {
-    theme === 'dark' ? setTheme('light') : setTheme('dark');
-    console.log('click');
-  }
-  console.log(theme)
+    localStorage.getItem("theme") === "dark"
+      ? localStorage.setItem("theme", "light")
+      : localStorage.setItem("theme", "dark");
+
+    setTheme(localStorage.getItem("theme"));
+  };
+  console.log(theme);
 
   return (
-      <App theme={theme}>
-        <AnimatePresence exitBeforeEnter>
-          {/* <GlobalLayout
+    <App background={Bg} theme={theme}>
+      {/* <GlobalLayout
             as={motion.div}
             variants={thumbnailVariants}
             initial="hidden"
@@ -45,10 +48,14 @@ function Application() {
             exit="exit"
           > 
           </GlobalLayout> */}
-          <Header theme={theme}/>
-          <div style={{paddingTop: '200px'}} onClick={() => handleOnClickThemeToggle()}>theme toggle</div>
-        </AnimatePresence>
-      </App>
+      <Header theme={theme} />
+      <div
+        style={{ paddingTop: "200px" }}
+        onClick={() => handleOnClickThemeToggle()}
+      >
+        theme toggle
+      </div>
+    </App>
   );
 }
 
