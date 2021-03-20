@@ -33,20 +33,21 @@ export const LeftCtn = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 20px;
+  margin: 10px;
   justify-content: space-between;
 
   @media ${theme.device.mobileL} {
     width: fit-content;
-    margin-right: 0;
+    margin: 20px;
   }
 `;
 
 export const RightCtn = styled.div`
   display: none;
-  margin-right: 20px;
+  margin-right: 10px;
 
   @media ${theme.device.mobileL} {
+    margin-right: 20px;
     display: flex;
   }
 `;
