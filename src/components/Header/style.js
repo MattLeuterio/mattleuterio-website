@@ -71,8 +71,9 @@ export const Date = styled.nav`
     filter: drop-shadow(${theme.utility.dropShadow});
   }
 
-  & > time:first-child {
-    margin-right: 6px;
+  & > time:last-child {
+    width: 40px;
+    text-align: right;
   }
 `;
 

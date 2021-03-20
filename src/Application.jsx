@@ -6,7 +6,7 @@ import { App } from "./appStyles";
 import Bg from "./ui/assets/img/backgrounds/dark/bg-rocks-dark.jpg";
 
 // Layout Components
-import { Header } from "./components";
+import { Dock, Header } from "./components";
 
 function Application() {
   const initialTheme = !!localStorage.getItem("theme")
@@ -48,7 +48,8 @@ function Application() {
             exit="exit"
           > 
           </GlobalLayout> */}
-      <Header theme={theme} />
+      <Header />
+      <Dock />
       <div
         style={{ paddingTop: "200px" }}
         onClick={() => handleOnClickThemeToggle()}
