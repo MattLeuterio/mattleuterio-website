@@ -25,7 +25,7 @@ export function withMediaQueries(LazyComp) {
       function updateSize() {
         setMediaQueries({
           ...mediaQueries,
-          mediaIsPhone: window.innerWidth < breakpoint.tabletL,
+          mediaIsPhone: window.innerWidth < breakpoint.tablet,
           mediaIsDesktop: window.innerWidth >= breakpoint.tabletL
         });
 

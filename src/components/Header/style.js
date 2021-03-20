@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 import theme from '../../ui/theme';
 
 export const Container = styled.div`
@@ -13,11 +12,10 @@ export const Container = styled.div`
   align-items: center;
   font-size: 10px;
   font-weight: 700;
-  box-shadow: ${theme.utility.dropShadow};
   backdrop-filter: blur(65px);
 
-  > a > div {
-    cursor: pointer;
+  @media ${theme.device.mobileL} {
+    box-shadow: ${theme.utility.dropShadow};
   }
 `;
 
@@ -34,12 +32,23 @@ export const LeftCtn = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 20px;
+  width: 100%;
+  margin: 20px;
+  justify-content: space-between;
+
+  @media ${theme.device.mobileL} {
+    width: fit-content;
+    margin-right: 0;
+  }
 `;
 
 export const RightCtn = styled.div`
-  display: flex;
+  display: none;
   margin-right: 20px;
+
+  @media ${theme.device.mobileL} {
+    display: flex;
+  }
 `;
 
 
@@ -49,19 +58,39 @@ export const Name = styled.h1`
   font-size: 14px;
 `;
 
-export const Nav = styled.nav`
-  width: 220px;
+export const Date = styled.nav`
+  font-weight: 500;
+  font-size: 14px;
   display: flex;
   justify-content: flex-end;
-  > a {
-    color: white;
-    transition: all .5s;
-    &:not(:last-child) {
-      margin-right: 5px;
-    }
+  align-items: center;
+  margin-bottom: 2.2px;
 
-    &:hover {
-      transform: rotate(5deg) scale(1.04);
-    }
+  & > time {
+    filter: drop-shadow(${theme.utility.dropShadow});
+  }
+
+  & > time:first-child {
+    margin-right: 6px;
+  }
+`;
+
+export const Social = styled.div`
+  display: flex;
+
+  & > a:last-child {
+    margin-right: 8px;
+  }
+`;
+
+export const LinkSocial = styled.a`
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & > span {
+    filter: drop-shadow(${theme.utility.dropShadow});
   }
 `;
