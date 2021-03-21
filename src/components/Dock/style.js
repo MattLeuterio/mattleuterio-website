@@ -51,6 +51,7 @@ export const IconApp = styled.div`
       box-shadow: ${theme.utility.dropShadow};
       border: 1px solid #48484a;
       border-radius: 6px;
+      filter: drop-shadow(${theme.utility.dropShadow});
     }
   }
 `;

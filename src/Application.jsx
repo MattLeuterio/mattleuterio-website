@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-import { App } from "./appStyles";
+import { App, Welcome } from "./appStyles";
 
 import Bg from "./ui/assets/img/backgrounds/dark/bg-rocks-dark.jpg";
 
 // Layout Components
 import { Dock, Header } from "./components";
 
+const initialTheme = !!localStorage.getItem("theme")
+  ? localStorage.getItem("theme")
+  : "dark";
+
 function Application() {
-  const initialTheme = !!localStorage.getItem("theme")
-    ? localStorage.getItem("theme")
-    : "dark";
   const [theme, setTheme] = useState(initialTheme);
 
   const thumbnailVariants = {
@@ -37,6 +38,7 @@ function Application() {
     setTheme(localStorage.getItem("theme"));
   };
   console.log(theme);
+  console.log(!!localStorage.getItem("clientName"));
 
   return (
     <App background={Bg} theme={theme}>
@@ -49,6 +51,13 @@ function Application() {
           > 
           </GlobalLayout> */}
       <Header />
+
+      <Welcome>
+        Welcome,{" "}
+        {!!localStorage.getItem("clientName")
+          ? localStorage.getItem("clientName")
+          : "mate"}
+      </Welcome>
 
       {/* Dock -> fixed */}
       <Dock />
