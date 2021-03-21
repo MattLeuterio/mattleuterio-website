@@ -49,7 +49,10 @@ function Application() {
           > 
           </GlobalLayout> */}
       <Header />
+
+      {/* Dock -> fixed */}
       <Dock />
+
       <div
         style={{ paddingTop: "200px" }}
         onClick={() => handleOnClickThemeToggle()}
