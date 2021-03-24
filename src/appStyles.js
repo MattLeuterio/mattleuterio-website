@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import theme from './ui/theme';
 
 export const App = styled.div`
+  position: relative;
   width: 100%;
   height: 100vh;
   background: ${props => `url(${props.background})`};

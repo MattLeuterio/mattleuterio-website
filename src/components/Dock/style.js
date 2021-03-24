@@ -14,7 +14,7 @@ export const Container = styled.div`
   padding: 8px 5px;
   font-size: 12px;
   backdrop-filter: blur(50px);
-  background: rgba(0, 0, 0, 0.2);
+  background: ${props => props.theme === 'dark' ? 'rgba(0, 0, 0, 0.2)' : 'red'};
   border-radius: 24px;
   width: calc(100% - 32px);
 
@@ -23,27 +23,21 @@ export const Container = styled.div`
     width: fit-content;
     box-shadow: ${theme.utility.dropShadow};
   }
-
-    & > div {
-    cursor: pointer;
-    transition: all 0.3s;
-
-    &:hover {
-      transform: translateY(-10px);
-    }
-  }
 `;
 
 export const IconApp = styled.div`
   position: relative;
   cursor: pointer;
+  transition: all 0.3s;
+
 
   &:hover {
+    transform: translateY(-5px);
     &::after {
       content: '${props => `${props.name}`}';
       position: absolute;
       padding: 5px 10px;
-      top: -30px;
+      top: -40px;
       left: 50%;
       transform: translateX(-50%);
       background-color: ${theme.colors.darkTheme.panelBgContents};
@@ -53,6 +47,19 @@ export const IconApp = styled.div`
       border-radius: 6px;
       filter: drop-shadow(${theme.utility.dropShadow});
     }
+  }
+
+  &::before {
+    content: '';
+    display: ${props => props.open ? 'block' : 'none'};
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #C4C4C4;
   }
 `;
 

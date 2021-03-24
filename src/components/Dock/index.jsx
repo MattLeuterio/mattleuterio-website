@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Image } from "../../atoms";
 import { Container, IconApp } from "./style";
-// using Moment.js
 import {
   IconMail,
   IconNote,
@@ -12,32 +11,57 @@ import {
   IconYoutube,
 } from "../../ui/assets/img/icons";
 import { withMediaQueries } from "../../hoc/withMediaQueries";
+import { useDispatch, useSelector } from "react-redux";
+import { selectPanels } from "../../features/panels/panelsSlice";
 
-const Dock = ({ mediaIsPhone, name }) => {
+const Dock = ({ mediaIsPhone, theme, onClickApp }) => {
+  const panels = useSelector(selectPanels);
   return (
-    <Container>
+    <Container theme={theme}>
       {!mediaIsPhone && (
-        <IconApp name="Mail">
-          <Image src={IconMail} width="76px" />
-        </IconApp>
+        <a href="matteoleuterio@gmail.com">
+          <IconApp name="Mail">
+            <Image src={IconMail} width="76px" />
+          </IconApp>
+        </a>
       )}
-      <IconApp name="Development">
+      <IconApp
+        open={panels?.find((panel) => panel.name === "development").open}
+        onClick={() => onClickApp("development")}
+        name="Development"
+      >
         <Image src={IconVSC} width="76px" />
       </IconApp>
-      <IconApp name="Filmmaking">
+      <IconApp
+        open={panels?.find((panel) => panel.name === "filmmaking").open}
+        onClick={() => onClickApp("filmmaking")}
+        name="Filmmaking"
+      >
         <Image src={IconYoutube} width="76px" />
       </IconApp>
 
       {!mediaIsPhone && (
-        <IconApp name="Profile">
+        <IconApp
+          open={panels?.find((panel) => panel.name === "profile").open}
+          onClick={() => onClickApp("profile")}
+          name="Profile"
+        >
           <Image src={IconNote} width="76px" />
         </IconApp>
       )}
-      <IconApp name="Settings">
+      <IconApp
+        open={panels?.find((panel) => panel.name === "settings").open}
+        onClick={() => onClickApp("settings")}
+        name="Settings"
+      >
         <Image src={IconSettings} width="76px" />
       </IconApp>
 
-      <IconApp name="Trash">
+      <IconApp
+        open={panels?.find((panel) => panel.name === "trash").open}
+        onClick={() => onClickApp("trash")}
+        name="Trash"
+      >
         <Image src={IconTrash} width="76px" />
       </IconApp>
     </Container>

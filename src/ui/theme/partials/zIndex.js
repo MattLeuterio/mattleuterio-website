@@ -1,5 +1,6 @@
 const zIndex = {
   body: 4000,
+  active: 4200,
   mobileMenus: 4500,
   menus: 5000,
   modal: 7000,

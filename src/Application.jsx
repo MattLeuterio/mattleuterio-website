@@ -7,13 +7,30 @@ import Bg from "./ui/assets/img/backgrounds/dark/bg-rocks-dark.jpg";
 
 // Layout Components
 import { Dock, Header } from "./components";
+import { Settings } from "./components/Panels";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  openPanel,
+  panelsSlice,
+  selectPanels,
+  setPanelActive,
+} from "./features/panels/panelsSlice";
 
 const initialTheme = !!localStorage.getItem("theme")
   ? localStorage.getItem("theme")
   : "dark";
 
+const initialClient = !!localStorage.getItem("clientName")
+  ? localStorage.getItem("clientName")
+  : "mate";
+
 function Application() {
+  const dispatch = useDispatch();
+  const panels = useSelector(selectPanels);
   const [theme, setTheme] = useState(initialTheme);
+  const [client, setClient] = useState(initialClient);
+
+  useEffect(() => {}, []);
 
   const thumbnailVariants = {
     hidden: {
@@ -37,8 +54,18 @@ function Application() {
 
     setTheme(localStorage.getItem("theme"));
   };
-  console.log(theme);
-  console.log(!!localStorage.getItem("clientName"));
+  //console.log(theme);
+
+  const handleOnClickCtnPanel = (name) => {
+    dispatch(setPanelActive(name));
+  };
+
+  const handleOnClickApp = (app) => {
+    console.log("app", app);
+    dispatch(openPanel(app));
+  };
+
+  console.log(panels);
 
   return (
     <App background={Bg} theme={theme}>
@@ -51,23 +78,16 @@ function Application() {
           > 
           </GlobalLayout> */}
       <Header />
+      <Welcome>Welcome, {client}</Welcome>
 
-      <Welcome>
-        Welcome,{" "}
-        {!!localStorage.getItem("clientName")
-          ? localStorage.getItem("clientName")
-          : "mate"}
-      </Welcome>
-
+      {panels?.find((panel) => panel.name === "settings").open && (
+        <Settings
+          onClickContainer={() => handleOnClickCtnPanel("settings")}
+          onClickThemeToggle={() => handleOnClickThemeToggle()}
+        />
+      )}
       {/* Dock -> fixed */}
-      <Dock />
-
-      <div
-        style={{ paddingTop: "200px" }}
-        onClick={() => handleOnClickThemeToggle()}
-      >
-        theme toggle
-      </div>
+      <Dock onClickApp={(app) => handleOnClickApp(app)} theme={theme} />
     </App>
   );
 }

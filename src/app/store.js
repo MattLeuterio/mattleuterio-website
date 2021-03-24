@@ -5,6 +5,7 @@ import listGamesReducer from '../features/listGames/listGamesSlice';
 import gameDataReducer from '../features/game/gameSlice';
 import searchResultsReducer from '../features/search/searchSlice';
 import modalsReducer from '../features/modals/modalsSlice';
+import panelsReducer from '../features/panels/panelsSlice';
 import settingsReducer from '../features/settings/settingsSlice';
 
 export default configureStore({
@@ -15,6 +16,7 @@ export default configureStore({
     game: gameDataReducer,
     search: searchResultsReducer,
     modals: modalsReducer,
+    panels: panelsReducer,
     settings: settingsReducer,
   },
 });
