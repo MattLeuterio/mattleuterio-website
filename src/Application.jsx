@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 import { App, Welcome } from "./appStyles";
@@ -29,6 +29,7 @@ function Application() {
   const panels = useSelector(selectPanels);
   const [theme, setTheme] = useState(initialTheme);
   const [client, setClient] = useState(initialClient);
+  const constraintsRef = useRef(null);
 
   useEffect(() => {}, []);
 
@@ -65,26 +66,42 @@ function Application() {
     dispatch(openPanel(app));
   };
 
-  console.log(panels);
+  // eslint-disable-next-line no-lone-blocks
+  {
+    /* <GlobalLayout
+        as={motion.div}
+        variants={thumbnailVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+      > 
+      </GlobalLayout> */
+  }
 
   return (
-    <App background={Bg} theme={theme}>
-      {/* <GlobalLayout
-            as={motion.div}
-            variants={thumbnailVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-          > 
-          </GlobalLayout> */}
+    <App ref={constraintsRef} as={motion.div} background={Bg} theme={theme}>
       <Header />
       <Welcome>Welcome, {client}</Welcome>
 
       {panels?.find((panel) => panel.name === "settings").open && (
-        <Settings
-          onClickContainer={() => handleOnClickCtnPanel("settings")}
-          onClickThemeToggle={() => handleOnClickThemeToggle()}
-        />
+        <motion.div
+          drag
+          dragConstraints={constraintsRef}
+          dragElastic={0}
+          dragMomentum={false}
+          style={{
+            position: "absolute",
+            width: "675px",
+            height: "381px",
+            top: "150px",
+            right: "50px",
+          }}
+        >
+          <Settings
+            onClickContainer={() => handleOnClickCtnPanel("settings")}
+            onClickThemeToggle={() => handleOnClickThemeToggle()}
+          />
+        </motion.div>
       )}
       {/* Dock -> fixed */}
       <Dock onClickApp={(app) => handleOnClickApp(app)} theme={theme} />

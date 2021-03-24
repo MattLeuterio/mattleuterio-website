@@ -21,7 +21,7 @@ const Dock = ({ mediaIsPhone, theme, onClickApp }) => {
       {!mediaIsPhone && (
         <a href="matteoleuterio@gmail.com">
           <IconApp name="Mail">
-            <Image src={IconMail} width="76px" />
+            <Image src={IconMail} width="60px" />
           </IconApp>
         </a>
       )}
@@ -30,14 +30,14 @@ const Dock = ({ mediaIsPhone, theme, onClickApp }) => {
         onClick={() => onClickApp("development")}
         name="Development"
       >
-        <Image src={IconVSC} width="76px" />
+        <Image src={IconVSC} width="60px" />
       </IconApp>
       <IconApp
         open={panels?.find((panel) => panel.name === "filmmaking").open}
         onClick={() => onClickApp("filmmaking")}
         name="Filmmaking"
       >
-        <Image src={IconYoutube} width="76px" />
+        <Image src={IconYoutube} width="60px" />
       </IconApp>
 
       {!mediaIsPhone && (
@@ -46,7 +46,7 @@ const Dock = ({ mediaIsPhone, theme, onClickApp }) => {
           onClick={() => onClickApp("profile")}
           name="Profile"
         >
-          <Image src={IconNote} width="76px" />
+          <Image src={IconNote} width="60px" />
         </IconApp>
       )}
       <IconApp
@@ -54,7 +54,7 @@ const Dock = ({ mediaIsPhone, theme, onClickApp }) => {
         onClick={() => onClickApp("settings")}
         name="Settings"
       >
-        <Image src={IconSettings} width="76px" />
+        <Image src={IconSettings} width="60px" />
       </IconApp>
 
       <IconApp
@@ -62,7 +62,7 @@ const Dock = ({ mediaIsPhone, theme, onClickApp }) => {
         onClick={() => onClickApp("trash")}
         name="Trash"
       >
-        <Image src={IconTrash} width="76px" />
+        <Image src={IconTrash} width="60px" />
       </IconApp>
     </Container>
   );

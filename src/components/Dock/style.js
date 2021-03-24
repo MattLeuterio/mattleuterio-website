@@ -11,7 +11,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 5px;
+  padding: 6px 4px;
   font-size: 12px;
   backdrop-filter: blur(50px);
   background: ${props => props.theme === 'dark' ? 'rgba(0, 0, 0, 0.2)' : 'red'};
