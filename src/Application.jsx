@@ -11,10 +11,11 @@ import { Settings } from "./components/Panels";
 import { useDispatch, useSelector } from "react-redux";
 import {
   openPanel,
-  panelsSlice,
+  closePanel,
   selectPanels,
   setPanelActive,
 } from "./features/panels/panelsSlice";
+import { backgroundChoice } from "./utils";
 
 const initialTheme = !!localStorage.getItem("theme")
   ? localStorage.getItem("theme")
@@ -24,14 +25,24 @@ const initialClient = !!localStorage.getItem("clientName")
   ? localStorage.getItem("clientName")
   : "mate";
 
+const initialBackground = !!localStorage.getItem("background")
+  ? localStorage.getItem("background")
+  : "rocks";
+
 function Application() {
   const dispatch = useDispatch();
   const panels = useSelector(selectPanels);
   const [theme, setTheme] = useState(initialTheme);
   const [client, setClient] = useState(initialClient);
+  const [background, setBackground] = useState(initialBackground);
   const constraintsRef = useRef(null);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    console.log("background", background);
+    console.log("client", client);
+    console.log("theme", theme);
+    //setBackground();
+  }, [background, client, theme]);
 
   const thumbnailVariants = {
     hidden: {
@@ -48,12 +59,16 @@ function Application() {
     },
   };
 
-  const handleOnClickThemeToggle = () => {
-    localStorage.getItem("theme") === "dark"
-      ? localStorage.setItem("theme", "light")
-      : localStorage.setItem("theme", "dark");
+  const handleOnClickTheme = (selected) => {
+    console.log(selected);
+    const actual = localStorage.getItem("theme");
+    if (selected !== actual) {
+      selected === "dark"
+        ? localStorage.setItem("theme", "dark")
+        : localStorage.setItem("theme", "light");
 
-    setTheme(localStorage.getItem("theme"));
+      setTheme(localStorage.getItem("theme"));
+    }
   };
   //console.log(theme);
 
@@ -64,6 +79,35 @@ function Application() {
   const handleOnClickApp = (app) => {
     console.log("app", app);
     dispatch(openPanel(app));
+  };
+
+  const handleOnClosePanel = (e, app) => {
+    e.stopPropagation();
+    dispatch(closePanel(app));
+  };
+
+  const handleOnChangeName = (value) => {
+    localStorage.setItem("clientName", value);
+    setClient(value);
+  };
+
+  const handleOnChangeBackground = (value) => {
+    localStorage.setItem("background", value);
+    setBackground(value);
+  };
+
+  // const handleOnKeyPressEnter = (e) => {
+  //   const newValue = e.target.value;
+  //   if (e.key === "Enter" && newValue.length > 0) {
+  //     localStorage.setItem("clientName", newValue);
+  //     setClient(newValue);
+  //   }
+  // };
+
+  const handleOnClickIconSetName = (e) => {
+    const newValue = e.target.value;
+    localStorage.setItem("clientName", newValue);
+    setClient(newValue);
   };
 
   // eslint-disable-next-line no-lone-blocks
@@ -78,8 +122,15 @@ function Application() {
       </GlobalLayout> */
   }
 
+  console.log(background);
+
   return (
-    <App ref={constraintsRef} as={motion.div} background={Bg} theme={theme}>
+    <App
+      ref={constraintsRef}
+      as={motion.div}
+      background={backgroundChoice(theme, background)}
+      theme={theme}
+    >
       <Header />
       <Welcome>Welcome, {client}</Welcome>
 
@@ -98,13 +149,22 @@ function Application() {
           }}
         >
           <Settings
+            theme={theme}
+            value={client}
+            active={panels?.find((panel) => panel.name === "settings").active}
             onClickContainer={() => handleOnClickCtnPanel("settings")}
-            onClickThemeToggle={() => handleOnClickThemeToggle()}
+            onClose={(e) => handleOnClosePanel(e, "settings")}
+            onClickTheme={(themeChoice) => handleOnClickTheme(themeChoice)}
+            onChangeName={(value) => handleOnChangeName(value)}
+            //onKeyPressEnter={(e) => handleOnKeyPressEnter(e)}
+            onClickIconSetName={(e) => handleOnClickIconSetName(e)}
+            onChangeBackground={(value) => handleOnChangeBackground(value)}
+            bgSelected={background}
           />
         </motion.div>
       )}
       {/* Dock -> fixed */}
-      <Dock onClickApp={(app) => handleOnClickApp(app)} theme={theme} />
+      <Dock onClickApp={(app) => handleOnClickApp(app)} />
     </App>
   );
 }

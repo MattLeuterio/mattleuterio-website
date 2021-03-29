@@ -14,7 +14,7 @@ export const Container = styled.div`
   padding: 6px 4px;
   font-size: 12px;
   backdrop-filter: blur(50px);
-  background: ${props => props.theme === 'dark' ? 'rgba(0, 0, 0, 0.2)' : 'red'};
+  background: rgba(0, 0, 0, 0.2);
   border-radius: 24px;
   width: calc(100% - 32px);
 

@@ -52,10 +52,19 @@ export const panelsSlice = createSlice({
       }, []);
       state.panels = newPanels;
     },
+    closePanel : (state, data) => {
+      const newPanels = state.panels.reduce((acc, object) => {
+          return [...acc, { 
+            ...object, open: data.payload === object.name ? 
+            object.open = false : object.open
+          }];
+      }, []);
+      state.panels = newPanels;
+    },
   }
 }); 
 
-export const { setPanelActive, openPanel } = panelsSlice.actions
+export const { setPanelActive, openPanel, closePanel } = panelsSlice.actions
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
