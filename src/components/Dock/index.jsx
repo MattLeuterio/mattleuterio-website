@@ -11,7 +11,7 @@ import {
   IconYoutube,
 } from "../../ui/assets/img/icons";
 import { withMediaQueries } from "../../hoc/withMediaQueries";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectPanels } from "../../features/panels/panelsSlice";
 
 const Dock = ({ mediaIsPhone, theme, onClickApp }) => {

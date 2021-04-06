@@ -1,13 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import { Image } from "../../../atoms";
+
 import {
-  Container,
   Contents,
   HeaderPanel,
   Title,
-  PanelControls,
-  PanelControl,
   Section,
   Label,
   Content,
@@ -17,28 +14,13 @@ import {
   Background,
 } from "./style";
 import { withMediaQueries } from "../../../hoc/withMediaQueries";
-import { CloseOutline, ArrowForwardCircleOutline } from "react-ionicons";
-import {
-  BgBeachDark,
-  BgCloudsDark,
-  BgDaylightDark,
-  BgRocksDark,
-  BgBeachLight,
-  BgCloudsLight,
-  BgDaylightLight,
-  BgRocksLight,
-} from "../../../ui/assets/img/backgrounds";
+import { PanelContainer, PanelControls } from "../../../atoms";
 import { backgroundChoice } from "../../../utils";
-
-const initialClient = !!localStorage.getItem("clientName")
-  ? localStorage.getItem("clientName")
-  : "mate";
 
 const Settings = ({
   mediaIsPhone,
   onClickContainer,
   onClickTheme,
-  onKeyPressEnter,
   onChangeName,
   onChangeBackground,
   onClose,
@@ -46,6 +28,7 @@ const Settings = ({
   theme,
   active,
   bgSelected,
+  dragConstraints,
 }) => {
   const bgsList = [
     {
@@ -82,15 +65,31 @@ const Settings = ({
     },
   ];
   return (
-    <Container onClick={() => onClickContainer()} active={active} theme={theme}>
+    // <motion.div
+    //   drag
+    //   dragConstraints={dragConstraints}
+    //   dragElastic={0}
+    //   dragMomentum={false}
+    //   style={{
+    //     position: "absolute",
+    //     width: "675px",
+    //     height: "381px",
+    //     top: "150px",
+    //     right: "50px",
+    //   }}
+    // >
+    <PanelContainer
+      dragConstraintsRef={dragConstraints}
+      onClickPanelContainer={() => onClickContainer()}
+      active={active}
+      theme={theme}
+      width={675}
+      height={381}
+      top={150}
+      right={50}
+    >
       <HeaderPanel theme={theme}>
-        <PanelControls>
-          <PanelControl type="close" onClick={(e) => onClose(e)}>
-            <CloseOutline color={"#3D3D3D"} height="12px" width="12px" />
-          </PanelControl>
-          <PanelControl type="minimize"></PanelControl>
-          <PanelControl type="expand"></PanelControl>
-        </PanelControls>
+        <PanelControls onClickClose={(e) => onClose(e)} />
         <Title>Website Preferences</Title>
       </HeaderPanel>
       <Contents theme={theme}>
@@ -121,11 +120,11 @@ const Settings = ({
               onChange={(e) => onChangeName(e.target.value)}
             />
             {/* <ArrowForwardCircleOutline
-              onClick={(e) => onClickIconSetName(e)}
-              theme={theme}
-              width="22px"
-              height="22px"
-            /> */}
+                onClick={(e) => onClickIconSetName(e)}
+                theme={theme}
+                width="22px"
+                height="22px"
+              /> */}
           </Content>
         </Section>
         <Section>
@@ -147,7 +146,8 @@ const Settings = ({
           </BgsContainer>
         </Section>
       </Contents>
-    </Container>
+    </PanelContainer>
+    // </motion.div>
   );
 };
 

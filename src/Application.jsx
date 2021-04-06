@@ -3,11 +3,9 @@ import { motion } from "framer-motion";
 
 import { App, Welcome } from "./appStyles";
 
-import Bg from "./ui/assets/img/backgrounds/dark/bg-rocks-dark.jpg";
-
 // Layout Components
 import { Dock, Header } from "./components";
-import { Settings } from "./components/Panels";
+import { Profile, Settings } from "./components/Panels";
 import { useDispatch, useSelector } from "react-redux";
 import {
   openPanel,
@@ -134,35 +132,34 @@ function Application() {
       <Header />
       <Welcome>Welcome, {client}</Welcome>
 
+      {/* SETTINGS PANEL */}
       {panels?.find((panel) => panel.name === "settings").open && (
-        <motion.div
-          drag
+        <Settings
+          theme={theme}
           dragConstraints={constraintsRef}
-          dragElastic={0}
-          dragMomentum={false}
-          style={{
-            position: "absolute",
-            width: "675px",
-            height: "381px",
-            top: "150px",
-            right: "50px",
-          }}
-        >
-          <Settings
-            theme={theme}
-            value={client}
-            active={panels?.find((panel) => panel.name === "settings").active}
-            onClickContainer={() => handleOnClickCtnPanel("settings")}
-            onClose={(e) => handleOnClosePanel(e, "settings")}
-            onClickTheme={(themeChoice) => handleOnClickTheme(themeChoice)}
-            onChangeName={(value) => handleOnChangeName(value)}
-            //onKeyPressEnter={(e) => handleOnKeyPressEnter(e)}
-            onClickIconSetName={(e) => handleOnClickIconSetName(e)}
-            onChangeBackground={(value) => handleOnChangeBackground(value)}
-            bgSelected={background}
-          />
-        </motion.div>
+          value={client}
+          active={panels?.find((panel) => panel.name === "settings").active}
+          onClickContainer={() => handleOnClickCtnPanel("settings")}
+          onClose={(e) => handleOnClosePanel(e, "settings")}
+          onClickTheme={(themeChoice) => handleOnClickTheme(themeChoice)}
+          onChangeName={(value) => handleOnChangeName(value)}
+          //onKeyPressEnter={(e) => handleOnKeyPressEnter(e)}
+          onClickIconSetName={(e) => handleOnClickIconSetName(e)}
+          onChangeBackground={(value) => handleOnChangeBackground(value)}
+          bgSelected={background}
+        />
       )}
+
+      {/* PROFILE */}
+      {panels?.find((panel) => panel.name === "profile").open && (
+        <Profile
+          theme={theme}
+          active={panels?.find((panel) => panel.name === "profile").active}
+          onClickContainer={() => handleOnClickCtnPanel("profile")}
+          onClose={(e) => handleOnClosePanel(e, "profile")}
+        />
+      )}
+
       {/* Dock -> fixed */}
       <Dock onClickApp={(app) => handleOnClickApp(app)} />
     </App>
