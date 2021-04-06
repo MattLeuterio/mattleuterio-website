@@ -14,9 +14,9 @@ export const Container = styled(motion.div)`
   left: ${props => props.left ? `${props.left}px` : 'auto'};
   border-radius: 10px;
   overflow: hidden;
+  display: ${props => props.display ? `${props.display}` : 'block'};
   filter: drop-shadow(${theme.utility.dropShadow});
-  background: ${props => props.theme === 'dark' ?
+  background: ${props => !props.noBackground ? props.theme === 'dark' ?
     `${theme.colors.darkTheme.panelBgContents}` : 
-    `${theme.colors.lightTheme.panelBgContents}`};
-
+    `${theme.colors.lightTheme.panelBgContents}` : 'transparent'};
 `;

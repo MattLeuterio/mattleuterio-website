@@ -15,6 +15,8 @@ const PanelContainer = ({
   bottom,
   left,
   dragConstraintsRef,
+  noBackground,
+  display,
 }) => {
   return (
     <Container
@@ -32,6 +34,8 @@ const PanelContainer = ({
       right={right}
       bottom={bottom}
       left={left}
+      noBackground={noBackground}
+      display={display}
     >
       {children}
     </Container>

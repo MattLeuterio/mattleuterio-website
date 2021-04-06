@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 import { App, Welcome } from "./appStyles";
@@ -35,13 +35,6 @@ function Application() {
   const [background, setBackground] = useState(initialBackground);
   const constraintsRef = useRef(null);
 
-  useEffect(() => {
-    console.log("background", background);
-    console.log("client", client);
-    console.log("theme", theme);
-    //setBackground();
-  }, [background, client, theme]);
-
   const thumbnailVariants = {
     hidden: {
       transform: "translateY(100%)",
@@ -75,7 +68,6 @@ function Application() {
   };
 
   const handleOnClickApp = (app) => {
-    console.log("app", app);
     dispatch(openPanel(app));
   };
 
@@ -120,8 +112,6 @@ function Application() {
       </GlobalLayout> */
   }
 
-  console.log(background);
-
   return (
     <App
       ref={constraintsRef}
@@ -154,6 +144,7 @@ function Application() {
       {panels?.find((panel) => panel.name === "profile").open && (
         <Profile
           theme={theme}
+          dragConstraints={constraintsRef}
           active={panels?.find((panel) => panel.name === "profile").active}
           onClickContainer={() => handleOnClickCtnPanel("profile")}
           onClose={(e) => handleOnClosePanel(e, "profile")}

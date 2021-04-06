@@ -65,19 +65,6 @@ const Settings = ({
     },
   ];
   return (
-    // <motion.div
-    //   drag
-    //   dragConstraints={dragConstraints}
-    //   dragElastic={0}
-    //   dragMomentum={false}
-    //   style={{
-    //     position: "absolute",
-    //     width: "675px",
-    //     height: "381px",
-    //     top: "150px",
-    //     right: "50px",
-    //   }}
-    // >
     <PanelContainer
       dragConstraintsRef={dragConstraints}
       onClickPanelContainer={() => onClickContainer()}
@@ -147,7 +134,6 @@ const Settings = ({
         </Section>
       </Contents>
     </PanelContainer>
-    // </motion.div>
   );
 };
 

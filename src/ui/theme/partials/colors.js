@@ -15,7 +15,7 @@ const colors = {
   darkTheme: {
     lightText: '#E7E7E7',
     panelBgContents: '#1C1C1E',
-    panelBgSidebar: 'rgba(40, 40, 40, 0.6)',
+    panelBgSidebar: 'rgba(40, 40, 40, 0.5)',
     panelBgHeader: '#282828'
   },
   gradients: {
