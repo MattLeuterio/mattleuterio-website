@@ -5,7 +5,7 @@ import { App, Welcome } from "./appStyles";
 
 // Layout Components
 import { Dock, Header } from "./components";
-import { Profile, Settings } from "./components/Panels";
+import { Profile, Settings, Trash } from "./components/Panels";
 import { useDispatch, useSelector } from "react-redux";
 import {
   openPanel,
@@ -148,6 +148,17 @@ function Application() {
           active={panels?.find((panel) => panel.name === "profile").active}
           onClickContainer={() => handleOnClickCtnPanel("profile")}
           onClose={(e) => handleOnClosePanel(e, "profile")}
+        />
+      )}
+
+      {/* TRASH */}
+      {panels?.find((panel) => panel.name === "trash").open && (
+        <Trash
+          theme={theme}
+          dragConstraints={constraintsRef}
+          active={panels?.find((panel) => panel.name === "trash").active}
+          onClickContainer={() => handleOnClickCtnPanel("trash")}
+          onClose={(e) => handleOnClosePanel(e, "trash")}
         />
       )}
 

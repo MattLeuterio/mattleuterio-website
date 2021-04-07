@@ -144,7 +144,7 @@ const Profile = ({
             <>
               <TitleSectionContents theme={theme}>Socials</TitleSectionContents>
               <Section>
-                <SocialsList iconSize="25px" theme={theme} flexDirection="column" nameSocial />
+                <SocialsList color={theme === 'dark' ? '#E7E7E7' : '#3D3D3D'} iconSize="25px" theme={theme} flexDirection="column" nameSocial />
               </Section>
             </>
           )}

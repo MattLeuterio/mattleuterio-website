@@ -8,7 +8,8 @@ import {
 } from "react-ionicons";
 
 const SocialsList = ({ 
-  flexDirection = "row", nameSocial = false, theme, iconSize = '15px' 
+  flexDirection = "row", nameSocial = false, theme, iconSize = '15px',
+  color = "#E7E7E7" 
 }) => {
   return (
     <Social nameSocial={nameSocial} flexDirection={flexDirection}>
@@ -18,7 +19,7 @@ const SocialsList = ({
         target="_blank"
         rel="noopener noreferrer"
       >
-        <IconInsta color="#E7E7E7" height={iconSize} width={iconSize} />
+        <IconInsta color={color} height={iconSize} width={iconSize} />
         {nameSocial && (<SocialName theme={theme}>Instagram</SocialName>)}
       </LinkSocial>
       <LinkSocial
@@ -27,7 +28,7 @@ const SocialsList = ({
         target="_blank"
         rel="noopener noreferrer"
       >
-        <IconGithub color="#E7E7E7" height={iconSize} width={iconSize} />
+        <IconGithub color={color} height={iconSize} width={iconSize} />
         {nameSocial && (<SocialName theme={theme}>Github</SocialName>)}
       </LinkSocial>
       <LinkSocial
@@ -36,7 +37,7 @@ const SocialsList = ({
         target="_blank"
         rel="noopener noreferrer"
       >
-        <IconLinkedin color="#E7E7E7" height={iconSize} width={iconSize} />
+        <IconLinkedin color={color} height={iconSize} width={iconSize} />
         {nameSocial && (<SocialName theme={theme}>Linkedin</SocialName>)}
       </LinkSocial>
     </Social>
