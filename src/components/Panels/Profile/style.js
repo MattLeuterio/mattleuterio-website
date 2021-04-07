@@ -115,3 +115,26 @@ export const AboutText = styled.p`
     `${theme.colors.darkTheme.lightText}` :
     `${theme.colors.lightTheme.darkText}`};
 `;
+
+export const Section = styled.div`
+  margin: 16px 0;
+`;
+
+export const NameSection = styled.h2`
+  font-weight: 400;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: ${props => props.theme === 'dark' ?
+    `${theme.colors.darkTheme.lightText}` :
+    `${theme.colors.lightTheme.darkText}`};
+`;
+
+export const ListSkills = styled.div``;
+
+export const SkillValue = styled.h3`
+  font-weight: 400;
+  font-size: 12px;
+  color: ${props => props.theme === 'dark' ?
+    `${theme.colors.darkTheme.lightText}` :
+    `${theme.colors.lightTheme.darkText}`};
+`;

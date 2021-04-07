@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 import {
@@ -15,9 +15,13 @@ import {
   Images,
   ImageProfile,
   AboutText,
+  Section,
+  NameSection,
+  ListSkills,
+  SkillValue
 } from "./style";
 import { withMediaQueries } from "../../../hoc/withMediaQueries";
-import { Image, PanelContainer, PanelControls } from "../../../atoms";
+import { Image, PanelContainer, PanelControls, SocialsList } from "../../../atoms";
 import {
   CardOutline as IconAbout,
   ShareSocial as IconSocials,
@@ -25,6 +29,7 @@ import {
 } from "react-ionicons";
 import ImgProfile1 from "../../../ui/assets/img/profile-1.jpg";
 import ImgProfile2 from "../../../ui/assets/img/profile-2.jpg";
+import { getContent } from "../../../contentful";
 
 const Profile = ({
   mediaIsPhone,
@@ -35,6 +40,14 @@ const Profile = ({
   dragConstraints,
 }) => {
   const [section, setSection] = useState("about");
+  const [listSkills, setListSkills] = useState([]);
+
+  useEffect(() => {
+    getContent("skills", setListSkills);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  console.log('results', listSkills);
 
   const profileSections = [
     {
@@ -112,11 +125,28 @@ const Profile = ({
           )}
 
           {section === "skills" && (
-            <TitleSectionContents theme={theme}>Skills</TitleSectionContents>
+            <>
+              <TitleSectionContents theme={theme}>Skills</TitleSectionContents>
+              {listSkills.map(section => (
+                <Section>
+                  <NameSection theme={theme}>{section.fields.section}</NameSection>
+                  <ListSkills>
+                    {section.fields.values.map(skill => (
+                      <SkillValue theme={theme}>{skill}</SkillValue>
+                    ))}
+                  </ListSkills>
+                </Section>
+              ))}
+            </>
           )}
 
           {section === "socials" && (
-            <TitleSectionContents theme={theme}>Socials</TitleSectionContents>
+            <>
+              <TitleSectionContents theme={theme}>Socials</TitleSectionContents>
+              <Section>
+                <SocialsList iconSize="25px" theme={theme} flexDirection="column" nameSocial />
+              </Section>
+            </>
           )}
         </Contents>
       </Main>

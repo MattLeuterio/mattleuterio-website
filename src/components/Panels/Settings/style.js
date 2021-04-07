@@ -143,6 +143,7 @@ export const BgsContainer = styled.div`
 `;
 
 export const Background = styled.div`
+  cursor: pointer;
   background-image: ${props => `url(${props.bg})`};
   width: 130px;
   height: 85px;
