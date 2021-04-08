@@ -68,8 +68,8 @@ const Profile = ({
       onClickPanelContainer={() => onClickContainer()}
       active={active}
       theme={theme}
-      width={675}
-      height={381}
+      width={580}
+      height={330}
       bottom={150}
       right={50}
       display="block"
@@ -82,7 +82,7 @@ const Profile = ({
         {trashElement.map(element => (
           <Element key={element.name}>
             {element.icon}
-            <ElementName>{element.name}</ElementName>
+            <ElementName theme={theme}>{element.name}</ElementName>
           </Element>
         ))}
       </Contents>

@@ -6,11 +6,11 @@ import IconVSC from './icon-vsc.png';
 import IconYoutube from './icon-youtube.png';
 import IconThemeLight from './icon-theme-light.png';
 import IconThemeDark from './icon-theme-dark.png';
-import IconAndroid from './icon-android.png';
-import IconComicSans from './icon-comic-sans.png';
-import IconJquery from './icon-jquery.png';
-import IconPHP from './icon-php.png';
-import IconWindows from './icon-windows.png';
+import IconAndroid from './android.png';
+import IconComicSans from './comic-sans.png';
+import IconJquery from './jquery.png';
+import IconPHP from './php.png';
+import IconWindows from './windows.png';
 
 export {
   IconMail,

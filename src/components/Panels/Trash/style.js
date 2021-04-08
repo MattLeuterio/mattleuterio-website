@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import theme from '../../../ui/theme';
-import { IconThemeDark, IconThemeLight } from "../../../ui/assets/img/icons";
 
 export const HeaderPanel = styled.div`
   width: 100%;
@@ -22,17 +21,29 @@ export const Title = styled.h4`
 `;
 
 export const Contents = styled.div`
+  display: flex;
   padding: 32px 16px;
   color: ${props => props.theme === 'dark' ?
     `${theme.colors.darkTheme.lightText}` :
     `${theme.colors.lightTheme.darkText}`};
+
+  & > div:not(:last-child) {
+    margin-right: 30px;
+  }
 `;
 
 export const Element = styled.div`
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const ElementName = styled.div`
-  
+  font-size: 10px;
+  margin-top: 8px;
+  color: ${props => props.theme === 'dark' ?
+    `${theme.colors.darkTheme.lightText}` :
+    `${theme.colors.lightTheme.darkText}`};
 `;
 
