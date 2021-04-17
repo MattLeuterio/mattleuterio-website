@@ -11,16 +11,17 @@ import {
   TitleMenu,
   LeftContainer,
   FooterPanel,
+  ProjectFolder,
+  HeaderFolder,
+  TitleProject,
+  Files,
+  File,
+  TitleFile,
 } from "./style";
 import { withMediaQueries } from "../../../hoc/withMediaQueries";
+import { Image, PanelContainer, PanelControls } from "../../../atoms";
 import {
-  Image,
-  PanelContainer,
-  PanelControls,
-  SocialsList,
-} from "../../../atoms";
-import {
-  CardOutline as IconAbout,
+  ChevronForwardOutline as IconArrow,
   ShareSocial as IconSocials,
   Layers as IconSkills,
 } from "react-ionicons";
@@ -40,12 +41,13 @@ const Profile = ({
 }) => {
   const [project, setProject] = useState();
   const [listProjects, setListProjects] = useState([]);
+  const [openFolder, setOpenFolder] = useState(false);
 
   useEffect(() => {
     getContent("development", setListProjects);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  
+
   console.log(listProjects);
 
   return (
@@ -71,7 +73,29 @@ const Profile = ({
         </LeftContainer>
         <SidebarContainer>
           <TitleMenu>EXPLORER</TitleMenu>
-          <MenuSections>qualcosa</MenuSections>
+          <MenuSections>
+            {listProjects.map((project) => (
+              <ProjectFolder>
+                <HeaderFolder
+                  openProjFolder={openFolder}
+                  onClick={() => setOpenFolder(!openFolder)}
+                >
+                  <IconArrow height="16px" width="16px" color="#CCCCCC" />
+                  <TitleProject>{project.fields.title}</TitleProject>
+                </HeaderFolder>
+                <Files openProjFolder={openFolder}>
+                  <File>
+                    <IconSocials height="16px" width="16px" color="#CCCCCC" />
+                    <TitleFile>package.json</TitleFile>
+                  </File>
+                  <File>
+                    <IconSkills height="16px" width="16px" color="#CCCCCC" />
+                    <TitleFile>README.md</TitleFile>
+                  </File>
+                </Files>
+              </ProjectFolder>
+            ))}
+          </MenuSections>
         </SidebarContainer>
         <Contents></Contents>
       </Main>

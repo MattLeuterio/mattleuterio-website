@@ -8,7 +8,7 @@ export const HeaderPanel = styled.div`
   display: flex;
   align-items: center;
   padding-left: 16px;
-  color: #fff;
+  color: #ccc;
   background-color: #292D3E;
   filter: drop-shadow(${theme.utility.dropShadow});
 `;
@@ -70,45 +70,58 @@ export const MenuSections = styled.div`
   align-items: center;
 `;
 
-export const MenuSection = styled.div`
-  cursor: pointer;
-  width: 92%;
-  height: 20px;
-  border-radius: 3px;
+export const ProjectFolder = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+export const HeaderFolder = styled.div`
   display: flex;
   align-items: center;
+  height: 25px;
   padding-left: 10px;
-  background-color: ${props => props.active ? 
-  `${theme.colors.global.disableControlPanel}` : 'transparent'};
+
 
   & > span {
+    transform: ${props => props.openProjFolder ? 
+    'rotate(90deg)' : 'rotate(0)'};
+    height: 25px;
+    width: 25px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+  }
+`;
+export const TitleProject = styled.div`
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+`;
+export const Files = styled.div`
+  width: 100%;
+  height: ${props => props.openProjFolder ? 'fit-content' : '0px'};
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;  
+`;
+export const File = styled.div`
+  display: flex;
+  align-items: center;
+  height: 22px;
+  padding-left: 20px;
+  
+  & > span {
+    height: 25px;
+    width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
 
-export const TitleSection = styled.div`
+export const TitleFile = styled.div`
   font-size: 13px;
-  font-weight: 500;
-  text-transform: capitalize;
-  margin-left: 8px;
-`;
-
-export const TitleSectionContents = styled.div`
-  font-size: 24px;
-  font-weight: 700;
-  color: ${props => props.theme === 'dark' ?
-    `${theme.colors.darkTheme.lightText}` : 
-    `${theme.colors.lightTheme.darkText}`};
-`;
-
-
-export const FooterPanel = styled.div`
-  height: 22px;
-  width: 100%;
-  background-color: #007ACC;
-  padding: 0 8px;
+  font-weight: 400;
 `;
 
 export const Contents = styled.div`
@@ -117,47 +130,12 @@ export const Contents = styled.div`
   background-color: #292D3E;
 `;
 
-export const Images = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 16px 0;
+export const FooterPanel = styled.div`
+  height: 22px;
+  width: 100%;
+  background-color: #007ACC;
+  padding: 0 8px;
 `;
 
-export const ImageProfile = styled.div`
-  width: calc(50% - 8px);
-  height: 148px;
-  background-image: ${props => `url(${props.image})`};
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-`;
 
-export const AboutText = styled.p`
-  color: ${props => props.theme === 'dark' ?
-    `${theme.colors.darkTheme.lightText}` :
-    `${theme.colors.lightTheme.darkText}`};
-`;
 
-export const Section = styled.div`
-  margin: 16px 0;
-`;
-
-export const NameSection = styled.h2`
-  font-weight: 400;
-  font-size: 18px;
-  margin-bottom: 10px;
-  color: ${props => props.theme === 'dark' ?
-    `${theme.colors.darkTheme.lightText}` :
-    `${theme.colors.lightTheme.darkText}`};
-`;
-
-export const ListSkills = styled.div``;
-
-export const SkillValue = styled.h3`
-  font-weight: 400;
-  font-size: 12px;
-  color: ${props => props.theme === 'dark' ?
-    `${theme.colors.darkTheme.lightText}` :
-    `${theme.colors.lightTheme.darkText}`};
-`;
