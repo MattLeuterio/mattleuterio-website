@@ -17,6 +17,9 @@ import {
   Files,
   File,
   TitleFile,
+  FolderImages,
+  HeaderFolderImages,
+  FileImage,
 } from "./style";
 import { withMediaQueries } from "../../../hoc/withMediaQueries";
 import { Image, PanelContainer, PanelControls } from "../../../atoms";
@@ -25,8 +28,6 @@ import {
   ShareSocial as IconSocials,
   Layers as IconSkills,
 } from "react-ionicons";
-import ImgProfile1 from "../../../ui/assets/img/profile-1.jpg";
-import ImgProfile2 from "../../../ui/assets/img/profile-2.jpg";
 import VscDocumentIcon from "../../../ui/assets/img/vsc-document.png";
 import VscInfoFooter from "../../../ui/assets/img/vsc-info-footer.png";
 import { getContent } from "../../../contentful";
@@ -42,13 +43,17 @@ const Profile = ({
   const [project, setProject] = useState();
   const [listProjects, setListProjects] = useState([]);
   const [openFolder, setOpenFolder] = useState(false);
+  const [openFolderImages, setOpenFolderImages] = useState(false);
+  const [contents, setContents] = useState({});
 
   useEffect(() => {
     getContent("development", setListProjects);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(listProjects);
+  const handleOnSetContents = () => {};
+
+  console.log("listProjects", listProjects);
 
   return (
     <PanelContainer
@@ -74,14 +79,14 @@ const Profile = ({
         <SidebarContainer>
           <TitleMenu>EXPLORER</TitleMenu>
           <MenuSections>
-            {listProjects.map((project) => (
+            {listProjects.map((proj) => (
               <ProjectFolder>
                 <HeaderFolder
                   openProjFolder={openFolder}
                   onClick={() => setOpenFolder(!openFolder)}
                 >
                   <IconArrow height="16px" width="16px" color="#CCCCCC" />
-                  <TitleProject>{project.fields.title}</TitleProject>
+                  <TitleProject>{proj?.fields?.title}</TitleProject>
                 </HeaderFolder>
                 <Files openProjFolder={openFolder}>
                   <File>
@@ -92,6 +97,41 @@ const Profile = ({
                     <IconSkills height="16px" width="16px" color="#CCCCCC" />
                     <TitleFile>README.md</TitleFile>
                   </File>
+                  {proj?.fields?.images.length > 0 && (
+                    <>
+                      <HeaderFolderImages
+                        openProjFolder={openFolderImages}
+                        onClick={() => setOpenFolderImages(!openFolderImages)}
+                      >
+                        <IconArrow
+                          className="icon-arrow"
+                          height="16px"
+                          width="16px"
+                          color="#CCCCCC"
+                        />
+                        <IconSkills
+                          className="icon-folder"
+                          height="16px"
+                          width="16px"
+                          color="#CCCCCC"
+                        />
+                        <TitleFile>Images</TitleFile>
+                      </HeaderFolderImages>
+                      <FolderImages openProjFolder={openFolderImages}>
+                        {proj?.fields?.images.map((img) => (
+                          <FileImage>
+                            <IconSkills
+                              className="icon-folder"
+                              height="16px"
+                              width="16px"
+                              color="#CCCCCC"
+                            />
+                            <TitleFile>{img.fields?.title}</TitleFile>
+                          </FileImage>
+                        ))}
+                      </FolderImages>
+                    </>
+                  )}
                 </Files>
               </ProjectFolder>
             ))}

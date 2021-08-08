@@ -122,6 +122,52 @@ export const File = styled.div`
 export const TitleFile = styled.div`
   font-size: 13px;
   font-weight: 400;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+`;
+
+export const HeaderFolderImages = styled.div`
+  display: flex;
+  align-items: center;
+  height: 25px;
+  padding-left: 16px;
+
+  & > span {
+    height: 25px;
+    width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.icon-arrow {
+      transform: ${props => props.openProjFolder ? 
+      'rotate(90deg)' : 'rotate(0)'};
+    }
+  }
+`;
+
+export const FolderImages = styled.div`
+  width: 100%;
+  height: ${props => props.openProjFolder ? 'fit-content' : '0px'};
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+`;
+
+export const FileImage = styled.div`
+  display: flex;
+  align-items: center;
+  height: 22px;
+  padding-left: 26px;
+  
+  & > span {
+    height: 25px;
+    width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 export const Contents = styled.div`
