@@ -30,10 +30,6 @@ export const SidebarContainer = styled.div`
   width: 220px;
   height: 100%;
   background-color: #292D3E;
-
-  & > div:first-child {
-    padding: 20px;
-  }
 `;
 
   
@@ -56,7 +52,7 @@ export const TitleMenu = styled.div`
   font-size: 11px;
   font-weight: 500;
   width: 100%;
-  height: 40px;
+  height: 36px;
   padding-left: 20px;
   display: flex;
   align-items: center;
@@ -80,6 +76,7 @@ export const HeaderFolder = styled.div`
   align-items: center;
   height: 25px;
   padding-left: 10px;
+  cursor: pointer;
 
 
   & > span {
@@ -109,6 +106,8 @@ export const File = styled.div`
   align-items: center;
   height: 22px;
   padding-left: 20px;
+  cursor: pointer;
+  background-color: ${props => props.selected ? '#393a4c' : 'transparent'};
   
   & > span {
     height: 25px;
@@ -132,6 +131,7 @@ export const HeaderFolderImages = styled.div`
   align-items: center;
   height: 25px;
   padding-left: 16px;
+  cursor: pointer;
 
   & > span {
     height: 25px;
@@ -160,6 +160,7 @@ export const FileImage = styled.div`
   align-items: center;
   height: 22px;
   padding-left: 26px;
+  cursor: pointer;
   
   & > span {
     height: 25px;
@@ -173,7 +174,7 @@ export const FileImage = styled.div`
 export const Contents = styled.div`
   width: 100%;
   height: 100%;
-  background-color: #292D3E;
+  background-color: #292d3e;
 `;
 
 export const FooterPanel = styled.div`
@@ -184,4 +185,21 @@ export const FooterPanel = styled.div`
 `;
 
 
+export const NoPanel = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
+  // Image
+  > div:first-child {
+    filter: brightness(0.6) opacity(0.3);
+    margin-bottom: 16px;
+  }
+
+  // Title
+  > div:nth-child(2) {
+    margin-bottom: 5px;
+  }
+`;

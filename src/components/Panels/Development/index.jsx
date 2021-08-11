@@ -20,17 +20,21 @@ import {
   FolderImages,
   HeaderFolderImages,
   FileImage,
+  NoPanel,
 } from "./style";
 import { withMediaQueries } from "../../../hoc/withMediaQueries";
 import { Image, PanelContainer, PanelControls } from "../../../atoms";
+import { DevelopmentContent } from "../../../components";
 import {
   ChevronForwardOutline as IconArrow,
   ShareSocial as IconSocials,
   Layers as IconSkills,
 } from "react-ionicons";
 import VscDocumentIcon from "../../../ui/assets/img/vsc-document.png";
+import VscNoPanel from "../../../ui/assets/img/vsc-nopanel.svg";
 import VscInfoFooter from "../../../ui/assets/img/vsc-info-footer.png";
 import { getContent } from "../../../contentful";
+import Helvetica from "../../../ui/typography/helvetica";
 
 const Profile = ({
   mediaIsPhone,
@@ -40,18 +44,26 @@ const Profile = ({
   active,
   dragConstraints,
 }) => {
-  const [project, setProject] = useState();
   const [listProjects, setListProjects] = useState([]);
   const [openFolder, setOpenFolder] = useState(false);
   const [openFolderImages, setOpenFolderImages] = useState(false);
-  const [contents, setContents] = useState({});
+  const [typeContents, setTypeContents] = useState("");
+  const [content, setContent] = useState({});
 
   useEffect(() => {
     getContent("development", setListProjects);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleOnSetContents = () => {};
+  const handleOnSetContents = (type, proj) => {
+    setTypeContents(type);
+    setContent(proj);
+  };
+
+  const handleOnClosePanelContent = () => {
+    setTypeContents("");
+    setContent({});
+  };
 
   console.log("listProjects", listProjects);
 
@@ -89,7 +101,12 @@ const Profile = ({
                   <TitleProject>{proj?.fields?.title}</TitleProject>
                 </HeaderFolder>
                 <Files openProjFolder={openFolder}>
-                  <File>
+                  <File
+                    selected={typeContents === "package.json"}
+                    onClick={() =>
+                      handleOnSetContents("package.json", proj?.fields)
+                    }
+                  >
                     <IconSocials height="16px" width="16px" color="#CCCCCC" />
                     <TitleFile>package.json</TitleFile>
                   </File>
@@ -137,7 +154,25 @@ const Profile = ({
             ))}
           </MenuSections>
         </SidebarContainer>
-        <Contents></Contents>
+        <Contents>
+          {Object.keys(content).length > 0 ? (
+            <DevelopmentContent
+              handleOnClose={handleOnClosePanelContent}
+              type={typeContents}
+              projContent={content}
+            />
+          ) : (
+            <NoPanel>
+              <Image src={VscNoPanel} width="250px" />
+              <Helvetica type="vscNoPanelTitle">
+                Welcome to Development Panel
+              </Helvetica>
+              <Helvetica type="vscNoPanelSubtitle">
+                Select file from sidebar
+              </Helvetica>
+            </NoPanel>
+          )}
+        </Contents>
       </Main>
       <FooterPanel>
         <Image src={VscInfoFooter} width="200px" />

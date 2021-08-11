@@ -37,38 +37,26 @@ const types = {
     fontSize: 14,
     lineHeight: 1.14
   },
-  headerMenuElements: {
-    fontSize: 16
-  },
-  footerMenuElements: {
-    fontSize: 28
-  },
-  mobileMenuElements: {
+  vscNoPanelTitle: {
     fontSize: 24,
-    fontWeight: 700
+    textAlign: 'center',
+    color: '#252525'
   },
-  carouselTitle: {
-    fontSize: 20,
-    letterSpacing: '5px'
+  vscNoPanelSubtitle: {
+    fontSize: 18,
+    textAlign: 'center',
+    color: '#252525'
   },
-  carouselSubtitle: {
-    fontSize: 12,
-    fontWeight: 700,
-  },
-  gamePageSectionTitle: {
-    fontSize: 27,
-    fontWeight: 700,
-    color: `${theme.colors.primary.primary}`,
-  },
-  gamePageStoreLabel: {
-    fontSize: 14,
-  },
+  VscTitleContent: {
+    fontSize: 13,
+    color: '#252525'
+  }
 }  
 
 
 const Helvetica = ({
-  type, configuration, children, htmlAttribute, onClick
-}) => <Typeface htmlAttribute={htmlAttribute} configuration={{ ...baseConfig, ...types[type], ...configuration }} onClick={onClick}>{children}</Typeface>;
+  type, configuration, style, children, htmlAttribute, onClick
+}) => <Typeface htmlAttribute={htmlAttribute} configuration={{ ...baseConfig, ...types[type], ...configuration }} style={style} onClick={onClick}>{children}</Typeface>;
 
 Helvetica.propTypes = {
   htmlAttribute: PropTypes.string,
