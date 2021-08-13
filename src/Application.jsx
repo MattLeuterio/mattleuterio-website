@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 import { App, Welcome } from "./appStyles";
@@ -30,9 +30,9 @@ const initialBackground = !!localStorage.getItem("background")
 function Application() {
   const dispatch = useDispatch();
   const panels = useSelector(selectPanels);
-  const [theme, setTheme] = useState(initialTheme);
-  const [client, setClient] = useState(initialClient);
-  const [background, setBackground] = useState(initialBackground);
+  const [theme, setTheme] = useState("");
+  const [client, setClient] = useState("");
+  const [background, setBackground] = useState("");
   const constraintsRef = useRef(null);
 
   const thumbnailVariants = {
@@ -49,6 +49,28 @@ function Application() {
       transition: { duration: 0.6 },
     },
   };
+
+  console.log('check', !!localStorage.getItem("theme"));
+
+  useEffect(() => {
+    if (!!!localStorage.getItem("theme")) {
+      localStorage.setItem("theme", "dark"); setTheme("dark")
+    } else {
+      setTheme(localStorage.getItem("theme"));
+    };
+    
+    if (!!!localStorage.getItem("clientName")) {
+      localStorage.setItem("clientName", "mate"); setClient("mate")
+    } else {
+      setClient(localStorage.getItem("clientName"));
+    };
+    
+    if (!!!localStorage.getItem("background")) {
+      localStorage.setItem("background", "rocks"); setBackground("rocks")
+    } else {
+      setBackground(localStorage.getItem("background"));
+    };
+  }, []);
 
   const handleOnClickTheme = (selected) => {
     console.log(selected);
