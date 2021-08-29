@@ -37,6 +37,10 @@ const types = {
     fontSize: 14,
     lineHeight: 1.14
   },
+  loginHello: {
+    fontSize: 21,
+    textAlign: 'center',
+  },
   vscNoPanelTitle: {
     fontSize: 24,
     textAlign: 'center',

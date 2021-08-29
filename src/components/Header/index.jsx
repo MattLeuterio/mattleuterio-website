@@ -16,16 +16,18 @@ import {
 import Clock from "react-live-clock";
 import { withMediaQueries } from "../../hoc/withMediaQueries";
 
-const Header = ({ theme, mediaIsPhone }) => {
+const Header = ({ isLoginPage, mediaIsPhone }) => {
   // Get timezone from Visitor
   const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
   return (
-    <Container>
+    <Container login={isLoginPage}>
       {!mediaIsPhone && <BackgroundBlur />}
-      <LeftCtn>
-        <Image src={Logo} width="24px" />
-        <Name>Matt Leuterio</Name>
-      </LeftCtn>
+      {!isLoginPage && (
+        <LeftCtn>
+          <Image src={Logo} width="24px" />
+          <Name>Matt Leuterio</Name>
+        </LeftCtn>
+      )}
       <RightCtn>
         <SocialsList />
         <Date>

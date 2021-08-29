@@ -8,7 +8,7 @@ export const Container = styled.div`
   height: 24px;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: ${props => props.login ? 'flex-end' : 'space-between'};
   align-items: center;
   font-size: 10px;
   font-weight: 700;

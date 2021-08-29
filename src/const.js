@@ -1,3 +1,3 @@
 export const FontBase = 16;
 
-export const HeaderHeight = 50;
+export const HeaderHeight = 26;

@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { ImageWrapper, Img } from "./style";
 
-const Image = ({ src, onClick, width, alt }) => {
+const Image = ({ src, onClick, width, height, alt }) => {
   return (
-    <ImageWrapper onClick={onClick} width={width}>
+    <ImageWrapper onClick={onClick} width={width} height={height}>
       <Img src={src} alt={alt} />
     </ImageWrapper>
   );
