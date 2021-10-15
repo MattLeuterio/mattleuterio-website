@@ -39,7 +39,7 @@ const Login = ({
             theme={theme}
             width="34px"
             height="34px"
-            color={theme === "dark" ? "#c5c5c5" : "#3D3D3D"}
+            color={theme === "dark" ? "#c5c5c5" : "#ababab"}
           />
         </InputWrapper>
         <Helvetica configuration={{ textAlign: "center" }} type="h3">
