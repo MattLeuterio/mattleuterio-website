@@ -10,7 +10,7 @@ import { Login } from "./pages";
 
 // Layout Components
 import { Dock, Header } from "./components";
-import { Development, Profile, Settings, Trash } from "./components/Panels";
+import { About, Development, Profile, Settings, Trash } from "./components/Panels";
 import { useDispatch, useSelector } from "react-redux";
 import {
   openPanel,
@@ -171,6 +171,17 @@ function Application() {
               onClickIconSetName={(e) => handleOnClickIconSetName(e)}
               onChangeBackground={(value) => handleOnChangeBackground(value)}
               bgSelected={background}
+            />
+          )}
+
+          {/* ABOUT PANEL */}
+          {panels?.find((panel) => panel.name === "about").open && (
+            <About
+              theme={theme}
+              dragConstraints={constraintsRef}
+              active={panels?.find((panel) => panel.name === "about").active}
+              onClickContainer={() => handleOnClickCtnPanel("about")}
+              onClose={(e) => handleOnClosePanel(e, "about")}
             />
           )}
 

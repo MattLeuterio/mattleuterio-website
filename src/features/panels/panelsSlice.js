@@ -34,6 +34,12 @@ export const panelsSlice = createSlice({
         active: false,
         minimize: false,
       },
+      {
+        name: "about",
+        open: false,
+        active: false,
+        minimize: false,
+      },
     ]
   },
   reducers: {

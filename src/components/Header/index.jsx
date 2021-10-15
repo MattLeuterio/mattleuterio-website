@@ -20,8 +20,7 @@ import Clock from "react-live-clock";
 import { withMediaQueries } from "../../hoc/withMediaQueries";
 import Inter from "../../ui/typography/inter";
 import {
-  openPanel,
-  setPanelActive,
+  openPanel
 } from "../../features/panels/panelsSlice";
 
 const Header = ({ isLoginPage, mediaIsPhone }) => {
@@ -30,10 +29,16 @@ const Header = ({ isLoginPage, mediaIsPhone }) => {
   // Get timezone from Visitor
   const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
+  const handleOnClickAbout = () => {
+    dispatch(openPanel("about"));
+    setToggleOption(false);
+  };
+
   const handleOnClickPreferences = () => {
     dispatch(openPanel("settings"));
     setToggleOption(false);
   };
+
   const handleOnClickShutDown = () => {
     setToggleOption(false);
     sessionStorage.removeItem("isLogged");
@@ -57,21 +62,22 @@ const Header = ({ isLoginPage, mediaIsPhone }) => {
             <>
               <Overlay onClick={() => setToggleOption(false)} />
               <OptionCtn>
-                <Inter 
-                  className="option" 
+                <Inter
+                  className="option"
                   type="h4"
+                  onClick={() => handleOnClickAbout()}
                 >
                   About this website
                 </Inter>
                 <Inter 
-                  className="option" 
+                  className="option"
                   type="h4"
                   onClick={() => handleOnClickPreferences()}
                 >
                   Website Preferences...
                 </Inter>
                 <Inter 
-                  className="option" 
+                  className="option"
                   type="h4"
                   onClick={() => handleOnClickShutDown()}
                 >
