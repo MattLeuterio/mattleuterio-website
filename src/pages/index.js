@@ -1,11 +1,7 @@
 import Home from './Home';
-import Profile from './Profile';
-import Projects from './Projects';
-import Contacts from './Contacts';
+import Login from './Login';
 
 export {
   Home,
-  Profile,
-  Projects,
-  Contacts
+  Login
 };

@@ -3,19 +3,10 @@ import { motion } from "framer-motion";
 
 import {
   App,
-  Login,
-  LoginPage,
-  ProfileImg,
-  Welcome,
-  NameInput,
-  InputWrapper,
+  Welcome
 } from "./appStyles";
-import { theme as themeOptions } from "./ui/theme";
 import { backgroundChoice } from "./utils";
-import ProfileImage from "./ui/assets/img/profile-1.jpg";
-import { Image } from "./atoms";
-import Helvetica from "./ui/typography/helvetica";
-import { ArrowForwardCircleOutline as IconArrow } from "react-ionicons";
+import { Login } from "./pages";
 
 // Layout Components
 import { Dock, Header } from "./components";
@@ -134,7 +125,7 @@ function Application() {
     setClient(newValue);
   };
 
-  const onClickIconNameLogin = () => {
+  const handleOnClickIconNameLogin = () => {
     localStorage.setItem("clientName", client);
     sessionStorage.setItem("isLogged", true);
     setClient(client);
@@ -222,40 +213,14 @@ function Application() {
           <Dock onClickApp={(app) => handleOnClickApp(app)} />
         </App>
       ) : (
-        <LoginPage
+        <Login
           background={backgroundChoice(theme, background)}
           theme={theme}
-        >
-          <Header isLoginPage />
-
-          <Login>
-            <ProfileImg>
-              <Image src={ProfileImage} width="138px" height="138px" />
-            </ProfileImg>
-            <Helvetica type="loginHello">Hello, it's Matt</Helvetica>
-            <InputWrapper>
-              <NameInput
-                theme={theme}
-                type="text"
-                value={client}
-                maxLength="20"
-                placeholder="Name"
-                onChange={(e) => handleOnChangeName(e.target.value)}
-                onKeyPress={(client) => handleOnKeyPressEnter(client)}
-              />
-              <IconArrow
-                onClick={() => onClickIconNameLogin()}
-                theme={theme}
-                width="34px"
-                height="34px"
-                color={theme === "dark" ? "#c5c5c5" : "#3D3D3D"}
-              />
-            </InputWrapper>
-            <Helvetica configuration={{ textAlign: "center" }} type="h3">
-              Insert your name and press enter
-            </Helvetica>
-          </Login>
-        </LoginPage>
+          client={client}
+          onChangeName={(e) => handleOnChangeName(e.target.value)}
+          onKeyPressEnter={(client) => handleOnKeyPressEnter(client)}
+          onClickIconNameLogin={() => handleOnClickIconNameLogin()}
+        />
       )}
     </>
   );
