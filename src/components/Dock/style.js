@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import theme from '../../ui/theme';
 
 export const Container = styled.div`
-  z-index: ${theme.zIndex.menus};
+  z-index: ${theme.zIndex.dock};
   //background: rgba(79, 79, 79, 0.2);
   position: fixed;
   bottom: 10px;
@@ -18,7 +18,7 @@ export const Container = styled.div`
   border-radius: 24px;
   width: calc(100% - 32px);
 
-  @media ${theme.device.mobileL} {
+  @media ${theme.device.tablet} {
     border: 0.5px solid rgba(255, 255, 255, 0.2);
     width: fit-content;
     box-shadow: ${theme.utility.dropShadow};

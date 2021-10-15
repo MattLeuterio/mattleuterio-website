@@ -16,7 +16,7 @@ import {
 } from "react-ionicons";
 
 import { withMediaQueries } from "../../hoc/withMediaQueries";
-import Helvetica from "../../ui/typography/helvetica";
+import Inter from "../../ui/typography/inter";
 
 const DevelopmentContent = ({ type, projContent, handleOnClose }) => {
   const [content, setContent] = useState({});
@@ -33,8 +33,8 @@ const DevelopmentContent = ({ type, projContent, handleOnClose }) => {
         <TitleWrapper>
           <Title>
             <IconSkills height="16px" width="16px" color="#CCCCCC" />
-            <Helvetica type="VscTitleContent">{type}</Helvetica>
-            <Helvetica type="VscTitleContent">...\{content.title}</Helvetica>
+            <Inter type="VscTitleContent">{type}</Inter>
+            <Inter type="VscTitleContent">...\{content.title}</Inter>
             <IconClose
               onClick={handleOnClose}
               height="16px"

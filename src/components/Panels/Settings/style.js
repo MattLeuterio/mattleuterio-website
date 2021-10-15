@@ -93,14 +93,14 @@ export const Content = styled.div`
     transform: translateY(-43%);
 
     & > svg {
-      color: #0F68BC;
+      color: ${theme.colors.global.highlightBlue};
     }
   }
 `;
 export const ChoiceTheme = styled.div`
   cursor: pointer;
   border: ${props => props.theme === props.type ? 
-  '2px solid #0F68BC' : 0};
+  `2px solid ${theme.colors.global.highlightBlue}` : 0};
   width: ${props => props.theme === props.type ? 
   '67px' : '65px'};
   height: ${props => props.theme === props.type ? 
@@ -130,7 +130,7 @@ export const NameInput = styled.input`
   
   &:focus {
     outline: none;
-    border: 2px solid #0F68BC;
+    border: 2px solid ${theme.colors.global.highlightBlue};
   }
 `;
 
@@ -151,5 +151,5 @@ export const Background = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   border: ${props => props.bgSelected === props.name ? 
-  '2px solid #0F68BC' : 0};
+  `2px solid ${theme.colors.global.highlightBlue}` : 0};
 `;

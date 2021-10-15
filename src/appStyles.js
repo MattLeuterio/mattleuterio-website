@@ -27,7 +27,7 @@ export const Welcome = styled.div`
   filter: drop-shadow(${theme.utility.dropShadow});
   text-align: center;
 
-  @media ${theme.device.mobileL} {
+  @media ${theme.device.tablet} {
     font-size: 72px;
     margin-top: 210px;
     width: fit-content;

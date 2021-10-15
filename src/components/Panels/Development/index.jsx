@@ -34,7 +34,7 @@ import VscDocumentIcon from "../../../ui/assets/img/vsc-document.png";
 import VscNoPanel from "../../../ui/assets/img/vsc-nopanel.svg";
 import VscInfoFooter from "../../../ui/assets/img/vsc-info-footer.png";
 import { getContent } from "../../../contentful";
-import Helvetica from "../../../ui/typography/helvetica";
+import Inter from "../../../ui/typography/inter";
 
 const Profile = ({
   mediaIsPhone,
@@ -164,12 +164,12 @@ const Profile = ({
           ) : (
             <NoPanel>
               <Image src={VscNoPanel} width="250px" />
-              <Helvetica type="vscNoPanelTitle">
+              <Inter type="vscNoPanelTitle">
                 Welcome to Development Panel
-              </Helvetica>
-              <Helvetica type="vscNoPanelSubtitle">
+              </Inter>
+              <Inter type="vscNoPanelSubtitle">
                 Select file from sidebar
-              </Helvetica>
+              </Inter>
             </NoPanel>
           )}
         </Contents>

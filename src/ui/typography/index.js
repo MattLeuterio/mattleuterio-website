@@ -16,7 +16,7 @@ export const TypefaceInterface = PropTypes.shape({
 
 const defaultConfig = {
   color: "unset",
-  fontFamily: theme.fontset.helvetica,
+  fontFamily: theme.fontset.inter,
   fontStyle: "normal",
   fontWeight: "normal",
   fontStretch: "normal",
@@ -29,7 +29,7 @@ const defaultConfig = {
 
 const getTypefaceBaseStyle = (props) => `
   color: ${props.config.color || props.theme.colors.primary.black};
-  font-family: ${props.config.fontFamily || props.theme.fontset.helvetica};
+  font-family: ${props.config.fontFamily || props.theme.fontset.inter};
   font-size: ${props.config.fontSize}px;
   font-style: ${props.config.fontStyle};
   font-weight: ${props.config.fontWeight};
@@ -51,17 +51,17 @@ export const TypefaceStyledSpan = styled.span`
   width: unset;
 `;
 
-const Typeface = ({ configuration, children, htmlAttribute, onClick }) => {
+const Typeface = ({ configuration, children, htmlAttribute, onClick, className }) => {
   const config = { ...defaultConfig, ...configuration };
   if (htmlAttribute === "div") {
     return (
-      <TypefaceStyledDiv config={config} onClick={onClick}>
+      <TypefaceStyledDiv className={className} config={config} onClick={onClick}>
         {children}
       </TypefaceStyledDiv>
     );
   }
   return (
-    <TypefaceStyledSpan config={config} onClick={onClick}>
+    <TypefaceStyledSpan className={className} config={config} onClick={onClick}>
       {children}
     </TypefaceStyledSpan>
   );

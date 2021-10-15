@@ -2,6 +2,7 @@ const zIndex = {
   body: 4000,
   active: 4200,
   mobileMenus: 4500,
+  dock: 4900,
   menus: 5000,
   modal: 7000,
   loader: 9000,

@@ -1,3 +1,3 @@
 export const fonts = {
-  helvetica: '"Helvetica", sans-serif;'
+  inter: '"Inter", sans-serif;'
 };

@@ -5,7 +5,7 @@ import {
 } from "./style";
 import { Header } from "../../components";
 import { Image } from "../../atoms";
-import Helvetica from "../../ui/typography/helvetica";
+import Inter from "../../ui/typography/inter";
 import { ArrowForwardCircleOutline as IconArrow } from "react-ionicons";
 import { backgroundChoice } from "../../utils";
 import ProfileImage from "../../ui/assets/img/profile-1.jpg";
@@ -23,7 +23,7 @@ const Login = ({
         <ProfileImg>
           <Image src={ProfileImage} width="138px" height="138px" />
         </ProfileImg>
-        <Helvetica type="loginHello">Hello, it's Matt</Helvetica>
+        <Inter type="loginHello">Hello, it's Matt</Inter>
         <InputWrapper>
           <NameInput
             theme={theme}
@@ -42,9 +42,9 @@ const Login = ({
             color={theme === "dark" ? "#c5c5c5" : "#ababab"}
           />
         </InputWrapper>
-        <Helvetica configuration={{ textAlign: "center" }} type="h3">
+        <Inter configuration={{ textAlign: "center" }} type="h3">
           Insert your name and press enter
-        </Helvetica>
+        </Inter>
       </LoginWrapper>
     </LoginPage>
 );

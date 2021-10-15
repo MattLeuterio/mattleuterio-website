@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
+
 import { Image, SocialsList } from "../../atoms";
 import Logo from "../../ui/assets/img/header-logo-white.png";
 import {
@@ -9,24 +11,76 @@ import {
   Name,
   Date,
   RightCtn,
-  LinkSocial,
-  Social,
+  OptionCtn,
+  OptionTop,
+  Overlay,
 } from "./style";
 // using Moment.js
 import Clock from "react-live-clock";
 import { withMediaQueries } from "../../hoc/withMediaQueries";
+import Inter from "../../ui/typography/inter";
+import {
+  openPanel,
+  setPanelActive,
+} from "../../features/panels/panelsSlice";
 
 const Header = ({ isLoginPage, mediaIsPhone }) => {
+  const dispatch = useDispatch();
+  const [toggleOption, setToggleOption] = useState(true);
   // Get timezone from Visitor
   const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+  const handleOnClickPreferences = () => {
+    dispatch(openPanel("settings"));
+    setToggleOption(false);
+  };
+  const handleOnClickShutDown = () => {
+    setToggleOption(false);
+    sessionStorage.removeItem("isLogged");
+    document.location.reload();
+  };
+
   return (
     <Container login={isLoginPage}>
       {!mediaIsPhone && <BackgroundBlur />}
       {!isLoginPage && (
-        <LeftCtn>
-          <Image src={Logo} width="24px" />
-          <Name>Matt Leuterio</Name>
-        </LeftCtn>
+        <>
+          <LeftCtn>
+            <Image
+              src={Logo}
+              width="24px"
+              onClick={() => setToggleOption(!toggleOption)}
+            />
+            <Name>Matt Leuterio</Name>
+          </LeftCtn>
+          {toggleOption && (
+            <>
+              <Overlay onClick={() => setToggleOption(false)} />
+              <OptionCtn>
+                <Inter 
+                  className="option" 
+                  type="h4"
+                >
+                  About this website
+                </Inter>
+                <Inter 
+                  className="option" 
+                  type="h4"
+                  onClick={() => handleOnClickPreferences()}
+                >
+                  Website Preferences...
+                </Inter>
+                <Inter 
+                  className="option" 
+                  type="h4"
+                  onClick={() => handleOnClickShutDown()}
+                >
+                  Shut Down...
+                </Inter>
+              </OptionCtn>
+            </>
+          )}
+        </>
       )}
       <RightCtn>
         <SocialsList />

@@ -6,7 +6,7 @@ import theme from '../theme';
 
 const baseConfig = {
   color: 'unset',
-  fontFamily: theme.fontset.helvetica,
+  fontFamily: theme.fontset.inter,
   fontStyle: 'normal',
   fontWeight: 400,
   lineHeight: 1.3,
@@ -37,6 +37,9 @@ const types = {
     fontSize: 14,
     lineHeight: 1.14
   },
+  h4: {
+    fontSize: 13
+  },
   loginHello: {
     fontSize: 21,
     textAlign: 'center',
@@ -58,11 +61,11 @@ const types = {
 }  
 
 
-const Helvetica = ({
-  type, configuration, style, children, htmlAttribute, onClick
-}) => <Typeface htmlAttribute={htmlAttribute} configuration={{ ...baseConfig, ...types[type], ...configuration }} style={style} onClick={onClick}>{children}</Typeface>;
+const Inter = ({
+  type, configuration, style, children, htmlAttribute, onClick, className
+}) => <Typeface className={className} htmlAttribute={htmlAttribute} configuration={{ ...baseConfig, ...types[type], ...configuration }} style={style} onClick={onClick}>{children}</Typeface>;
 
-Helvetica.propTypes = {
+Inter.propTypes = {
   htmlAttribute: PropTypes.string,
   children: PropTypes.node,
   type: PropTypes.oneOf(Object.keys(types)),
@@ -70,4 +73,4 @@ Helvetica.propTypes = {
   onClick: PropTypes.func
 };
 
-export default Helvetica;
+export default Inter;

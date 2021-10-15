@@ -59,6 +59,6 @@ export const NameInput = styled.input`
   
   &:focus {
     outline: none;
-    border: 2px solid #0F68BC;
+    border: 2px solid ${theme.colors.global.highlightBlue};
   }
 `;

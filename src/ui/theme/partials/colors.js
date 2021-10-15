@@ -6,6 +6,7 @@ const colors = {
     expand: '#38C149',
     yellow: '#FFBB2E',
     disableControlPanel: '#4B4C4E',
+    highlightBlue: '#0F68BC'
   },
   lightTheme: {
     darkText: '#3D3D3D',

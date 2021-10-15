@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import theme from '../../ui/theme';
 
 export const Container = styled.div`
@@ -14,7 +14,7 @@ export const Container = styled.div`
   font-weight: 700;
   backdrop-filter: blur(65px);
 
-  @media ${theme.device.mobileL} {
+  @media ${theme.device.tablet} {
     box-shadow: ${theme.utility.dropShadow};
   }
 `;
@@ -33,12 +33,17 @@ export const LeftCtn = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 10px;
+  margin-left: 10px;
   justify-content: space-between;
+  z-index: 1;
 
-  @media ${theme.device.mobileL} {
+  > div {
+    cursor: pointer;
+  }
+  
+  @media ${theme.device.tablet} {
     width: fit-content;
-    margin: 20px;
+    margin-left: 20px;
   }
 `;
 
@@ -46,7 +51,7 @@ export const RightCtn = styled.div`
   display: none;
   margin-right: 10px;
 
-  @media ${theme.device.mobileL} {
+  @media ${theme.device.tablet} {
     margin-right: 20px;
     display: flex;
   }
@@ -95,4 +100,65 @@ export const LinkSocial = styled.a`
   & > span {
     filter: drop-shadow(${theme.utility.dropShadow});
   }
+`;
+
+export const OptionCtn = styled.div`
+  width: 235px;
+  height: 100px;
+  border-radius: 10px;
+  padding: 5px 5px 10px 5px;
+  background: rgba(44,44,44,0.9);
+  position: absolute;
+  top: 28px;
+  left: 10px;
+  z-index: ${theme.zIndex.menus};
+  backdrop-filter: blur(65px);
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    top: 0;
+    left: 0;
+    filter: blur(35px);
+    z-index: -1;
+  }
+
+  div.option {
+    position: relative;
+    cursor: pointer;
+    padding: 0 5px;
+    border-radius: 3px;
+    height: calc(100% / 3);
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      background-color: ${theme.colors.global.highlightBlue};
+    }
+
+    &:last-child {
+      margin-top: 5px;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 5px;
+        width: 95%;
+        height: 1px;
+        background-color: rgba(235, 235, 245, 0.18);
+      }
+    }
+  }
+`;
+
+export const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
 `;
