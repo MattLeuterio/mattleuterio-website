@@ -19,13 +19,11 @@ import {
 import Clock from "react-live-clock";
 import { withMediaQueries } from "../../hoc/withMediaQueries";
 import Inter from "../../ui/typography/inter";
-import {
-  openPanel
-} from "../../features/panels/panelsSlice";
+import { openPanel } from "../../features/panels/panelsSlice";
 
 const Header = ({ isLoginPage, mediaIsPhone }) => {
   const dispatch = useDispatch();
-  const [toggleOption, setToggleOption] = useState(true);
+  const [toggleOption, setToggleOption] = useState(false);
   // Get timezone from Visitor
   const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
@@ -69,14 +67,14 @@ const Header = ({ isLoginPage, mediaIsPhone }) => {
                 >
                   About this website
                 </Inter>
-                <Inter 
+                <Inter
                   className="option"
                   type="h4"
                   onClick={() => handleOnClickPreferences()}
                 >
                   Website Preferences...
                 </Inter>
-                <Inter 
+                <Inter
                   className="option"
                   type="h4"
                   onClick={() => handleOnClickShutDown()}

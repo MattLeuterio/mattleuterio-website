@@ -47,6 +47,7 @@ export const NameInput = styled.input`
   width: 162px;
   height: 28px;
   padding: 0px 12px;
+  padding-right: 30px;
   border: none;
   border-radius: 50px;
   background: ${props => props.theme === 'dark' ? 
