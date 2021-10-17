@@ -73,8 +73,8 @@ const Profile = ({
       onClickPanelContainer={() => onClickContainer()}
       active={active}
       theme={theme}
-      width={1000}
-      height={700}
+      width={900}
+      height={650}
       top={50}
       right={150}
       noBackground
@@ -164,12 +164,8 @@ const Profile = ({
           ) : (
             <NoPanel>
               <Image src={VscNoPanel} width="250px" />
-              <Inter type="vscNoPanelTitle">
-                Welcome to Development Panel
-              </Inter>
-              <Inter type="vscNoPanelSubtitle">
-                Select file from sidebar
-              </Inter>
+              <Inter type="vscNoPanelTitle">Welcome to Development Panel</Inter>
+              <Inter type="vscNoPanelSubtitle">Select file from sidebar</Inter>
             </NoPanel>
           )}
         </Contents>

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import theme from '../../../ui/theme';
 import { IconThemeDark, IconThemeLight } from "../../../ui/assets/img/icons";
 
@@ -69,25 +69,53 @@ export const InfoWrapper = styled.div`
   height: 100%;
   width: 65%;
   padding-left: 50px;
-  align-content: center;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
 `;
 
 export const ProfileImg = styled.div`
   position: relative;
   border-radius: 50%;
   overflow: hidden;
-  border: 7px solid ${props => props.theme === 'dark' ?
+  border: 7px solid ${props => props.themeSelected === 'dark' ?
     `${theme.colors.darkTheme.lightText}` :
     `${theme.colors.lightTheme.darkText}`};
+
+  > div {
+    padding: 20px;
+  }
+
+  ${({ themeSelected }) => themeSelected === 'dark' && css`
+    > div {
+      background: ${theme.colors.darkTheme.panelBgHeader};
+    }
+  `}
+
+  ${({ themeSelected }) => themeSelected === 'light' && css`
+    > div {
+      background: #d9d9d9;
+    }
+  `}
 `;
 
 export const Title = styled.div`
+  margin-bottom: 30px;
   span {
     font-weight: bold;
   }
 `;
 
 export const Tecnology = styled.div`
+  > div:not(:last-child) {
+    margin-bottom: 10px;
+  }
+`;
+
+export const Row = styled.div`
+  display: flex;
+
+  > span:first-child {
+    margin-right: 5px;
+  }
 `;
