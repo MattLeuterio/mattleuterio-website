@@ -63,12 +63,13 @@ const About = ({
             </Inter>
           </Title>
           <Tecnology>
-            {info.map((item) => (
-              <Row>
+            {info.map((item, index) => (
+              <Row key={index}>
                 <Inter
+                  key={index}
                   htmlAttribute="span"
                   type="h3"
-                  configuration={{ fontWeight: "bold" }}
+                  configuration={{ fontWeight: 700 }}
                 >
                   {item.label}
                 </Inter>

@@ -74,7 +74,6 @@ function Application() {
   }, []);
 
   const handleOnClickTheme = (selected) => {
-    console.log(selected);
     const actual = localStorage.getItem("theme");
     if (selected !== actual) {
       selected === "dark"
@@ -84,7 +83,6 @@ function Application() {
       setTheme(localStorage.getItem("theme"));
     }
   };
-  //console.log(theme);
 
   const handleOnClickCtnPanel = (name) => {
     dispatch(setPanelActive(name));

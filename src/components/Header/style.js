@@ -162,3 +162,16 @@ export const Overlay = styled.div`
   width: 100vw;
   height: 100vh;
 `;
+
+export const LogoWrapper = styled.div`
+  width: 40px;
+  height: 24px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  background-color: ${props => props.open ? '#e1e1e129' : 'transparent'};
+
+  &:hover {
+    background-color: #e1e1e129;
+  }
+`;

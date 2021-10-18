@@ -63,6 +63,7 @@ textarea {
 html {
   box-sizing: border-box;
   height: 100vh;
+  user-select:none;
 }
 
 *,

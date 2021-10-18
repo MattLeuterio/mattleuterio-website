@@ -14,6 +14,7 @@ import {
   OptionCtn,
   OptionTop,
   Overlay,
+  LogoWrapper,
 } from "./style";
 // using Moment.js
 import Clock from "react-live-clock";
@@ -49,11 +50,13 @@ const Header = ({ isLoginPage, mediaIsPhone }) => {
       {!isLoginPage && (
         <>
           <LeftCtn>
-            <Image
-              src={Logo}
-              width="24px"
-              onClick={() => setToggleOption(!toggleOption)}
-            />
+            <LogoWrapper open={toggleOption}>
+              <Image
+                src={Logo}
+                width="24px"
+                onClick={() => setToggleOption(!toggleOption)}
+              />
+            </LogoWrapper>
             <Name>Matt Leuterio</Name>
           </LeftCtn>
           {toggleOption && (
