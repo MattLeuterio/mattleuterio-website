@@ -11,22 +11,12 @@ import {
   TitleMenu,
   LeftContainer,
   FooterPanel,
-  ProjectFolder,
-  HeaderFolder,
-  TitleProject,
-  Files,
-  File,
-  TitleFile,
-  FolderImages,
-  HeaderFolderImages,
-  FileImage,
-  NoPanel,
+  NoPanel
 } from "./style";
 import { withMediaQueries } from "../../../hoc/withMediaQueries";
 import { Image, PanelContainer, PanelControls } from "../../../atoms";
 import { DevelopmentContent } from "../../../components";
 import {
-  ChevronForwardOutline as IconArrow,
   ShareSocial as IconSocials,
   Layers as IconSkills,
 } from "react-ionicons";
@@ -35,6 +25,9 @@ import VscNoPanel from "../../../ui/assets/img/vsc-nopanel.svg";
 import VscInfoFooter from "../../../ui/assets/img/vsc-info-footer.png";
 import { getContent } from "../../../contentful";
 import Inter from "../../../ui/typography/inter";
+import Project from "../../Project";
+import { useSelector } from "react-redux";
+import { selectDevelopmentContentType } from "../../../features/development/developmentSlice";
 
 const Profile = ({
   mediaIsPhone,
@@ -44,9 +37,8 @@ const Profile = ({
   active,
   dragConstraints,
 }) => {
+  const devContentType = useSelector(selectDevelopmentContentType);
   const [listProjects, setListProjects] = useState([]);
-  const [openFolder, setOpenFolder] = useState(false);
-  const [openFolderImages, setOpenFolderImages] = useState(false);
   const [typeContents, setTypeContents] = useState("");
   const [content, setContent] = useState({});
 
@@ -54,9 +46,12 @@ const Profile = ({
     getContent("development", setListProjects);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  useEffect(() => {
+    setTypeContents(devContentType);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [devContentType]);
 
-  const handleOnSetContents = (type, proj) => {
-    setTypeContents(type);
+  const handleOnSetContents = (proj) => {
     setContent(proj);
   };
 
@@ -64,8 +59,6 @@ const Profile = ({
     setTypeContents("");
     setContent({});
   };
-
-  console.log("listProjects", listProjects);
 
   return (
     <PanelContainer
@@ -92,65 +85,11 @@ const Profile = ({
           <TitleMenu>EXPLORER</TitleMenu>
           <MenuSections>
             {listProjects.map((proj) => (
-              <ProjectFolder>
-                <HeaderFolder
-                  openProjFolder={openFolder}
-                  onClick={() => setOpenFolder(!openFolder)}
-                >
-                  <IconArrow height="16px" width="16px" color="#CCCCCC" />
-                  <TitleProject>{proj?.fields?.title}</TitleProject>
-                </HeaderFolder>
-                <Files openProjFolder={openFolder}>
-                  <File
-                    selected={typeContents === "package.json"}
-                    onClick={() =>
-                      handleOnSetContents("package.json", proj?.fields)
-                    }
-                  >
-                    <IconSocials height="16px" width="16px" color="#CCCCCC" />
-                    <TitleFile>package.json</TitleFile>
-                  </File>
-                  <File>
-                    <IconSkills height="16px" width="16px" color="#CCCCCC" />
-                    <TitleFile>README.md</TitleFile>
-                  </File>
-                  {proj?.fields?.images.length > 0 && (
-                    <>
-                      <HeaderFolderImages
-                        openProjFolder={openFolderImages}
-                        onClick={() => setOpenFolderImages(!openFolderImages)}
-                      >
-                        <IconArrow
-                          className="icon-arrow"
-                          height="16px"
-                          width="16px"
-                          color="#CCCCCC"
-                        />
-                        <IconSkills
-                          className="icon-folder"
-                          height="16px"
-                          width="16px"
-                          color="#CCCCCC"
-                        />
-                        <TitleFile>Images</TitleFile>
-                      </HeaderFolderImages>
-                      <FolderImages openProjFolder={openFolderImages}>
-                        {proj?.fields?.images.map((img) => (
-                          <FileImage>
-                            <IconSkills
-                              className="icon-folder"
-                              height="16px"
-                              width="16px"
-                              color="#CCCCCC"
-                            />
-                            <TitleFile>{img.fields?.title}</TitleFile>
-                          </FileImage>
-                        ))}
-                      </FolderImages>
-                    </>
-                  )}
-                </Files>
-              </ProjectFolder>
+              <Project
+                selected={proj.fields.id === content.id} 
+                project={proj}
+                onClickSetContents={() => handleOnSetContents(proj?.fields)}
+              />
             ))}
           </MenuSections>
         </SidebarContainer>

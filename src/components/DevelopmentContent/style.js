@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import theme from '../../ui/theme';
 
 export const Container = styled.div`
@@ -66,7 +66,8 @@ export const Title = styled.div`
 `;
 
 export const ContentWrapper = styled.div`
-  height: 100%;
+  height: 564px;
+  padding: 10px 20px;
 `;
 
 export const CurlyBrackets = styled.div`
@@ -75,15 +76,35 @@ export const CurlyBrackets = styled.div`
     : `#DA70D6`
   };
   font-size: 12px;
+  margin-left: ${props => `${4 * props.intendationLvl}px`};
 `;
 
 export const JsonInfo = styled.div`
   color: #80CBC4;
   font-size: 12px;
+  margin-left: ${props => `${4 * props.intendationLvl}px`};
+  margin-bottom: 1.2px;
 `;
 
 export const Name = styled.span`
   color: #C3E88D;
   font-size: 12px;
+  > div {
+    display: inline;
+  }
+`;
+
+export const Comma = styled.span`
+  color: ${theme.colors.darkTheme.lightText};
+  &:after {
+    content: ","
+  }
+`;
+
+export const ImageWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
 `;
 

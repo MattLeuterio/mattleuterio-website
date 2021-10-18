@@ -7,6 +7,7 @@ import searchResultsReducer from '../features/search/searchSlice';
 import modalsReducer from '../features/modals/modalsSlice';
 import panelsReducer from '../features/panels/panelsSlice';
 import settingsReducer from '../features/settings/settingsSlice';
+import developmentReducer from '../features/development/developmentSlice';
 
 export default configureStore({
   reducer: {
@@ -18,5 +19,6 @@ export default configureStore({
     modals: modalsReducer,
     panels: panelsReducer,
     settings: settingsReducer,
+    development: developmentReducer
   },
 });

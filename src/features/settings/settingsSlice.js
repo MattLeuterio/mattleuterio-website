@@ -9,6 +9,5 @@ export const settingsSlice = createSlice({
 });
 
 export const selectTheme = state => state.settings.theme;
-export const selectName = state => state.menuElements.name;
 
 export default settingsSlice.reducer;

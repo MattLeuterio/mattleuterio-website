@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export const panelsSlice = createSlice({
-  name: 'panels',
+  name: 'PANELS',
   initialState: {
     panels: [
       {
