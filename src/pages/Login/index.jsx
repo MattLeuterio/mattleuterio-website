@@ -24,7 +24,7 @@ const Login = ({
           <Image src={ProfileImage} width="138px" height="138px" />
         </ProfileImg>
         <Inter type="loginHello">Hello, it's Matt</Inter>
-        <InputWrapper>
+        <InputWrapper disabled={client.length > 0}>
           <NameInput
             theme={theme}
             type="text"

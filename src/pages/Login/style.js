@@ -35,7 +35,7 @@ export const InputWrapper = styled.div`
 
   > span {
     position: absolute;
-    cursor: pointer;
+    cursor: ${props => props.disabled ? 'pointer' : 'not-allowed'};
     top: 58%;
     right: -3px;
     transform: translateY(-50%);

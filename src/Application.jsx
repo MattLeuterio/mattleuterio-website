@@ -124,10 +124,12 @@ function Application() {
   };
 
   const handleOnClickIconNameLogin = () => {
-    localStorage.setItem("clientName", client);
-    sessionStorage.setItem("isLogged", true);
-    setClient(client);
-    setIsLogged(true);
+    if (client.length > 0) {
+      localStorage.setItem("clientName", client);
+      sessionStorage.setItem("isLogged", true);
+      setClient(client);
+      setIsLogged(true);
+    }
   };
 
   // eslint-disable-next-line no-lone-blocks
@@ -165,7 +167,6 @@ function Application() {
               onClose={(e) => handleOnClosePanel(e, "settings")}
               onClickTheme={(themeChoice) => handleOnClickTheme(themeChoice)}
               onChangeName={(value) => handleOnChangeName(value)}
-              //onKeyPressEnter={(e) => handleOnKeyPressEnter(e)}
               onClickIconSetName={(e) => handleOnClickIconSetName(e)}
               onChangeBackground={(value) => handleOnChangeBackground(value)}
               bgSelected={background}
