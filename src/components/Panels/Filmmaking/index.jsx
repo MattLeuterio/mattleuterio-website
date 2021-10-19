@@ -7,9 +7,12 @@ import {
   Main,
   HeaderFilmmaking,
   InfoVideo,
-  MenuVideo
+  MenuVideo,
+  VideoContainer,
+  MenuProject
 } from "./style";
 import { getContent } from "../../../contentful";
+import ReactPlayer from 'react-player';
 import { withMediaQueries } from "../../../hoc/withMediaQueries";
 import { HamburgerMenu, Image, PanelContainer, PanelControls } from "../../../atoms";
 import {
@@ -18,6 +21,7 @@ import {
 } from "react-ionicons";
 import LogoYoutubeDark from '../../../ui/assets/img/youtube-logo-dark.png';
 import LogoYoutubeLight from '../../../ui/assets/img/youtube-logo-light.png';
+import Inter from "../../../ui/typography/inter";
 
 const Filmmaking = ({
   mediaIsPhone,
@@ -29,13 +33,24 @@ const Filmmaking = ({
 }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [listProjects, setListProjects] = useState([]);
+  const [videoSelected, setVideoSelected] = useState([]);
 
   useEffect(() => {
     getContent("filmmaking", setListProjects);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  useEffect(() => {
+    setVideoSelected(listProjects[0]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [listProjects]);
+
+  const onClickMenuProject = (proj) => {
+    setVideoSelected(proj);
+    setToggleMenu(false);
+  };
 
   console.log('listProjects', listProjects);
+  console.log('videoSelected', videoSelected);
 
   return (
     <PanelContainer
@@ -64,6 +79,14 @@ const Filmmaking = ({
         <Image src={theme === 'dark' ? LogoYoutubeDark : LogoYoutubeLight} width="70px" />
       </HeaderFilmmaking>
       <Main theme={theme}>
+        <VideoContainer>
+          <ReactPlayer
+            url={videoSelected?.fields?.url}
+            width="100%"
+            height="100%"
+            controls
+          />
+        </VideoContainer>
       </Main>
       <InfoVideo theme={theme}>
 
@@ -71,7 +94,16 @@ const Filmmaking = ({
 
       {/* MenuVideo */}
       <MenuVideo open={toggleMenu} theme={theme}>
-
+        {listProjects?.map(proj => (
+          <MenuProject
+            key={proj.fields.id} 
+            selected={proj?.fields?.id === videoSelected?.fields?.id} 
+            theme={theme} 
+            onClick={() => onClickMenuProject(proj)} 
+          >
+            <Inter type="h4">{proj.fields.title}</Inter>
+          </MenuProject>
+        ))}
       </MenuVideo>
     </PanelContainer>
   );

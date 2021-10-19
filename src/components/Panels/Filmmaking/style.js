@@ -30,16 +30,30 @@ export const HeaderFilmmaking = styled.div`
 `;
 
 export const Main = styled.div`
-  height: calc(60% - 25px);  
+  height: calc(65% - 25px);  
   width: 100%;
   background: ${props => props.theme === 'dark' ?
     `${theme.colors.darkTheme.panelBgContents}` : 
     `${theme.colors.lightTheme.panelBgContents}`};
-  background: red;
+`;
+
+export const VideoContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+`;
+
+export const MenuProject = styled.div`
+  padding: 10px;
+  cursor: pointer;
+  color: ${props => props.theme === 'dark' ?
+    `${theme.colors.darkTheme.lightText}` :
+    `${theme.colors.lightTheme.darkText}`};
+  background-color: ${props => props.selected ? '#c5c5c5' : 'transparent'};
 `;
 
 export const InfoVideo = styled.div`
-  height: calc(40% - 25px);  
+  height: calc(35% - 25px);  
   width: 100%;
   background: ${props => props.theme === 'dark' ?
     `${theme.colors.darkTheme.panelBgContents}` : 
@@ -51,11 +65,17 @@ export const MenuVideo = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
-  width: ${props => props.open ? '230px' : '0px'};
+  width: 230px;
+  transform: ${props => props.open ? 'translateX(0)' : 'translateX(-100%)'};
   height: calc(100% - 77px);
   background: ${props => props.theme === 'dark' ?
     `${theme.colors.darkTheme.panelBgContents}` : 
     `${theme.colors.lightTheme.panelBgContents}`};
   transition: all .4s ease-in-out;
-  filter: drop-shadow(2px 13px 6px rgba(0, 0, 0, 0.35))
+  filter: drop-shadow(2px 13px 6px rgba(0, 0, 0, 0.35));
+  overflow: hidden;
+
+  > div:not(:last-child) {
+    border-bottom: ${props => props.theme === 'dark' ? '1px solid #2b2b2e' : '1px solid #d7d7d7'};
+  }
 `;
