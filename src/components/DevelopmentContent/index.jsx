@@ -12,7 +12,12 @@ import {
   TitleWrapper,
   Name,
   ImageWrapper,
-  Comma
+  Comma,
+  SectionReadme,
+  Intestation,
+  Body,
+  Span,
+  LinkReadme
 } from "./style";
 import {
   Layers as IconSkills,
@@ -22,7 +27,9 @@ import {
 import { withMediaQueries } from "../../hoc/withMediaQueries";
 import { Image } from "../../atoms";
 import Inter from "../../ui/typography/inter";
+import Roboto from "../../ui/typography/roboto";
 import { selectDevelopmentImageSelected } from "../../features/development/developmentSlice";
+import theme from "../../ui/theme";
 
 const DevelopmentContent = ({ type, projContent, handleOnClose }) => {
   const imageSelected = useSelector(selectDevelopmentImageSelected);
@@ -31,6 +38,8 @@ const DevelopmentContent = ({ type, projContent, handleOnClose }) => {
   useEffect(() => {
     setContent(projContent);
   }, [projContent]);
+
+  console.log('content', content);
 
   return (
     <Container>
@@ -67,10 +76,10 @@ const DevelopmentContent = ({ type, projContent, handleOnClose }) => {
               <JsonInfo intendationLvl={2}>
                 <Name>"dependencies": <CurlyBrackets intendationLvl={1}>{"{"}</CurlyBrackets></Name>
               </JsonInfo>
-              {content?.packageJson?.dependencies?.map(dep => (
+              {content?.packageJson?.dependencies?.map((dep, index) => (
                 <>
-                  <JsonInfo intendationLvl={4}>
-                    <Name>"{dep?.name}": </Name>"{dep?.version}"<Comma />
+                  <JsonInfo intendationLvl={4} key={index}>
+                    <Name key={dep.name}>"{dep?.name}": </Name>"{dep?.version}"<Comma />
                   </JsonInfo>
                 </>
               ))}
@@ -82,7 +91,82 @@ const DevelopmentContent = ({ type, projContent, handleOnClose }) => {
         {/* README MD */}
         {type === "README.md" && (
           <>
-            readme
+              <SectionReadme>
+                <Intestation hasMargin>
+                  <Roboto type="vscReadme">{`# ${content?.title}`}</Roboto>
+                </Intestation>
+                <Body>
+                  <Roboto type="vscReadme">
+                    <Span color={theme.colors.global.yellow}>{`**${content?.title}**`}</Span> {content?.description}
+                  </Roboto>
+                </Body>
+              </SectionReadme>
+              {content?.responsive && (
+                <SectionReadme>
+                  <Intestation hasMargin>
+                    <Roboto type="vscReadme">## Responsive </Roboto>
+                  </Intestation>
+                  <Body>
+                    <Roboto type="vscReadme">
+                      {content?.title} is designed for mobile and desktop devices.
+                    </Roboto>
+                  </Body>
+                </SectionReadme>
+              )}
+              {(content?.links.length > 0) && (
+                <SectionReadme>
+                  <Intestation>
+                    <Roboto type="vscReadme">## Links </Roboto>
+                  </Intestation>
+                  <Body>
+                    {content?.links.map((elm, index) => (
+                      <Roboto type="vscReadme" key={index}>
+                        <Span color={theme.colors.readme.pink}>{`**${elm.name}**`}</Span>
+                        {` - `}
+                        <LinkReadme
+                          href={elm.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {elm.href}
+                        </LinkReadme>
+                      </Roboto>
+                    ))}
+                  </Body>
+                </SectionReadme>
+              )}
+              {content?.tech?.length > 0 && (
+                <SectionReadme>
+                <Intestation>
+                  <Roboto type="vscReadme">## Tech</Roboto>
+                </Intestation>
+                <Intestation style={{ color: 'inherit' }} hasMargin>
+                  <Roboto type="vscReadme">{content.title} uses:</Roboto>
+                </Intestation>
+                <Body>
+                  {content?.tech.map((elm, index) => (
+                    <Roboto type="vscReadme" key={index}>
+                      {`* `}
+                      <Span color={theme.colors.readme.lightBlue}>[</Span>
+                      {elm.title}
+                      <Span color={theme.colors.readme.lightBlue}>]</Span>
+                      {'('}
+                      <Span color={theme.colors.readme.redPink}>
+                        <LinkReadme
+                          href={elm.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {elm.href}
+                        </LinkReadme>
+                      </Span>
+                      {')'}
+                      {` - `}{elm.slogan}
+                    </Roboto>
+                  ))}
+                </Body>
+              </SectionReadme>
+              )}
           </>
         )}
 

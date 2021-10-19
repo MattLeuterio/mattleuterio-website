@@ -6,6 +6,10 @@ import {
   ChevronForwardOutline as IconArrow,
   ShareSocial as IconSocials,
   Layers as IconSkills,
+  LogoNodejs as IconPackageJson,
+  InformationCircle as IconReadme,
+  Images as IconImages,
+  Image as IconImage
 } from "react-ionicons";
 
 import { withMediaQueries } from "../../hoc/withMediaQueries";
@@ -24,15 +28,13 @@ const Project = ({ project, onClickSetContents, selected }) => {
   }, [typeContents]);
 
 
-  const handleOnClickFile = (type) => {
+  const handleOnClickFile = (type, imgId) => {
     setTypeContents(type);
     onClickSetContents();
-  };
-  const handleOnClickFileImage = (type, imgId) => {
-    const img = project?.fields?.images.find(el => el.sys.id === imgId);
-    dispatch(setImageSelected(img));
-    setTypeContents(type);
-    onClickSetContents();
+    if (type === 'image') {
+      const img = project?.fields?.images.find(el => el.sys.id === imgId);
+      dispatch(setImageSelected(img));
+    }
   };
 
   return (
@@ -51,7 +53,7 @@ const Project = ({ project, onClickSetContents, selected }) => {
             type='package.json'
             onClick={() => handleOnClickFile('package.json')}
           >
-            <IconSocials height="16px" width="16px" color="#CCCCCC" />
+            <IconPackageJson height="16px" width="16px" color="#5b7c3b" />
             <TitleFile>package.json</TitleFile>
           </File>
         )}
@@ -60,7 +62,7 @@ const Project = ({ project, onClickSetContents, selected }) => {
           type='README.md'
           onClick={() => handleOnClickFile('README.md')}
         >
-          <IconSkills height="16px" width="16px" color="#CCCCCC" />
+          <IconReadme height="16px" width="16px" color="#42a5f5" />
           <TitleFile>README.md</TitleFile>
         </File>
         {project?.fields?.images.length > 0 && (
@@ -75,30 +77,31 @@ const Project = ({ project, onClickSetContents, selected }) => {
                 width="16px"
                 color="#CCCCCC"
               />
-              <IconSkills
+              <IconImages
                 className="icon-folder"
                 height="16px"
                 width="16px"
-                color="#CCCCCC"
+                color="#009688"
               />
               <TitleFile>Images</TitleFile>
             </HeaderFolderImages>
             <FolderImages openProjFolder={openFolderImages}>
-              {project?.fields?.images.map((img) => (
+              {project?.fields?.images.map((img, index) => (
                 <FileImage
+                  key={index}
                   selected={
-                    selected 
-                    && typeContents === 'image' 
+                    selected
+                    && typeContents === 'image'
                     && img?.sys?.id === devImageSelected?.sys?.id
                   }
-                  type='README.md'
-                  onClick={() => handleOnClickFileImage('image', img?.sys?.id)}
+                  type='image'
+                  onClick={() => handleOnClickFile('image', img?.sys?.id)}
                 >
-                  <IconSkills
+                  <IconImage
                     className="icon-folder"
                     height="16px"
                     width="16px"
-                    color="#CCCCCC"
+                    color="#26a69a"
                   />
                   <TitleFile>{img.fields?.title}</TitleFile>
                 </FileImage>

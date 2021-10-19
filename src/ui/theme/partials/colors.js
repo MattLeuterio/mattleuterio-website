@@ -21,6 +21,11 @@ const colors = {
   },
   gradients: {
     primary: 'linear-gradient(180deg, #3969F6 0%, #B740F0 100%)',
+  },
+  readme: {
+    redPink: '#FF869A',
+    lightBlue: '#82B1FF',
+    pink: '#C586C0'
   }
 };
 

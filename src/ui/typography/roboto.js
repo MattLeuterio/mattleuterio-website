@@ -8,9 +8,9 @@ const baseConfig = {
   color: 'unset',
   fontFamily: theme.fontset.roboto,
   fontStyle: 'normal',
-  fontWeight: 400,
-  lineHeight: 1,
-  letterSpacing: 'unset',
+  fontWeight: 200,
+  lineHeight: 1.5,
+  letterSpacing: '0.6px',
   fontSize: FontBase
 };
 

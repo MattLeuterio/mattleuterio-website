@@ -13,6 +13,10 @@ export const HeaderFolder = styled.div`
   padding-left: 10px;
   cursor: pointer;
 
+  &:hover {
+    background-color: #393a4c;
+  }
+
 
   & > span {
     transform: ${props => props.openProjFolder ? 
@@ -43,6 +47,10 @@ export const File = styled.div`
   padding-left: 20px;
   cursor: pointer;
   background-color: ${props => props.selected ? '#393a4c' : 'transparent'};
+
+  &:hover {
+    background-color: #393a4c;
+  }
   
   & > span {
     height: 25px;
@@ -67,6 +75,10 @@ export const HeaderFolderImages = styled.div`
   height: 25px;
   padding-left: 16px;
   cursor: pointer;
+
+  &:hover {
+    background-color: #393a4c;
+  }
 
   & > span {
     height: 25px;
@@ -97,6 +109,10 @@ export const FileImage = styled.div`
   padding-left: 26px;
   cursor: pointer;
   background-color: ${props => props.selected ? '#393a4c' : 'transparent'};
+
+  &:hover {
+    background-color: ${props => props.selected ? '#393a4c' : 'transparent'};
+  }
   
   & > span {
     height: 25px;

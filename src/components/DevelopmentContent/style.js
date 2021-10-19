@@ -108,3 +108,28 @@ export const ImageWrapper = styled.div`
   justify-content: center;
 `;
 
+export const SectionReadme = styled.div`
+  margin-bottom: 20px;
+`;
+
+export const Intestation = styled.div`
+  color: ${theme.colors.readme.lightBlue};
+  
+  ${({ hasMargin }) => hasMargin && css`
+    margin-bottom: 20px;
+  `};
+`;
+
+export const Body = styled.div``;
+
+export const Span = styled.span`
+  color: ${props => props.color};
+`;
+
+export const LinkReadme = styled.a`
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+
