@@ -39,8 +39,6 @@ const DevelopmentContent = ({ type, projContent, handleOnClose }) => {
     setContent(projContent);
   }, [projContent]);
 
-  console.log('content', content);
-
   return (
     <Container>
       <Header>
