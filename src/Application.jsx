@@ -10,7 +10,7 @@ import { Login } from "./pages";
 
 // Layout Components
 import { Dock, Header } from "./components";
-import { About, Development, Profile, Settings, Trash } from "./components/Panels";
+import { About, Development, Filmmaking, Profile, Settings, Trash } from "./components/Panels";
 import { useDispatch, useSelector } from "react-redux";
 import {
   openPanel,
@@ -216,6 +216,19 @@ function Application() {
               }
               onClickContainer={() => handleOnClickCtnPanel("development")}
               onClose={(e) => handleOnClosePanel(e, "development")}
+            />
+          )}
+
+          {/* FILMMAKING */}
+          {panels?.find((panel) => panel.name === "filmmaking").open && (
+            <Filmmaking
+              theme={theme}
+              dragConstraints={constraintsRef}
+              active={
+                panels?.find((panel) => panel.name === "filmmaking").active
+              }
+              onClickContainer={() => handleOnClickCtnPanel("filmmaking")}
+              onClose={(e) => handleOnClosePanel(e, "filmmaking")}
             />
           )}
 

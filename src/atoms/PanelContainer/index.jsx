@@ -17,6 +17,7 @@ const PanelContainer = ({
   dragConstraintsRef,
   noBackground,
   display,
+  flexDirection
 }) => {
   return (
     <Container
@@ -36,6 +37,7 @@ const PanelContainer = ({
       left={left}
       noBackground={noBackground}
       display={display}
+      flexDirection={flexDirection}
     >
       {children}
     </Container>
