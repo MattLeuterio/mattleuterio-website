@@ -53,7 +53,8 @@ export const panelsSlice = createSlice({
       const newPanels = state.panels.reduce((acc, object) => {
           return [...acc, { 
             ...object, open: data.payload === object.name ? 
-            object.open = true : object.open
+            object.open = true : object.open, active: data.payload === object.name ? 
+            object.active = true : object.active
           }];
       }, []);
       state.panels = newPanels;

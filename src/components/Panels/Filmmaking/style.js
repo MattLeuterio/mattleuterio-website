@@ -43,15 +43,6 @@ export const VideoContainer = styled.div`
   height: 100%;
 `;
 
-export const MenuProject = styled.div`
-  padding: 10px;
-  cursor: pointer;
-  color: ${props => props.theme === 'dark' ?
-    `${theme.colors.darkTheme.lightText}` :
-    `${theme.colors.lightTheme.darkText}`};
-  background-color: ${props => props.selected ? '#c5c5c5' : 'transparent'};
-`;
-
 export const InfoVideo = styled.div`
   height: calc(35% - 25px);  
   width: 100%;
@@ -78,4 +69,14 @@ export const MenuVideo = styled.div`
   > div:not(:last-child) {
     border-bottom: ${props => props.theme === 'dark' ? '1px solid #2b2b2e' : '1px solid #d7d7d7'};
   }
+`;
+
+export const MenuProject = styled.div`
+  padding: 10px;
+  cursor: pointer;
+  color: ${props => props.theme === 'dark' ?
+    `${theme.colors.darkTheme.lightText}` :
+    `${theme.colors.lightTheme.darkText}`};
+  background-color: ${props => props.selected ? props.theme === 'dark' ?
+    '#2b2b2e' : '#c5c5c5' : 'transparent'};
 `;
