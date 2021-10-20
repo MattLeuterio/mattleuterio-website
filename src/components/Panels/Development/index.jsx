@@ -86,10 +86,10 @@ const Profile = ({
           <MenuSections>
             {listProjects.map((proj) => (
               <Project
-                key={proj.fields.id}
-                selected={proj.fields.id === content.id} 
+                key={proj.id}
+                selected={proj.id === content.id} 
                 project={proj}
-                onClickSetContents={() => handleOnSetContents(proj?.fields)}
+                onClickSetContents={() => handleOnSetContents(proj)}
               />
             ))}
           </MenuSections>

@@ -32,7 +32,7 @@ const Project = ({ project, onClickSetContents, selected }) => {
     setTypeContents(type);
     onClickSetContents();
     if (type === 'image') {
-      const img = project?.fields?.images.find(el => el.sys.id === imgId);
+      const img = project?.images.find(el => el.sys.id === imgId);
       dispatch(setImageSelected(img));
     }
   };
@@ -44,10 +44,10 @@ const Project = ({ project, onClickSetContents, selected }) => {
         onClick={() => setOpenFolder(!openFolder)}
       >
         <IconArrow height="16px" width="16px" color="#CCCCCC" />
-        <TitleProject>{project?.fields?.title}</TitleProject>
+        <TitleProject>{project?.title}</TitleProject>
       </HeaderFolder>
       <Files openProjFolder={openFolder}>
-        {(Object.keys(project?.fields?.packageJson).length > 0) && (
+        {(Object.keys(project?.packageJson).length > 0) && (
           <File
             selected={selected && typeContents === 'package.json'}
             type='package.json'
@@ -65,7 +65,7 @@ const Project = ({ project, onClickSetContents, selected }) => {
           <IconReadme height="16px" width="16px" color="#42a5f5" />
           <TitleFile>README.md</TitleFile>
         </File>
-        {project?.fields?.images.length > 0 && (
+        {project.images.length > 0 && (
           <>
             <HeaderFolderImages
               openProjFolder={openFolderImages}
@@ -86,7 +86,7 @@ const Project = ({ project, onClickSetContents, selected }) => {
               <TitleFile>Images</TitleFile>
             </HeaderFolderImages>
             <FolderImages openProjFolder={openFolderImages}>
-              {project?.fields?.images.map((img, index) => (
+              {project?.images.map((img, index) => (
                 <FileImage
                   key={index}
                   selected={

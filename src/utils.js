@@ -29,3 +29,42 @@ export const backgroundChoice = (theme, nameBg) => {
   }
   return background;
 };
+
+export const remapContent = (type, obj) => {
+  let res;
+  switch (type) {
+    case 'filmmaking':
+      res = {
+        id: obj.sys.id,
+        title: obj.fields.title,
+        url: obj.fields.url,
+        description: obj.fields.description,
+        links: obj.fields.links,
+        gears: obj.fields.gears,
+      }
+      break;
+    
+    case 'development':
+      res = {
+        id: obj.sys.id,
+        title: obj.fields.title,
+        description: obj.fields.description,
+        links: obj.fields.links,
+        tech: obj.fields.tech,
+        packageJson: obj.fields.packageJson,
+        responsive: obj.fields.responsive,
+        images: obj.fields.images,
+      }
+      break;
+
+    case 'skills':
+      res = {
+        id: obj.sys.id,
+        section: obj.fields.section,
+        values: obj.fields.values,
+      }
+      break;
+    default: {}
+  }
+  return res;
+};

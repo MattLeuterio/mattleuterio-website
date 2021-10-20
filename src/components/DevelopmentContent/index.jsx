@@ -33,7 +33,7 @@ import theme from "../../ui/theme";
 
 const DevelopmentContent = ({ type, projContent, handleOnClose }) => {
   const imageSelected = useSelector(selectDevelopmentImageSelected);
-  const [content, setContent] = useState({});
+  const [content, setContent] = useState(projContent);
 
   useEffect(() => {
     setContent(projContent);

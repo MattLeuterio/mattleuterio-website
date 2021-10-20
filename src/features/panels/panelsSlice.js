@@ -12,7 +12,7 @@ export const panelsSlice = createSlice({
       },
       {
         name: "filmmaking",
-        open: true,
+        open: false,
         active: false,
         minimize: false,
       },
@@ -54,7 +54,7 @@ export const panelsSlice = createSlice({
           return [...acc, { 
             ...object, open: data.payload === object.name ? 
             object.open = true : object.open, active: data.payload === object.name ? 
-            object.active = true : object.active
+            object.active = true : object.active = false
           }];
       }, []);
       state.panels = newPanels;

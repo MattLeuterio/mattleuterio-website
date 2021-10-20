@@ -1,3 +1,5 @@
+import { remapContent } from "./utils";
+
 const contentful = require("contentful");
 
 const client = contentful.createClient({
@@ -8,8 +10,14 @@ const client = contentful.createClient({
 const getContent = (contentType, set) => {
   client.getEntries({ content_type: `${contentType}` }).then((response) => {
     const res = response.items;
-    set(res);
-  });
+    console.log('res', res);
+    const data = res.map(obj => {
+      return remapContent(contentType, obj);
+    })
+    console.log('data', data);
+    set(data);
+  }, []);
+
 };
 
 export {getContent};

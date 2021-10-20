@@ -81,7 +81,7 @@ const Filmmaking = ({
       <Main theme={theme}>
         <VideoContainer>
           <ReactPlayer
-            url={videoSelected?.fields?.url}
+            url={videoSelected?.url}
             width="100%"
             height="100%"
             controls
@@ -96,12 +96,12 @@ const Filmmaking = ({
       <MenuVideo open={toggleMenu} theme={theme}>
         {listProjects?.map(proj => (
           <MenuProject
-            key={proj.fields.id} 
-            selected={proj?.fields?.id === videoSelected?.fields?.id} 
+            key={proj.id} 
+            selected={proj?.id === videoSelected?.id} 
             theme={theme} 
             onClick={() => onClickMenuProject(proj)} 
           >
-            <Inter type="h4">{proj.fields.title}</Inter>
+            <Inter type="h4">{proj.title}</Inter>
           </MenuProject>
         ))}
       </MenuVideo>

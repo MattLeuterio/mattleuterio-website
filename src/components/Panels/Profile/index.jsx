@@ -127,9 +127,9 @@ const Profile = ({
               <TitleSectionContents theme={theme}>Skills</TitleSectionContents>
               {listSkills.map((section, index) => (
                 <Section key={index}>
-                  <NameSection theme={theme}>{section.fields.section}</NameSection>
+                  <NameSection theme={theme}>{section.section}</NameSection>
                   <ListSkills>
-                    {section.fields.values.map((skill, index) => (
+                    {section.values.map((skill, index) => (
                       <SkillValue key={index} theme={theme}>{skill}</SkillValue>
                     ))}
                   </ListSkills>
