@@ -12,7 +12,7 @@ export const panelsSlice = createSlice({
       },
       {
         name: "filmmaking",
-        open: false,
+        open: true,
         active: false,
         minimize: false,
       },

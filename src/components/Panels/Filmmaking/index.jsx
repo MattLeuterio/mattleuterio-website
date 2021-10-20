@@ -9,7 +9,14 @@ import {
   InfoVideo,
   MenuVideo,
   VideoContainer,
-  MenuProject
+  MenuProject,
+  InfoVideoContainer,
+  Gears,
+  Links,
+  InfoTitle,
+  InfoDescription,
+  ExternalLinks,
+  PlayerContainer
 } from "./style";
 import { getContent } from "../../../contentful";
 import ReactPlayer from 'react-player';
@@ -61,7 +68,7 @@ const Filmmaking = ({
       width={950}
       height={650}
       top={50}
-      right={150}
+      left={150}
       noBackground
       display="flex"
       flexDirection="column"
@@ -79,20 +86,56 @@ const Filmmaking = ({
         <Image src={theme === 'dark' ? LogoYoutubeDark : LogoYoutubeLight} width="70px" />
       </HeaderFilmmaking>
       <Main theme={theme}>
-        <VideoContainer>
-          <ReactPlayer
-            url={videoSelected?.url}
-            width="100%"
-            height="100%"
-            controls
-          />
+        <VideoContainer theme={theme}>
+          <PlayerContainer>
+            <ReactPlayer
+              url={videoSelected?.url}
+              width="100%"
+              height="100%"
+              light
+              controls
+            />
+          </PlayerContainer>
         </VideoContainer>
+        <InfoVideoContainer theme={theme}>
+          <InfoVideo>
+            <InfoTitle>
+              <Inter type="filmmakingInfoTitle">{videoSelected?.title}</Inter>
+            </InfoTitle>
+            <InfoDescription theme={theme}>
+              <Inter type="h4">{videoSelected?.description}</Inter>
+            </InfoDescription>
+          </InfoVideo>
+          <Gears>
+            <InfoTitle>
+              <Inter type="filmmakingInfoTitle">Gears</Inter>
+            </InfoTitle>
+            {videoSelected?.gears?.map(gear => (
+              <Inter type="h4">{gear}</Inter>
+            ))}
+            {videoSelected?.gears?.map(gear => (
+              <Inter type="h4">{gear}</Inter>
+            ))}
+          </Gears>
+          <Links>
+            <InfoTitle>
+              <Inter type="filmmakingInfoTitle">External Links</Inter>
+            </InfoTitle>
+            {videoSelected?.links?.map(elm => (
+              <ExternalLinks
+                theme={theme}
+                href={elm.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Inter type="h4" htmlAttribute="span">{elm.name}</Inter>
+              </ExternalLinks>
+            ))}
+          </Links>
+        </InfoVideoContainer>
       </Main>
-      <InfoVideo theme={theme}>
 
-      </InfoVideo>
-
-      {/* MenuVideo */}
+      {/* MenuVideo position absolute */}
       <MenuVideo open={toggleMenu} theme={theme}>
         {listProjects?.map(proj => (
           <MenuProject

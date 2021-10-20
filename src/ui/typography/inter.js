@@ -57,6 +57,10 @@ const types = {
   VscTitleContent: {
     fontSize: 13,
     color: '#252525'
+  },
+  filmmakingInfoTitle: {
+    fontSize: 18,
+    fontWeight: 700
   }
 }  
 
