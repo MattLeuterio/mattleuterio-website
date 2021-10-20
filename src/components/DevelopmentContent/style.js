@@ -68,6 +68,27 @@ export const Title = styled.div`
 export const ContentWrapper = styled.div`
   height: 564px;
   padding: 10px 20px;
+  overflow: auto;
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #31364a;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #007acc;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00538b;
+  }
 `;
 
 export const CurlyBrackets = styled.div`
