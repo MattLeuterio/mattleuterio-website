@@ -148,3 +148,11 @@ export const ExternalLinks = styled.a`
   display: flex;
   color: ${theme.colors.darkTheme.lightText};
 `;
+
+export const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+`;

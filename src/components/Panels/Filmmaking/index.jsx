@@ -16,7 +16,8 @@ import {
   InfoTitle,
   InfoDescription,
   ExternalLinks,
-  PlayerContainer
+  PlayerContainer,
+  Overlay
 } from "./style";
 import { getContent } from "../../../contentful";
 import ReactPlayer from 'react-player';
@@ -113,9 +114,6 @@ const Filmmaking = ({
             {videoSelected?.gears?.map(gear => (
               <Inter type="h4">{gear}</Inter>
             ))}
-            {videoSelected?.gears?.map(gear => (
-              <Inter type="h4">{gear}</Inter>
-            ))}
           </Gears>
           <Links>
             <InfoTitle>
@@ -134,7 +132,9 @@ const Filmmaking = ({
           </Links>
         </InfoVideoContainer>
       </Main>
-
+      {toggleMenu && (
+        <Overlay onClick={() => setToggleMenu(false)} />
+      )}
       {/* MenuVideo position absolute */}
       <MenuVideo open={toggleMenu} theme={theme}>
         {listProjects?.map(proj => (
@@ -148,6 +148,7 @@ const Filmmaking = ({
           </MenuProject>
         ))}
       </MenuVideo>
+
     </PanelContainer>
   );
 };
