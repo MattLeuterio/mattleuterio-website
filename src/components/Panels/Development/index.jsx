@@ -29,7 +29,7 @@ import Project from "../../Project";
 import { useSelector } from "react-redux";
 import { selectDevelopmentContentType } from "../../../features/development/developmentSlice";
 
-const Profile = ({
+const Development = ({
   mediaIsPhone,
   onClickContainer,
   onClose,
@@ -117,8 +117,8 @@ const Profile = ({
   );
 };
 
-Profile.propTypes = {
+Development.propTypes = {
   theme: PropTypes.string,
 };
 
-export default withMediaQueries(Profile);
+export default withMediaQueries(Development);

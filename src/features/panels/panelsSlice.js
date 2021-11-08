@@ -6,13 +6,13 @@ export const panelsSlice = createSlice({
     panels: [
       {
         name: "development",
-        open: false,
+        open: true,
         active: false,
         minimize: false,
       },
       {
         name: "filmmaking",
-        open: true,
+        open: false,
         active: false,
         minimize: false,
       },
