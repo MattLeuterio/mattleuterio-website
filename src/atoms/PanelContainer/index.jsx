@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Container } from "./style";
 import { motion } from "framer-motion";
+import {withMediaQueries} from "../../hoc/withMediaQueries";
 
 const PanelContainer = ({
   onClickPanelContainer,
@@ -17,8 +18,11 @@ const PanelContainer = ({
   dragConstraintsRef,
   noBackground,
   display,
-  flexDirection
+  flexDirection,
+  mediaIsTablet,
+  mediaIsPhone
 }) => {
+  console.log('width', width);
   return (
     <Container
       as={motion.div}
@@ -38,6 +42,7 @@ const PanelContainer = ({
       noBackground={noBackground}
       display={display}
       flexDirection={flexDirection}
+      isIOS={mediaIsTablet || mediaIsPhone}
     >
       {children}
     </Container>
@@ -52,4 +57,4 @@ PanelContainer.propTypes = {
   height: PropTypes.number,
 };
 
-export default PanelContainer;
+export default withMediaQueries(PanelContainer);

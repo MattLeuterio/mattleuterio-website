@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import theme from '../../ui/theme';
 
 export const Container = styled(motion.div)`
@@ -20,4 +20,15 @@ export const Container = styled(motion.div)`
   background: ${props => !props.noBackground ? props.theme === 'dark' ?
     `${theme.colors.darkTheme.panelBgContents}` : 
     `${theme.colors.lightTheme.panelBgContents}` : 'transparent'};
+    
+  ${({ isIOS }) => isIOS && css`
+    top: 0;
+    left: 0;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+    z-index: ${theme.zIndex.mobileActive} !important;
+  `}
 `;
