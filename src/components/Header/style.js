@@ -1,24 +1,6 @@
 import styled, { css } from 'styled-components';
 import theme from '../../ui/theme';
 
-export const Container = styled.div`
-  z-index: ${theme.zIndex.menus};
-  //background: rgba(79, 79, 79, 0.2);
-  position: relative;
-  height: 24px;
-  width: 100%;
-  display: flex;
-  justify-content: ${props => props.login ? 'flex-end' : 'space-between'};
-  align-items: center;
-  font-size: 10px;
-  font-weight: 700;
-  backdrop-filter: blur(65px);
-
-  @media ${theme.device.tablet} {
-    box-shadow: ${theme.utility.dropShadow};
-  }
-`;
-
 export const BackgroundBlur = styled.div`
   position: absolute;
   background: #8F8F8F;
@@ -174,4 +156,31 @@ export const LogoWrapper = styled.div`
   &:hover {
     background-color: #e1e1e129;
   }
+`;
+
+export const Container = styled.div`
+  z-index: ${theme.zIndex.menus};
+  //background: rgba(79, 79, 79, 0.2);
+  position: relative;
+  height: 24px;
+  width: 100%;
+  display: flex;
+  justify-content: ${props => props.login ? 'flex-end' : 'space-between'};
+  align-items: center;
+  font-size: 10px;
+  font-weight: 700;
+  backdrop-filter: blur(65px);
+    
+  @media ${theme.device.tablet} {
+    box-shadow: ${theme.utility.dropShadow};
+  }
+
+  ${({ isIOS }) => isIOS && css`
+    backdrop-filter: blur(0px);
+    
+    ${Name} {
+      margin-left: 0;
+      margin-right: 10px;
+    }
+  `}
 `;

@@ -17,11 +17,13 @@ export const Container = styled.div`
   background: rgba(0, 0, 0, 0.2);
   border-radius: 24px;
   width: calc(100% - 32px);
+  max-width: 343px;
 
-  @media ${theme.device.tablet} {
+  @media ${theme.device.tabletL} {
     border: 0.5px solid rgba(255, 255, 255, 0.2);
     width: fit-content;
     box-shadow: ${theme.utility.dropShadow};
+    max-width: fit-content;
   }
 `;
 

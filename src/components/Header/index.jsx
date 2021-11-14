@@ -16,13 +16,12 @@ import {
   Overlay,
   LogoWrapper,
 } from "./style";
-// using Moment.js
-import Clock from "react-live-clock";
+import Clock from "react-live-clock"; // using Moment.js
 import { withMediaQueries } from "../../hoc/withMediaQueries";
 import Inter from "../../ui/typography/inter";
 import { openPanel } from "../../features/panels/panelsSlice";
 
-const Header = ({ isLoginPage, mediaIsPhone }) => {
+const Header = ({ isLoginPage, mediaIsPhone, mediaIsTablet }) => {
   const dispatch = useDispatch();
   const [toggleOption, setToggleOption] = useState(false);
   // Get timezone from Visitor
@@ -44,9 +43,12 @@ const Header = ({ isLoginPage, mediaIsPhone }) => {
     document.location.reload();
   };
 
+  console.log('mediaIsPhone', mediaIsPhone);
+  console.log('mediaIsTablet', mediaIsTablet);
+
   return (
-    <Container login={isLoginPage}>
-      {!mediaIsPhone && <BackgroundBlur />}
+    <Container login={isLoginPage} isIOS={mediaIsPhone || mediaIsTablet}>
+      {(!mediaIsPhone && !mediaIsTablet) && <BackgroundBlur />}
       {!isLoginPage && (
         <>
           <LeftCtn>

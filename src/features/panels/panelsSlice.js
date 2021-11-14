@@ -6,7 +6,7 @@ export const panelsSlice = createSlice({
     panels: [
       {
         name: "development",
-        open: true,
+        open: false,
         active: false,
         minimize: false,
       },
