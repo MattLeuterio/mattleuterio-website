@@ -70,8 +70,8 @@ const Settings = ({
       onClickPanelContainer={() => onClickContainer()}
       active={active}
       theme={theme}
-      width={675}
-      height={381}
+      widthPan={675}
+      heightPan={381}
       top={150}
       right={50}
     >

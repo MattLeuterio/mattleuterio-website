@@ -58,9 +58,14 @@ const DevelopmentMobile = ({
 
   return (
     <PanelContainer
+      dragConstraintsRef={dragConstraints}
       onClickPanelContainer={() => onClickContainer()}
       active={active}
       theme={theme}
+      widthPan={900}
+      heightPan={650}
+      top={50}
+      right={150}
       noBackground
       display="block"
     >

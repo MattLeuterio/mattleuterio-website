@@ -66,8 +66,8 @@ const Profile = ({
       onClickPanelContainer={() => onClickContainer()}
       active={active}
       theme={theme}
-      width={580}
-      height={330}
+      widthPan={580}
+      heightPan={330}
       bottom={150}
       right={50}
       display="block"

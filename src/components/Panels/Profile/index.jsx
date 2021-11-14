@@ -21,7 +21,7 @@ import {
   SkillValue
 } from "./style";
 import { withMediaQueries } from "../../../hoc/withMediaQueries";
-import { Image, PanelContainer, PanelControls, SocialsList } from "../../../atoms";
+import { PanelContainer, PanelControls, SocialsList } from "../../../atoms";
 import {
   CardOutline as IconAbout,
   ShareSocial as IconSocials,
@@ -68,8 +68,8 @@ const Profile = ({
       onClickPanelContainer={() => onClickContainer()}
       active={active}
       theme={theme}
-      width={585}
-      height={610}
+      widthPan={585}
+      heightPan={610}
       top={100}
       left={50}
       noBackground

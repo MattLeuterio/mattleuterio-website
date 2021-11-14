@@ -62,8 +62,8 @@ const DevelopmentDesktop = ({
       onClickPanelContainer={() => onClickContainer()}
       active={active}
       theme={theme}
-      width={900}
-      height={650}
+      widthPan={900}
+      heightPan={650}
       top={50}
       right={150}
       noBackground

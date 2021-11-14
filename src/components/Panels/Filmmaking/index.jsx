@@ -57,19 +57,16 @@ const Filmmaking = ({
     setToggleMenu(false);
   };
 
-  console.log('listProjects', listProjects);
-  console.log('videoSelected', videoSelected);
-
   return (
     <PanelContainer
       dragConstraintsRef={dragConstraints}
       onClickPanelContainer={() => onClickContainer()}
       active={active}
       theme={theme}
-      width={950}
-      height={650}
+      widthPan={950}
+      heightPan={650}
       top={50}
-      left={150}
+      right={150}
       noBackground
       display="flex"
       flexDirection="column"

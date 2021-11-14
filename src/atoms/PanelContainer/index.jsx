@@ -9,8 +9,8 @@ const PanelContainer = ({
   children,
   active,
   theme,
-  width,
-  height,
+  widthPan,
+  heightPan,
   top,
   right,
   bottom,
@@ -22,7 +22,7 @@ const PanelContainer = ({
   mediaIsTablet,
   mediaIsPhone
 }) => {
-  console.log('width', width);
+  console.log('width', widthPan);
   return (
     <Container
       as={motion.div}
@@ -33,8 +33,8 @@ const PanelContainer = ({
       onClick={() => onClickPanelContainer()}
       active={active}
       theme={theme}
-      width={width}
-      height={height}
+      widthPan={widthPan}
+      heightPan={heightPan}
       top={top}
       right={right}
       bottom={bottom}

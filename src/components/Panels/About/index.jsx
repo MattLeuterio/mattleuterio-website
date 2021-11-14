@@ -39,8 +39,8 @@ const About = ({
       onClickPanelContainer={() => onClickContainer()}
       active={active}
       theme={theme}
-      width={600}
-      height={340}
+      widthPan={600}
+      heightPan={340}
       top={150}
       right={50}
     >
