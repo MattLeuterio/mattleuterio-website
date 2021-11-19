@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 import {
-  HeaderPanel,
-  Title,
   SidebarContainer,
   Main,
   Contents,
@@ -14,7 +12,7 @@ import {
   NoPanel
 } from "./style";
 import { withMediaQueries } from "../../../../hoc/withMediaQueries";
-import { Image, PanelContainer, PanelControls } from "../../../../atoms";
+import { Image, PanelContainer, HeaderPanel } from "../../../../atoms";
 import { DevelopmentContent } from "../../../";
 import VscDocumentIcon from "../../../../ui/assets/img/vsc-document.png";
 import VscNoPanel from "../../../../ui/assets/img/vsc-nopanel.svg";
@@ -26,12 +24,7 @@ import { useSelector } from "react-redux";
 import { selectDevelopmentContentType } from "../../../../features/development/developmentSlice";
 
 const DevelopmentDesktop = ({
-  mediaIsPhone,
-  onClickContainer,
-  onClose,
-  theme,
-  active,
-  dragConstraints,
+  actions: {onClickContainer, onClose, theme, active, dragConstraints}
 }) => {
   const devContentType = useSelector(selectDevelopmentContentType);
   const [listProjects, setListProjects] = useState([]);
@@ -69,10 +62,13 @@ const DevelopmentDesktop = ({
       noBackground
       display="block"
     >
-      <HeaderPanel theme={theme}>
-        <PanelControls onClickClose={(e) => onClose(e)} />
-        <Title>Development</Title>
-      </HeaderPanel>
+      <HeaderPanel
+        onClickClose={(e) => onClose(e)}
+        title="Development"
+        background="#292d3e"
+        color="#ccc"
+        hasColors
+      />
       <Main>
         <LeftContainer>
           <Image src={VscDocumentIcon} width="24px" />

@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
 import theme from '../../ui/theme';
+import LogoGray from "../../ui/assets/img/header-logo-gray.png";
+import LogoWhite from "../../ui/assets/img/header-logo-white.png";
 
 export const BackgroundBlur = styled.div`
   position: absolute;
@@ -44,6 +46,7 @@ export const Name = styled.h1`
   margin-left: 16px;
   margin-bottom: 4px;
   font-size: 14px;
+  color: ${props => props.isLight  ? '#454545' : '#E7E7E7'};
 `;
 
 export const Date = styled.nav`

@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 import {
-  HeaderPanel,
-  Title,
   SidebarContainer,
   Main,
   Contents,
@@ -21,7 +19,7 @@ import {
   SkillValue
 } from "./style";
 import { withMediaQueries } from "../../../hoc/withMediaQueries";
-import { PanelContainer, PanelControls, SocialsList } from "../../../atoms";
+import { PanelContainer, PanelControls, SocialsList, HeaderPanel } from "../../../atoms";
 import {
   CardOutline as IconAbout,
   ShareSocial as IconSocials,
@@ -92,9 +90,7 @@ const Profile = ({
         </MenuSections>
       </SidebarContainer>
       <Main theme={theme}>
-        <HeaderPanel theme={theme}>
-          <Title>Profile</Title>
-        </HeaderPanel>
+        <HeaderPanel theme={theme} onClickClose={(e) => onClose(e)} title="Profile" />
         <Contents>
           {section === "about" && (
             <>

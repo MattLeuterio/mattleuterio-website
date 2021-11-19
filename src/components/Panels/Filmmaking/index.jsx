@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 import {
-  HeaderPanel,
-  Title,
   Main,
   HeaderFilmmaking,
   InfoVideo,
@@ -22,7 +20,7 @@ import {
 import { getContent } from "../../../contentful";
 import ReactPlayer from 'react-player';
 import { withMediaQueries } from "../../../hoc/withMediaQueries";
-import { HamburgerMenu, Image, PanelContainer, PanelControls } from "../../../atoms";
+import { HamburgerMenu, Image, PanelContainer, HeaderPanel } from "../../../atoms";
 import {
   ShareSocial as IconSocials,
   Layers as IconSkills,
@@ -71,10 +69,7 @@ const Filmmaking = ({
       display="flex"
       flexDirection="column"
     >
-      <HeaderPanel theme={theme}>
-        <PanelControls onClickClose={(e) => onClose(e)} />
-        <Title>Filmmaking</Title>
-      </HeaderPanel>
+      <HeaderPanel theme={theme} onClickClose={(e) => onClose(e)} title="Filmmaking" />
       <HeaderFilmmaking theme={theme}>
         <HamburgerMenu
           onClick={() => setToggleMenu(!toggleMenu)}

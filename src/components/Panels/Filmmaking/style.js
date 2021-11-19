@@ -7,14 +7,13 @@ export const HeaderPanel = styled.div`
   display: flex;
   align-items: center;
   padding-left: 16px;
-  color: #ccc;
-  background-color: ${props => props.theme === 'dark' ?
-    `${theme.colors.darkTheme.panelBgContents}` : 
-    `${theme.colors.lightTheme.panelBgContents}`};;
   filter: drop-shadow(${theme.utility.dropShadow});
-  color: ${props => props.theme === 'dark' ?
+  background-color: ${props => props.theme ? props.theme === 'dark' ?
+    `${theme.colors.darkTheme.panelBgContents}` : 
+    `${theme.colors.lightTheme.panelBgContents}` : props.background};
+  color: ${props => props.theme ? props.theme === 'dark' ?
     `${theme.colors.darkTheme.lightText}` :
-    `${theme.colors.lightTheme.darkText}`};;
+    `${theme.colors.lightTheme.darkText}` : props.color};
 `;
 
 export const Title = styled.h4`

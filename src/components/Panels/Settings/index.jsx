@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 
 import {
   Contents,
-  HeaderPanel,
-  Title,
   Section,
   Label,
   Content,
@@ -14,7 +12,7 @@ import {
   Background,
 } from "./style";
 import { withMediaQueries } from "../../../hoc/withMediaQueries";
-import { PanelContainer, PanelControls } from "../../../atoms";
+import { PanelContainer, HeaderPanel } from "../../../atoms";
 import { backgroundChoice } from "../../../utils";
 
 const Settings = ({
@@ -75,10 +73,7 @@ const Settings = ({
       top={150}
       right={50}
     >
-      <HeaderPanel theme={theme}>
-        <PanelControls onClickClose={(e) => onClose(e)} />
-        <Title>Website Preferences</Title>
-      </HeaderPanel>
+      <HeaderPanel theme={theme} onClickClose={(e) => onClose(e)} title="Website Preferences" />
       <Contents theme={theme}>
         <Section>
           <Label>Theme</Label>

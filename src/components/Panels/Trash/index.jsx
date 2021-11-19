@@ -2,14 +2,12 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 import {
-  HeaderPanel,
-  Title,
   Contents,
   Element,
   ElementName
 } from "./style";
 import { withMediaQueries } from "../../../hoc/withMediaQueries";
-import { Image, PanelContainer, PanelControls } from "../../../atoms";
+import { Image, PanelContainer, HeaderPanel } from "../../../atoms";
 import {
   IconAndroid,
   IconPHP,
@@ -72,10 +70,7 @@ const Profile = ({
       right={50}
       display="block"
     >
-      <HeaderPanel theme={theme}>
-        <PanelControls onClickClose={(e) => onClose(e)} />
-        <Title>Trash</Title>
-      </HeaderPanel>
+      <HeaderPanel theme={theme} onClickClose={(e) => onClose(e)} title="Trash" />
       <Contents>
         {trashElement.map(element => (
           <Element key={element.name}>

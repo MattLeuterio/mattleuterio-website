@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { useDispatch } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 import { Image, SocialsList } from "../../atoms";
-import Logo from "../../ui/assets/img/header-logo-white.png";
+import LogoWhite from "../../ui/assets/img/header-logo-white.png";
+import LogoGray from "../../ui/assets/img/header-logo-gray.png";
 import {
   BackgroundBlur,
   Container,
@@ -19,10 +20,11 @@ import {
 import Clock from "react-live-clock"; // using Moment.js
 import { withMediaQueries } from "../../hoc/withMediaQueries";
 import Inter from "../../ui/typography/inter";
-import { openPanel } from "../../features/panels/panelsSlice";
+import {openPanel, selectPanels} from "../../features/panels/panelsSlice";
 
-const Header = ({ isLoginPage, mediaIsPhone, mediaIsTablet }) => {
+const Header = ({ isLoginPage, mediaIsPhone, mediaIsTablet, theme }) => {
   const dispatch = useDispatch();
+  const panels = useSelector(selectPanels);
   const [toggleOption, setToggleOption] = useState(false);
   // Get timezone from Visitor
   const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -43,9 +45,6 @@ const Header = ({ isLoginPage, mediaIsPhone, mediaIsTablet }) => {
     document.location.reload();
   };
 
-  console.log('mediaIsPhone', mediaIsPhone);
-  console.log('mediaIsTablet', mediaIsTablet);
-
   return (
     <Container login={isLoginPage} isIOS={mediaIsPhone || mediaIsTablet}>
       {(!mediaIsPhone && !mediaIsTablet) && <BackgroundBlur />}
@@ -54,12 +53,16 @@ const Header = ({ isLoginPage, mediaIsPhone, mediaIsTablet }) => {
           <LeftCtn>
             <LogoWrapper open={toggleOption}>
               <Image
-                src={Logo}
+                src={
+                  theme === 'light' && Boolean(panels.find(el => el.open && el.name != 'development'))
+                  && (mediaIsPhone || mediaIsTablet) ? LogoGray : LogoWhite
+                }
                 width="24px"
                 onClick={() => setToggleOption(!toggleOption)}
               />
             </LogoWrapper>
-            <Name>Matt Leuterio</Name>
+            <Name isLight={theme === 'light' && Boolean(panels.find(el => el.open && el.name != 'development'))
+            && (mediaIsPhone || mediaIsTablet)}>Matt Leuterio</Name>
           </LeftCtn>
           {toggleOption && (
             <>

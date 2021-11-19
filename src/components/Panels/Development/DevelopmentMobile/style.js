@@ -9,7 +9,6 @@ export const HeaderPanel = styled.div`
   padding-left: 16px;
   color: #ccc;
   background-color: #292D3E;
-  filter: drop-shadow(${theme.utility.dropShadow});
 `;
 
 export const Title = styled.h4`

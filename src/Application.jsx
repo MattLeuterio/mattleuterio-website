@@ -153,7 +153,7 @@ function Application() {
           background={backgroundChoice(theme, background)}
           theme={theme}
         >
-          <Header />
+          <Header theme={theme} />
           <Welcome>Welcome, {client}</Welcome>
 
           {/* SETTINGS PANEL */}

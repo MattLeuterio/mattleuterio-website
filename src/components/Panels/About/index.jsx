@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 
 import {
   Contents,
-  HeaderPanel,
   ImageWrapper,
   InfoWrapper,
   ProfileImg,
@@ -12,7 +11,7 @@ import {
   Title,
 } from "./style";
 import { withMediaQueries } from "../../../hoc/withMediaQueries";
-import { PanelContainer, PanelControls } from "../../../atoms";
+import { PanelContainer, HeaderPanel } from "../../../atoms";
 import { Image } from "../../../atoms";
 import Logo from "../../../ui/assets/img/logo.png";
 import Inter from "../../../ui/typography/inter";
@@ -44,9 +43,7 @@ const About = ({
       top={150}
       right={50}
     >
-      <HeaderPanel theme={theme}>
-        <PanelControls onClickClose={(e) => onClose(e)} />
-      </HeaderPanel>
+      <HeaderPanel theme={theme} onClickClose={(e) => onClose(e)} title="About" />
       <Contents theme={theme}>
         <ImageWrapper>
           <ProfileImg themeSelected={theme}>

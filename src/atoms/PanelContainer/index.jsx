@@ -22,7 +22,6 @@ const PanelContainer = ({
   mediaIsTablet,
   mediaIsPhone
 }) => {
-  console.log('width', widthPan);
   return (
     <Container
       as={motion.div}

@@ -4,6 +4,7 @@ import SocialsList from './SocialsList';
 import HamburgerMenu from './HamburgerMenu';
 import PanelControls from './PanelControls';
 import PanelContainer from './PanelContainer';
+import HeaderPanel from './HeaderPanel';
 
 export {
   HelmetMeta,
@@ -11,5 +12,6 @@ export {
   PanelControls,
   PanelContainer,
   SocialsList,
-  HamburgerMenu
+  HamburgerMenu,
+  HeaderPanel
 };
