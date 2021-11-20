@@ -41,7 +41,7 @@ export const AppsContainer = styled.div`
   padding: 20px;
 
   @media ${theme.device.mobileL} {
-    & > *:first-child {
+    & > *:not(:last-child) {
       margin-right: 20px;
     }
   }
