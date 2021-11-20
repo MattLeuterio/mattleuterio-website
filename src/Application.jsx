@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 import {
-  App,
-  Welcome
+  App, AppsContainer,
+  Welcome, IconApp
 } from "./appStyles";
 import { backgroundChoice } from "./utils";
 import { Login } from "./pages";
@@ -18,8 +18,11 @@ import {
   selectPanels,
   setPanelActive,
 } from "./features/panels/panelsSlice";
+import {withMediaQueries} from "./hoc/withMediaQueries";
+import {Image} from "./atoms";
+import {IconMail, IconNote} from "./ui/assets/img/icons";
 
-function Application() {
+function Application({ mediaIsPhone, mediaIsTablet }) {
   const dispatch = useDispatch();
   const panels = useSelector(selectPanels);
   const [theme, setTheme] = useState("");
@@ -89,6 +92,7 @@ function Application() {
   };
 
   const handleOnClickApp = (app) => {
+    console.log('app', app);
     dispatch(openPanel(app));
   };
 
@@ -155,6 +159,23 @@ function Application() {
         >
           <Header theme={theme} />
           <Welcome>Welcome, {client}</Welcome>
+
+          {/* Mobile */}
+          {(mediaIsPhone || mediaIsTablet) && (
+              <AppsContainer>
+                <a href="matteoleuterio@gmail.com">
+                  <IconApp name="Mail">
+                    <Image src={IconMail} width="60px" />
+                  </IconApp>
+                </a>
+                <IconApp
+                    onClick={() => handleOnClickApp('profile')}
+                    name="Profile"
+                >
+                  <Image src={IconNote} width="60px" />
+                </IconApp>
+              </AppsContainer>
+          )}
 
           {/* SETTINGS PANEL */}
           {panels?.find((panel) => panel.name === "settings").open && (
@@ -232,7 +253,7 @@ function Application() {
             />
           )}
 
-          {/* Dock -> fixed */}
+          {/* Dock -> position fixed */}
           <Dock onClickApp={(app) => handleOnClickApp(app)} />
         </App>
       ) : (
@@ -249,4 +270,4 @@ function Application() {
   );
 }
 
-export default Application;
+export default withMediaQueries(Application);

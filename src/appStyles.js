@@ -35,3 +35,30 @@ export const Welcome = styled.div`
     background: transparent;
   }
 `;
+
+export const AppsContainer = styled.div`
+  display: flex;
+  padding: 20px;
+
+  @media ${theme.device.mobileL} {
+    & > *:first-child {
+      margin-right: 20px;
+    }
+  }
+`;
+
+export const IconApp = styled.div`
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s;
+  
+  &::before {
+    content: '${props => `${props.name}`}';
+    position: absolute;
+    font-size: 13px;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+`;
+
