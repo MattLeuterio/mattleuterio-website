@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 import {
@@ -17,20 +17,14 @@ import {
   PlayerContainer,
   Overlay
 } from "./style";
-import { getContent } from "../../../../contentful";
 import ReactPlayer from 'react-player';
 import { withMediaQueries } from "../../../../hoc/withMediaQueries";
 import { HamburgerMenu, Image, PanelContainer, HeaderPanel } from "../../../../atoms";
-import {
-  ShareSocial as IconSocials,
-  Layers as IconSkills,
-} from "react-ionicons";
 import LogoYoutubeDark from '../../../../ui/assets/img/youtube-logo-dark.png';
 import LogoYoutubeLight from '../../../../ui/assets/img/youtube-logo-light.png';
 import Inter from "../../../../ui/typography/inter";
 
 const FilmmakingDesktop = ({
-  mediaIsPhone,
   actions: {
     onClickContainer, onClose, theme,
     active, dragConstraints, onClickMenuProject,

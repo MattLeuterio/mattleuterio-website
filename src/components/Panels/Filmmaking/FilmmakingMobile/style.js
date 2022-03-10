@@ -23,9 +23,10 @@ export const Title = styled.h4`
 `;
 
 export const HeaderFilmmaking = styled.div`
-  height: 50px;  
   width: 100%;
   display: flex;
+  padding-top: 24px;
+  z-index: 2;
   background: ${props => props.theme === 'dark' ?
     `${theme.colors.darkTheme.panelBgContents}` : 
     `${theme.colors.lightTheme.panelBgContents}`};
@@ -73,17 +74,18 @@ export const PlayerContainer = styled.div`
 
 export const MenuVideo = styled.div`
   position: absolute;
-  bottom: 0;
+  top: 74px;
   left: 0;
-  width: 230px;
-  transform: ${props => props.open ? 'translateX(0)' : 'translateX(-100%)'};
-  height: calc(100% - 75px);
+  width: 100%;
+  transform: ${props => props.open ? 'translateY(0)' : 'translateY(-100%)'};
+  height: fit-content;
   background: ${props => props.theme === 'dark' ?
     `${theme.colors.darkTheme.panelBgContents}` : 
     `${theme.colors.lightTheme.panelBgContents}`};
   transition: all .4s ease-in-out;
   filter: drop-shadow(2px 13px 6px rgba(0, 0, 0, 0.35));
   overflow: hidden;
+  z-index: 1;
 
   > div:not(:last-child) {
     border-bottom: ${props => props.theme === 'dark' ? '1px solid #2b2b2e' : '1px solid #d7d7d7'};
@@ -102,9 +104,9 @@ export const MenuProject = styled.div`
 
 export const InfoVideoContainer = styled.div`
   width: 100%;
-  height: 35%;
   padding: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   background: ${props => props.theme === 'dark' ?
     `${theme.colors.darkTheme.panelBgContents}` : 
@@ -115,7 +117,6 @@ export const InfoVideoContainer = styled.div`
 `;
 
 export const InfoVideo = styled.div`
-  width: 40%;
   height: 100%;
 `;
 
@@ -131,13 +132,12 @@ export const InfoDescription = styled.div`
 `;
 
 export const Gears = styled.div`
-  width: 27%;
   height: 100%;
 `;
 
 export const Links = styled.div`
-  width: 27%;
   height: 100%;
+  margin-top: 15px;
 `;
 
 export const ExternalLinks = styled.a`
