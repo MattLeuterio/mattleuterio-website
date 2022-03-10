@@ -12,7 +12,7 @@ import {
   NoPanel
 } from "./style";
 import { withMediaQueries } from "../../../../hoc/withMediaQueries";
-import { Image, PanelContainer, HeaderPanel } from "../../../../atoms";
+import { Image, PanelContainer } from "../../../../atoms";
 import { DevelopmentContent } from "../../../";
 import VscDocumentIcon from "../../../../ui/assets/img/vsc-document.png";
 import VscNoPanel from "../../../../ui/assets/img/vsc-nopanel.svg";
@@ -62,12 +62,6 @@ const DevelopmentMobile = ({
       noBackground
       display="block"
     >
-      <HeaderPanel
-        title="Development"
-        background="#292d3e"
-        color="#ccc"
-        hasColors
-      />
       <Main>
         <LeftContainer>
           <Image src={VscDocumentIcon} width="24px" />

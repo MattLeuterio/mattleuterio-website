@@ -73,7 +73,7 @@ const Settings = ({
       top={150}
       right={50}
     >
-      <HeaderPanel theme={theme} onClickClose={(e) => onClose(e)} title="Website Preferences" />
+      <HeaderPanel theme={theme} onClickClose={(e) => onClose(e)} title="Preferences" />
       <Contents theme={theme}>
         <Section>
           <Label>Theme</Label>

@@ -11,12 +11,8 @@ const HeaderPanel = ({
 
   return (
     <Container hasColors={hasColors} theme={theme} color={color} background={background}>
-      {(!mediaIsPhone && !mediaIsTablet) && (
-        <>
-          {title !== 'Profile' && <PanelControls onClickClose={onClickClose} />}
-          <Title>{title}</Title>
-        </>
-      )}
+      {(!mediaIsPhone && !mediaIsTablet) && title !== 'Profile' && <PanelControls onClickClose={onClickClose} />}
+      <Title>{title}</Title>
     </Container>
   );
 };

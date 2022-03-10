@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import theme from '../../../ui/theme';
+import theme from '../../../../ui/theme';
 
 export const HeaderPanel = styled.div`
   width: 100%;
@@ -102,6 +102,7 @@ export const MenuProject = styled.div`
 
 export const InfoVideoContainer = styled.div`
   width: 100%;
+  height: 35%;
   padding: 20px;
   display: flex;
   justify-content: space-between;
