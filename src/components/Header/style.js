@@ -180,6 +180,7 @@ export const Container = styled.div`
 
   ${({ isIOS }) => isIOS && css`
     backdrop-filter: blur(0px);
+    pointer-events: none;
     
     ${Name} {
       margin-left: 0;

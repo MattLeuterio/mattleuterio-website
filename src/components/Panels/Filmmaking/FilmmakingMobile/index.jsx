@@ -15,16 +15,16 @@ import {
   InfoDescription,
   ExternalLinks,
   PlayerContainer,
-  Overlay
+  Overlay,
 } from "./style";
 import ReactPlayer from 'react-player';
 import { withMediaQueries } from "../../../../hoc/withMediaQueries";
-import { HamburgerMenu, Image, PanelContainer } from "../../../../atoms";
+import {ClosePanelMobile, HamburgerMenu, Image, PanelContainer} from "../../../../atoms";
 import LogoYoutubeDark from '../../../../ui/assets/img/youtube-logo-dark.png';
 import LogoYoutubeLight from '../../../../ui/assets/img/youtube-logo-light.png';
 import Inter from "../../../../ui/typography/inter";
 
-const FilmmakingDesktop = ({
+const FilmmakingMobile = ({
  actions: {
    onClickContainer, theme,
    active, dragConstraints, onClickMenuProject,
@@ -32,7 +32,6 @@ const FilmmakingDesktop = ({
    setToggleMenu
  }
 }) => {
-
   return (
       <PanelContainer
           dragConstraintsRef={dragConstraints}
@@ -117,13 +116,17 @@ const FilmmakingDesktop = ({
               </MenuProject>
           ))}
         </MenuVideo>
-
+        {/* Close Panel */}
+        <ClosePanelMobile
+            theme={theme}
+            appSelected='filmmaking'
+        />
       </PanelContainer>
   );
 };
 
-FilmmakingDesktop.propTypes = {
+FilmmakingMobile.propTypes = {
   theme: PropTypes.string,
 };
 
-export default withMediaQueries(FilmmakingDesktop);
+export default withMediaQueries(FilmmakingMobile);
