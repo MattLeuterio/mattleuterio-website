@@ -61,6 +61,10 @@ const types = {
   filmmakingInfoTitle: {
     fontSize: 18,
     fontWeight: 700
+  },
+  settingsInfoName: {
+    fontSize: 28,
+    fontWeight: 600
   }
 }  
 

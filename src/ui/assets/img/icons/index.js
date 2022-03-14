@@ -5,7 +5,9 @@ import IconTrash from './icon-trash.png';
 import IconVSC from './icon-vsc.png';
 import IconYoutube from './icon-youtube.png';
 import IconThemeLight from './icon-theme-light.png';
+import IconThemeLightMob from './icon-theme-light-mob.png';
 import IconThemeDark from './icon-theme-dark.png';
+import IconThemeDarkMob from './icon-theme-dark-mob.png';
 import IconAndroid from './android.png';
 import IconComicSans from './comic-sans.png';
 import IconJquery from './jquery.png';
@@ -20,7 +22,9 @@ export {
   IconVSC,
   IconYoutube,
   IconThemeLight,
+  IconThemeLightMob,
   IconThemeDark,
+  IconThemeDarkMob,
   IconAndroid,
   IconPHP,
   IconJquery,
