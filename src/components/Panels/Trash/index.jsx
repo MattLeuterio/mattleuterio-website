@@ -7,7 +7,7 @@ import {
   ElementName
 } from "./style";
 import { withMediaQueries } from "../../../hoc/withMediaQueries";
-import { Image, PanelContainer, HeaderPanel } from "../../../atoms";
+import {Image, PanelContainer, HeaderPanel, ClosePanelMobile} from "../../../atoms";
 import {
   IconAndroid,
   IconPHP,
@@ -21,6 +21,7 @@ import { getContent } from "../../../contentful";
 
 const Profile = ({
   mediaIsPhone,
+  mediaIsTablet,
   onClickContainer,
   onClose,
   theme,
@@ -79,6 +80,12 @@ const Profile = ({
           </Element>
         ))}
       </Contents>
+      {(mediaIsPhone || mediaIsTablet) && (
+          <ClosePanelMobile
+              theme={theme}
+              appSelected='trash'
+          />
+      )}
     </PanelContainer>
   );
 };
