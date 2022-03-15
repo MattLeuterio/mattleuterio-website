@@ -109,7 +109,7 @@ export const MenuSection = styled.div`
     height: 1px;
     background: ${props => props.theme === 'dark' ?
         `#3A3A3C` :
-        `${theme.colors.lightTheme.darkText}`};
+        `#E0E0E0`};
   }
 
   &:nth-child(2)::after {
