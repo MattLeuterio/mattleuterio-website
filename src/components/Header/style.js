@@ -25,7 +25,7 @@ export const LeftCtn = styled.div`
     cursor: pointer;
   }
   
-  @media ${theme.device.tablet} {
+  @media ${theme.device.tabletL} {
     width: fit-content;
     margin-left: 20px;
   }
@@ -35,7 +35,7 @@ export const RightCtn = styled.div`
   display: none;
   margin-right: 10px;
 
-  @media ${theme.device.tablet} {
+  @media ${theme.device.tabletL} {
     margin-right: 20px;
     display: flex;
   }
@@ -174,7 +174,7 @@ export const Container = styled.div`
   font-weight: 700;
   backdrop-filter: blur(65px);
     
-  @media ${theme.device.tablet} {
+  @media ${theme.device.tabletL} {
     box-shadow: ${theme.utility.dropShadow};
   }
 

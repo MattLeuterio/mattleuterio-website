@@ -17,15 +17,44 @@ export const LoginWrapper = styled.div`
   width: 100%;
   height: calc(100% - ${HeaderHeight}px);
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+  
+  @media ${theme.device.tabletL} {
+    justify-content: center;
+  }
 `;
 export const ProfileImg = styled.div`
   position: relative;
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: 20px;
+`;
+
+export const DateTimeWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10%;
+  margin-bottom: 40%;
+`;
+export const DateTime = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 16px;
+  
+  > time:first-child {
+    font-size: 83px;
+    font-weight: 200;
+    line-height: 1;
+  }
+  
+  > time:last-child {
+    font-size: 22px;
+    font-weight: 400;
+  }
 `;
 
 export const InputWrapper = styled.div`
@@ -44,7 +73,7 @@ export const InputWrapper = styled.div`
 
 export const NameInput = styled.input`
   position: relative;
-  width: 162px;
+  width: 212px;
   height: 28px;
   padding: 0px 12px;
   padding-right: 30px;
@@ -57,6 +86,9 @@ export const NameInput = styled.input`
   `${theme.colors.darkTheme.lightText}` : 
   `${theme.colors.lightTheme.darkText}`};
 
+  @media ${theme.device.tabletL} {
+    width: 162px;
+  }
   
   &:focus {
     outline: none;

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import theme from '../../../ui/theme';
-import { IconThemeDark, IconThemeLight } from "../../../ui/assets/img/icons";
+import theme from '../../../../ui/theme';
 
 export const HeaderPanel = styled.div`
   width: 100%;
@@ -21,11 +20,27 @@ export const Title = styled.h4`
 `
 ;
 
-export const SidebarContainer = styled.div`
+export const BackPanel = styled.div`
+  padding-left: 16px;
+  margin-top: 82px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 125px;
+`;
+
+export const MenuContainer = styled.div`
   position: relative;
-  width: 156px;
+  width: 100%;
+  min-width: 100%;
   height: 100%;
-  background: ${theme.colors.darkTheme.panelBgSidebar};
+  transform: ${props => props.isActive 
+      ? 'translateX(0)' 
+      : 'translateX(-100%)'};
+  background: ${props => props.theme === 'dark' ?
+      `${theme.colors.darkTheme.panelBgContents}` :
+      `${theme.colors.lightTheme.panelBgContents}`};
+  transition: all 0.5s;
 
   & > div:first-child {
     padding: 20px;
@@ -33,10 +48,12 @@ export const SidebarContainer = styled.div`
 `;
 
 export const TitleMenu = styled.h4`
-  font-size: 12px;
-  font-weight: 600;
-  padding: 20px 10px;
-  padding-bottom: 10px;
+  font-size: 32px;
+  font-weight: 500;
+  padding: 20px 0 10px 32px;
+  color: ${props => props.theme === 'dark' ?
+      `${theme.colors.darkTheme.lightText}` :
+      `${theme.colors.lightTheme.darkText}`};
 `;
 
 export const MenuSections = styled.div`
@@ -46,21 +63,65 @@ export const MenuSections = styled.div`
   align-items: center;
 `;
 
+export const TitleMenuSection = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  > span {
+    line-height: 0.5;
+  }
+`;
+
 export const MenuSection = styled.div`
+  position: relative;
   cursor: pointer;
   width: 92%;
-  height: 20px;
-  border-radius: 3px;
+  height: 35px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding-left: 10px;
-  background-color: ${props => props.active ? 
-  `${theme.colors.global.disableControlPanel}` : 'transparent'};
+  background: ${props => props.theme === 'dark' ?
+      `${theme.colors.darkTheme.panelBgHeader}` :
+      `${theme.colors.lightTheme.panelBgHeader}`};
 
   & > span {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  
+  & > div:last-child {
+    margin-right: 16px;
+  }
+  
+  &:first-child {
+    border-radius: 10px 10px 0 0;
+  }
+  
+  &:nth-child(2)::after,
+  &:nth-child(2)::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: calc(100% - 35px);
+    height: 1px;
+    background: ${props => props.theme === 'dark' ?
+        `#3A3A3C` :
+        `${theme.colors.lightTheme.darkText}`};
+  }
+
+  &:nth-child(2)::after {
+    bottom: 0;
+  }
+  
+  &:nth-child(2)::before {
+    top: 0;
+  }
+  
+  &:last-child {
+    border-radius: 0 0 10px 10px;
   }
 `;
 
@@ -69,6 +130,9 @@ export const TitleSection = styled.div`
   font-weight: 500;
   text-transform: capitalize;
   margin-left: 8px;
+  color: ${props => props.theme === 'dark' ?
+      `${theme.colors.darkTheme.lightText}` :
+      `${theme.colors.lightTheme.darkText}`};
 `;
 
 export const TitleSectionContents = styled.div`
@@ -80,11 +144,16 @@ export const TitleSectionContents = styled.div`
 `;
 
 export const Main = styled.div`
-  width: calc(100% - 156px);
+  width: 100%;
+  min-width: 100%;
   height: 100%;
+  transform: ${props => props.isActive
+      ? 'translateX(-100%)'
+      : 'translateX(0)'};
   background: ${props => props.theme === 'dark' ?
     `${theme.colors.darkTheme.panelBgContents}` : 
     `${theme.colors.lightTheme.panelBgContents}`};
+  transition: all 0.5s;
 `;
 
 export const Contents = styled.div`

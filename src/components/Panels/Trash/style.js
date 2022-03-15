@@ -15,7 +15,7 @@ export const HeaderPanel = styled.div`
   `${theme.colors.lightTheme.panelBgHeader}`};
   background-color: ${props => props.theme.colors.primary.gray};
 
-  @media ${theme.device.tablet} {
+  @media ${theme.device.tabletL} {
     background-color: transparent;
     flex-wrap: nowrap;
   }
@@ -37,12 +37,12 @@ export const Contents = styled.div`
   & > div:not(:last-child) {
     margin-right: 70px;
 
-    @media ${theme.device.tablet} {
+    @media ${theme.device.tabletL} {
       margin-right: 30px;
     }
   }
 
-  @media ${theme.device.tablet} {
+  @media ${theme.device.tabletL} {
     flex-wrap: nowrap;
   }
   
@@ -55,7 +55,7 @@ export const Element = styled.div`
   align-items: center;
   margin-bottom: 20px;
   
-  @media ${theme.device.tablet} {
+  @media ${theme.device.tabletL} {
     margin-bottom: 0;
   }
 `;

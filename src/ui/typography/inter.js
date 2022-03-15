@@ -44,6 +44,11 @@ const types = {
     fontSize: 21,
     textAlign: 'center',
   },
+  loginHelloMobile: {
+    fontSize: 32,
+    fontWeight: 500,
+    textAlign: 'center',
+  },
   vscNoPanelTitle: {
     fontSize: 24,
     textAlign: 'center',
@@ -65,6 +70,10 @@ const types = {
   settingsInfoName: {
     fontSize: 28,
     fontWeight: 600
+  },
+  profileBackPanel: {
+    fontSize: 22,
+    color: '#FFBB2E'
   }
 }  
 

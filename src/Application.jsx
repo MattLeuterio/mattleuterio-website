@@ -211,6 +211,7 @@ function Application({ mediaIsPhone, mediaIsTablet }) {
               theme={theme}
               dragConstraints={constraintsRef}
               active={panels?.find((panel) => panel.name === "profile").active}
+              open={panels?.find((panel) => panel.name === "profile").open}
               onClickContainer={() => handleOnClickCtnPanel("profile")}
               onClose={(e) => handleOnClosePanel(e, "profile")}
             />

@@ -14,7 +14,7 @@ export const Container = styled.div`
           `${theme.colors.darkTheme.lightText}` :
           `${theme.colors.lightTheme.darkText}` : props.color};
 
-  @media ${theme.device.tablet} {
+  @media ${theme.device.tabletL} {
     filter: drop-shadow(${theme.utility.dropShadow});
     height: 28px;
     margin-top: 0;
@@ -25,7 +25,7 @@ export const Title = styled.h4`
   font-size: 48px;
   font-weight: 600;
 
-  @media ${theme.device.tablet} {
+  @media ${theme.device.tabletL} {
     font-size: 14px;
     margin: auto;
   }

@@ -13,6 +13,9 @@ import IconComicSans from './comic-sans.png';
 import IconJquery from './jquery.png';
 import IconPHP from './php.png';
 import IconWindows from './windows.png';
+import IconLock from './icon-lock.png';
+import IconArrowYellow from './icon-arrow-yellow.png';
+import IconArrowGray from './icon-arrow-gray.png';
 
 export {
   IconMail,
@@ -29,5 +32,8 @@ export {
   IconPHP,
   IconJquery,
   IconWindows,
-  IconComicSans
+  IconComicSans,
+  IconLock,
+  IconArrowYellow,
+  IconArrowGray
 }

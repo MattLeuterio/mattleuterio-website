@@ -48,7 +48,6 @@ const Header = ({ isLoginPage, mediaIsPhone, mediaIsTablet, theme }) => {
   return (
     <Container login={isLoginPage} isIOS={mediaIsPhone || mediaIsTablet}>
       {(!mediaIsPhone && !mediaIsTablet) && <BackgroundBlur />}
-      {!isLoginPage && (
         <>
           <LeftCtn>
             <LogoWrapper open={toggleOption}>
@@ -93,7 +92,6 @@ const Header = ({ isLoginPage, mediaIsPhone, mediaIsTablet, theme }) => {
             </>
           )}
         </>
-      )}
       <RightCtn>
         <SocialsList />
         <Date>

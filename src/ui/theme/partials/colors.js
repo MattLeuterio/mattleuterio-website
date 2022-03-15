@@ -18,7 +18,7 @@ const colors = {
     lightText: '#E7E7E7',
     panelBgContents: '#1C1C1E',
     panelBgSidebar: 'rgba(40, 40, 40, 0.8)',
-    panelBgHeader: '#282828'
+    panelBgHeader: '#282828',
   },
   gradients: {
     primary: 'linear-gradient(180deg, #3969F6 0%, #B740F0 100%)',

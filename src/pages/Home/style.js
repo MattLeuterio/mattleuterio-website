@@ -15,7 +15,7 @@ export const Hello = styled.h2`
   justify-content: center;
   align-items: center;
   
-  @media ${theme.device.tablet} {
+  @media ${theme.device.tabletL} {
     font-size: 100px;
   }
 `;
