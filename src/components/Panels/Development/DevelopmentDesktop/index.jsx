@@ -24,30 +24,23 @@ import { useSelector } from "react-redux";
 import { selectDevelopmentContentType } from "../../../../features/development/developmentSlice";
 
 const DevelopmentDesktop = ({
-  actions: {onClickContainer, onClose, theme, active, dragConstraints}
+  actions: {
+    onClickContainer,
+    onClose,
+    theme,
+    active,
+    dragConstraints,
+    devContentType,
+    listProjects,
+    setListProjects,
+    typeContents,
+    setTypeContents,
+    content,
+    setContent,
+    handleOnSetContents,
+    handleOnClosePanelContent
+  }
 }) => {
-  const devContentType = useSelector(selectDevelopmentContentType);
-  const [listProjects, setListProjects] = useState([]);
-  const [typeContents, setTypeContents] = useState("");
-  const [content, setContent] = useState({});
-
-  useEffect(() => {
-    getContent("development", setListProjects);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-  useEffect(() => {
-    setTypeContents(devContentType);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [devContentType]);
-
-  const handleOnSetContents = (proj) => {
-    setContent(proj);
-  };
-
-  const handleOnClosePanelContent = () => {
-    setTypeContents("");
-    setContent({});
-  };
 
   return (
     <PanelContainer

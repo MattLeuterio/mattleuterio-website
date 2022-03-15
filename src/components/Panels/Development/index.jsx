@@ -1,8 +1,11 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import PropTypes from "prop-types";
 import { withMediaQueries } from "../../../hoc/withMediaQueries";
 import DevelopmentDesktop from "./DevelopmentDesktop";
 import DevelopmentMobile from "./DevelopmentMobile";
+import {useSelector} from "react-redux";
+import {selectDevelopmentContentType} from "../../../features/development/developmentSlice";
+import {getContent} from "../../../contentful";
 
 const Development = ({
     mediaIsPhone,
@@ -13,14 +16,45 @@ const Development = ({
     active,
     dragConstraints,
 }) => {
+    const devContentType = useSelector(selectDevelopmentContentType);
+    const [listProjects, setListProjects] = useState([]);
+    const [typeContents, setTypeContents] = useState("");
+    const [content, setContent] = useState({});
 
-  const actions = {
+    useEffect(() => {
+        getContent("development", setListProjects);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+    useEffect(() => {
+        setTypeContents(devContentType);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [devContentType]);
+
+    const handleOnSetContents = (proj) => {
+        setContent(proj);
+    };
+
+    const handleOnClosePanelContent = () => {
+        setTypeContents("");
+        setContent({});
+    };
+
+    const actions = {
     onClickContainer,
     onClose,
     theme,
     active,
-    dragConstraints
-  }
+    dragConstraints,
+    devContentType,
+    listProjects,
+    setListProjects,
+    typeContents,
+    setTypeContents,
+    content,
+    setContent,
+    handleOnSetContents,
+    handleOnClosePanelContent
+    }
 
   if (mediaIsPhone || mediaIsTablet) {
     return (

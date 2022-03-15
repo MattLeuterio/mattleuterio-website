@@ -51,12 +51,16 @@ export const Title = styled.div`
     height: 20px;
     width: 20px;
     border-radius: 3px;
-    display: none;
-    transform: translateY(-50%);
+    transform: translateY(-37%);
 
     &:hover {
       cursor: pointer;
       background-color: #444444;
+    }
+    
+    @media ${theme.device.tabletL} {
+      display: none;
+      transform: translateY(-50%)
     }
   }
 

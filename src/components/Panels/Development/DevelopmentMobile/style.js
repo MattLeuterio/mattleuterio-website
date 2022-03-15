@@ -18,15 +18,17 @@ export const Title = styled.h4`
 `;
 
 export const Main = styled.div`
-  height: calc(100% - 50px);  
+  height: 100%;  
   width: 100%;
   display: flex;
+  flex-direction: column;
   flex-wrap: nowrap;
 `;
 
 export const SidebarContainer = styled.div`
-  width: 220px;
-  height: 100%;
+  width: 100%;
+  min-height: 40%;
+  max-height: 40%;
   background-color: #292D3E;
 `;
 
@@ -47,11 +49,12 @@ export const LeftContainer = styled.div`
 `;
 
 export const TitleMenu = styled.div`
-  font-size: 11px;
+  font-size: 22px;
   font-weight: 500;
   width: 100%;
-  height: 36px;
+  height: 100px;
   padding-left: 20px;
+  padding-top: 66px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #3C3C3C;
@@ -60,13 +63,17 @@ export const TitleMenu = styled.div`
 export const MenuSections = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  height: calc(100% - 100px);
+  overflow-y: auto;
+  padding-bottom: 16px;
 `;
 
 export const Contents = styled.div`
   width: 100%;
-  height: 100%;
+  min-height: 60%;
+  max-height: 60%;
   background-color: #292d3e;
 `;
 
