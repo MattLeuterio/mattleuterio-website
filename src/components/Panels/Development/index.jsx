@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import { withMediaQueries } from "../../../hoc/withMediaQueries";
 import DevelopmentDesktop from "./DevelopmentDesktop";
 import DevelopmentMobile from "./DevelopmentMobile";
-import {useSelector} from "react-redux";
-import {selectDevelopmentContentType} from "../../../features/development/developmentSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {selectDevelopmentContentType, setContentType} from "../../../features/development/developmentSlice";
 import {getContent} from "../../../contentful";
 
 const Development = ({
@@ -16,6 +16,7 @@ const Development = ({
     active,
     dragConstraints,
 }) => {
+    const dispatch = useDispatch();
     const devContentType = useSelector(selectDevelopmentContentType);
     const [listProjects, setListProjects] = useState([]);
     const [typeContents, setTypeContents] = useState("");
@@ -35,6 +36,7 @@ const Development = ({
     };
 
     const handleOnClosePanelContent = () => {
+        dispatch(setContentType(''));
         setTypeContents("");
         setContent({});
     };

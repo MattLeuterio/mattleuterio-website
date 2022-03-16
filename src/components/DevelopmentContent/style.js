@@ -3,6 +3,7 @@ import theme from '../../ui/theme';
 
 export const Container = styled.div`
   z-index: ${theme.zIndex.menus};
+  height: 100%;
 `;
 
 export const Header = styled.div`
@@ -66,6 +67,7 @@ export const Title = styled.div`
 
   > div {
     color: ${theme.colors.global.white};
+    white-space: nowrap;
   }
 `;
 

@@ -23,12 +23,8 @@ const Project = ({ project, onClickSetContents, selected }) => {
   const [openFolderImages, setOpenFolderImages] = useState(false);
   const [typeContents, setTypeContents] = useState(devContentType);
 
-  useEffect(() => {
-    dispatch(setContentType(typeContents));
-  }, [typeContents]);
-
-
   const handleOnClickFile = (type, imgId) => {
+    dispatch(setContentType(type));
     setTypeContents(type);
     onClickSetContents();
     if (type === 'image') {

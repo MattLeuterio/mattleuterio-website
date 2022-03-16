@@ -68,6 +68,26 @@ export const MenuSections = styled.div`
   height: calc(100% - 100px);
   overflow-y: auto;
   padding-bottom: 16px;
+  
+  /* width */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #31364a;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #007acc;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00538b;
+  }
 `;
 
 export const Contents = styled.div`
