@@ -67,13 +67,15 @@ const Header = ({ isLoginPage, mediaIsPhone, mediaIsTablet, theme }) => {
             <>
               <Overlay onClick={() => setToggleOption(false)} />
               <OptionCtn>
-                <Inter
-                  className="option"
-                  type="h4"
-                  onClick={() => handleOnClickAbout()}
-                >
-                  About this website
-                </Inter>
+                {!mediaIsPhone && !mediaIsTablet && (
+                    <Inter
+                        className="option"
+                        type="h4"
+                        onClick={() => handleOnClickAbout()}
+                    >
+                      About this website
+                    </Inter>
+                )}
                 <Inter
                   className="option"
                   type="h4"

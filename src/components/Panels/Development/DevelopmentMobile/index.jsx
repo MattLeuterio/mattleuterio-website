@@ -12,7 +12,7 @@ import {
   NoPanel
 } from "./style";
 import { withMediaQueries } from "../../../../hoc/withMediaQueries";
-import { Image, PanelContainer } from "../../../../atoms";
+import {ClosePanelMobile, Image, PanelContainer} from "../../../../atoms";
 import { DevelopmentContent } from "../../../";
 import VscDocumentIcon from "../../../../ui/assets/img/vsc-document.png";
 import VscNoPanel from "../../../../ui/assets/img/vsc-nopanel.svg";
@@ -84,6 +84,11 @@ const DevelopmentMobile = ({
           )}
         </Contents>
       </Main>
+      {/* Close Panel */}
+      <ClosePanelMobile
+          theme={theme}
+          appSelected='development'
+      />
     </PanelContainer>
   );
 };

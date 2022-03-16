@@ -89,7 +89,7 @@ export const LinkSocial = styled.a`
 
 export const OptionCtn = styled.div`
   width: 235px;
-  height: 100px;
+  height: 70px;
   border-radius: 10px;
   padding: 5px 5px 10px 5px;
   background: rgba(44,44,44,0.9);
@@ -116,7 +116,7 @@ export const OptionCtn = styled.div`
     cursor: pointer;
     padding: 0 5px;
     border-radius: 3px;
-    height: calc(100% / 3);
+    height: calc(100% / 2);
     display: flex;
     align-items: center;
 
@@ -136,6 +136,14 @@ export const OptionCtn = styled.div`
         height: 1px;
         background-color: rgba(235, 235, 245, 0.18);
       }
+    }
+  }
+  
+  @media ${theme.device.tabletL} {
+    height: 100px;
+    
+    div.option {
+      height: calc(100% / 3);
     }
   }
 `;
@@ -180,7 +188,6 @@ export const Container = styled.div`
 
   ${({ isIOS }) => isIOS && css`
     backdrop-filter: blur(0px);
-    pointer-events: none;
     
     ${Name} {
       margin-left: 0;
