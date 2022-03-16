@@ -36,8 +36,8 @@ export const DateTimeWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 10%;
-  margin-bottom: 40%;
+  margin-top: 50px;
+  margin-bottom: 130px;
 `;
 export const DateTime = styled.div`
   display: flex;
