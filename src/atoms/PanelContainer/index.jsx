@@ -25,7 +25,7 @@ const PanelContainer = ({
   return (
     <Container
       as={motion.div}
-      drag
+      drag={!mediaIsPhone && !mediaIsTablet}
       dragConstraints={dragConstraintsRef}
       dragElastic={0}
       dragMomentum={false}
