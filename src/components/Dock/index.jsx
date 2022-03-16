@@ -19,7 +19,7 @@ const Dock = ({mediaIsPhone, mediaIsTablet, theme, onClickApp }) => {
   return (
     <Container theme={theme}>
       {(!mediaIsPhone && !mediaIsTablet) && (
-        <a href="matteoleuterio@gmail.com">
+        <a href="mailto:matteoleuterio@gmail.com">
           <IconApp name="Mail">
             <Image src={IconMail} width="60px" />
           </IconApp>
