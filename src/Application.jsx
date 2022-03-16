@@ -31,21 +31,6 @@ function Application({ mediaIsPhone, mediaIsTablet }) {
   const [isLogged, setIsLogged] = useState(false);
   const constraintsRef = useRef(null);
 
-  const thumbnailVariants = {
-    hidden: {
-      transform: "translateY(100%)",
-      transition: { duration: 0.6 },
-    },
-    visible: {
-      transform: "translateY(0%)",
-      transition: { duration: 0.6 },
-    },
-    exit: {
-      transform: "translateX(-100%)",
-      transition: { duration: 0.6 },
-    },
-  };
-
   useEffect(() => {
     if (!!!localStorage.getItem("theme")) {
       localStorage.setItem("theme", "dark");
@@ -135,18 +120,6 @@ function Application({ mediaIsPhone, mediaIsTablet }) {
       setIsLogged(true);
     }
   };
-
-  // eslint-disable-next-line no-lone-blocks
-  {
-    /* <GlobalLayout
-        as={motion.div}
-        variants={thumbnailVariants}
-        initial="hidden"
-        animate="visible"
-        exit="exit"
-      > 
-      </GlobalLayout> */
-  }
 
   return (
     <>
