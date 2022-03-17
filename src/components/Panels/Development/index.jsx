@@ -15,6 +15,7 @@ const Development = ({
     theme,
     active,
     dragConstraints,
+    open
 }) => {
     const dispatch = useDispatch();
     const devContentType = useSelector(selectDevelopmentContentType);
@@ -42,20 +43,21 @@ const Development = ({
     };
 
     const actions = {
-    onClickContainer,
-    onClose,
-    theme,
-    active,
-    dragConstraints,
-    devContentType,
-    listProjects,
-    setListProjects,
-    typeContents,
-    setTypeContents,
-    content,
-    setContent,
-    handleOnSetContents,
-    handleOnClosePanelContent
+        onClickContainer,
+        onClose,
+        theme,
+        active,
+        dragConstraints,
+        devContentType,
+        listProjects,
+        setListProjects,
+        typeContents,
+        setTypeContents,
+        content,
+        setContent,
+        handleOnSetContents,
+        handleOnClosePanelContent,
+        open
     }
 
   if (mediaIsPhone || mediaIsTablet) {

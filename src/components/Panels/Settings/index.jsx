@@ -18,6 +18,7 @@ const Settings = ({
   active,
   bgSelected,
   dragConstraints,
+  open
 }) => {
   const bgsList = [
     {
@@ -65,7 +66,8 @@ const Settings = ({
     active,
     bgSelected,
     dragConstraints,
-    bgsList
+    bgsList,
+    open
   }
 
   if (mediaIsPhone || mediaIsTablet) {

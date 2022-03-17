@@ -14,7 +14,7 @@ export const Container = styled(motion.div)`
   left: ${props => props.left ? `${props.left}px` : 'auto'};
   border-radius: 10px;
   overflow: hidden;
-  display: ${props => props.display ? `${props.display}` : 'block'};
+  display: ${props => props.open ? props.display ? `${props.display}` : 'block' : 'none'};
   flex-direction: ${props => props.flexDirection ? `${props.flexDirection}` : 'row'};
   filter: drop-shadow(${theme.utility.dropShadow});
   background: ${props => !props.noBackground ? props.theme === 'dark' ?

@@ -8,6 +8,7 @@ const PanelContainer = ({
   onClickPanelContainer,
   children,
   active,
+  open,
   theme,
   widthPan,
   heightPan,
@@ -20,10 +21,12 @@ const PanelContainer = ({
   display,
   flexDirection,
   mediaIsTablet,
-  mediaIsPhone
+  mediaIsPhone,
+  id,
 }) => {
   return (
     <Container
+      id={id}
       as={motion.div}
       drag={!mediaIsPhone && !mediaIsTablet}
       dragConstraints={dragConstraintsRef}
@@ -31,6 +34,7 @@ const PanelContainer = ({
       dragMomentum={false}
       onClick={() => onClickPanelContainer()}
       active={active}
+      open={open}
       theme={theme}
       widthPan={widthPan}
       heightPan={heightPan}

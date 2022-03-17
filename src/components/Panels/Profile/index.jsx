@@ -19,9 +19,9 @@ const Profile = ({
   theme,
   active,
   dragConstraints,
+  open
 }) => {
   const initialStateSection = (!mediaIsPhone && !mediaIsTablet) ? 'about' : '';
-  console.log('initialStateSection', initialStateSection);
   const [section, setSection] = useState(initialStateSection);
   const [listSkills, setListSkills] = useState([]);
 
@@ -59,7 +59,8 @@ const Profile = ({
     section,
     setSection,
     listSkills,
-    setListSkills
+    setListSkills,
+    open
   }
 
   if (mediaIsPhone || mediaIsTablet) {

@@ -38,15 +38,18 @@ const DevelopmentDesktop = ({
     content,
     setContent,
     handleOnSetContents,
-    handleOnClosePanelContent
+    handleOnClosePanelContent,
+    open
   }
 }) => {
 
   return (
     <PanelContainer
+      id="panel-development"
       dragConstraintsRef={dragConstraints}
       onClickPanelContainer={() => onClickContainer()}
       active={active}
+      open={open}
       theme={theme}
       widthPan={900}
       heightPan={650}

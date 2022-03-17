@@ -78,10 +78,21 @@ function Application({ mediaIsPhone, mediaIsTablet }) {
 
   const handleOnClickApp = (app) => {
     dispatch(openPanel(app));
+    if(!mediaIsPhone && !mediaIsTablet) {
+      const panel = document.querySelector(`#panel-${app}`);
+      if (Boolean(panel) && Boolean(localStorage.getItem(`position-panel-${app}`))) {
+        panel.style.transform = localStorage.getItem(`position-panel-${app}`);
+      }
+    }
   };
 
   const handleOnClosePanel = (e, app) => {
     e.stopPropagation();
+    const panel = document.querySelector(`#panel-${app}`);
+    if (Boolean(panel)) {
+      const transform = panel.style.transform;
+      if (Boolean(transform)) localStorage.setItem(`position-panel-${app}`, transform);
+    }
     dispatch(closePanel(app));
   };
 
@@ -150,81 +161,74 @@ function Application({ mediaIsPhone, mediaIsTablet }) {
           )}
 
           {/* SETTINGS PANEL */}
-          {panels?.find((panel) => panel.name === "settings").open && (
-            <Settings
-              theme={theme}
-              dragConstraints={constraintsRef}
-              value={client}
-              active={panels?.find((panel) => panel.name === "settings").active}
-              onClickContainer={() => handleOnClickCtnPanel("settings")}
-              onClose={(e) => handleOnClosePanel(e, "settings")}
-              onClickTheme={(themeChoice) => handleOnClickTheme(themeChoice)}
-              onChangeName={(value) => handleOnChangeName(value)}
-              onClickIconSetName={(e) => handleOnClickIconSetName(e)}
-              onChangeBackground={(value) => handleOnChangeBackground(value)}
-              bgSelected={background}
-            />
-          )}
+          <Settings
+            theme={theme}
+            dragConstraints={constraintsRef}
+            value={client}
+            open={panels?.find((panel) => panel.name === "settings").open}
+            active={panels?.find((panel) => panel.name === "settings").active}
+            onClickContainer={() => handleOnClickCtnPanel("settings")}
+            onClose={(e) => handleOnClosePanel(e, "settings")}
+            onClickTheme={(themeChoice) => handleOnClickTheme(themeChoice)}
+            onChangeName={(value) => handleOnChangeName(value)}
+            onClickIconSetName={(e) => handleOnClickIconSetName(e)}
+            onChangeBackground={(value) => handleOnChangeBackground(value)}
+            bgSelected={background}
+          />
 
           {/* ABOUT PANEL */}
-          {panels?.find((panel) => panel.name === "about").open && (
-            <About
-              theme={theme}
-              dragConstraints={constraintsRef}
-              active={panels?.find((panel) => panel.name === "about").active}
-              onClickContainer={() => handleOnClickCtnPanel("about")}
-              onClose={(e) => handleOnClosePanel(e, "about")}
-            />
-          )}
+          <About
+            theme={theme}
+            dragConstraints={constraintsRef}
+            active={panels?.find((panel) => panel.name === "about").active}
+            open={panels?.find((panel) => panel.name === "about").open}
+            onClickContainer={() => handleOnClickCtnPanel("about")}
+            onClose={(e) => handleOnClosePanel(e, "about")}
+          />
 
           {/* PROFILE */}
-          {panels?.find((panel) => panel.name === "profile").open && (
-            <Profile
-              theme={theme}
-              dragConstraints={constraintsRef}
-              active={panels?.find((panel) => panel.name === "profile").active}
-              open={panels?.find((panel) => panel.name === "profile").open}
-              onClickContainer={() => handleOnClickCtnPanel("profile")}
-              onClose={(e) => handleOnClosePanel(e, "profile")}
-            />
-          )}
+          <Profile
+            theme={theme}
+            dragConstraints={constraintsRef}
+            active={panels?.find((panel) => panel.name === "profile").active}
+            open={panels?.find((panel) => panel.name === "profile").open}
+            onClickContainer={() => handleOnClickCtnPanel("profile")}
+            onClose={(e) => handleOnClosePanel(e, "profile")}
+          />
 
           {/* TRASH */}
-          {panels?.find((panel) => panel.name === "trash").open && (
-            <Trash
-              theme={theme}
-              dragConstraints={constraintsRef}
-              active={panels?.find((panel) => panel.name === "trash").active}
-              onClickContainer={() => handleOnClickCtnPanel("trash")}
-              onClose={(e) => handleOnClosePanel(e, "trash")}
-            />
-          )}
+          <Trash
+            theme={theme}
+            dragConstraints={constraintsRef}
+            active={panels?.find((panel) => panel.name === "trash").active}
+            open={panels?.find((panel) => panel.name === "trash").open}
+            onClickContainer={() => handleOnClickCtnPanel("trash")}
+            onClose={(e) => handleOnClosePanel(e, "trash")}
+          />
 
           {/* DEVELOPMENT */}
-          {panels?.find((panel) => panel.name === "development").open && (
-            <Development
-              theme={theme}
-              dragConstraints={constraintsRef}
-              active={
-                panels?.find((panel) => panel.name === "development").active
-              }
-              onClickContainer={() => handleOnClickCtnPanel("development")}
-              onClose={(e) => handleOnClosePanel(e, "development")}
-            />
-          )}
+          <Development
+            theme={theme}
+            dragConstraints={constraintsRef}
+            active={
+              panels?.find((panel) => panel.name === "development").active
+            }
+            open={panels?.find((panel) => panel.name === "development").open}
+            onClickContainer={() => handleOnClickCtnPanel("development")}
+            onClose={(e) => handleOnClosePanel(e, "development")}
+          />
 
           {/* FILMMAKING */}
-          {panels?.find((panel) => panel.name === "filmmaking").open && (
-            <Filmmaking
-              theme={theme}
-              dragConstraints={constraintsRef}
-              active={
-                panels?.find((panel) => panel.name === "filmmaking").active
-              }
-              onClickContainer={() => handleOnClickCtnPanel("filmmaking")}
-              onClose={(e) => handleOnClosePanel(e, "filmmaking")}
-            />
-          )}
+          <Filmmaking
+            theme={theme}
+            dragConstraints={constraintsRef}
+            active={
+              panels?.find((panel) => panel.name === "filmmaking").active
+            }
+            open={panels?.find((panel) => panel.name === "filmmaking").open}
+            onClickContainer={() => handleOnClickCtnPanel("filmmaking")}
+            onClose={(e) => handleOnClosePanel(e, "filmmaking")}
+          />
 
           {/* Dock -> position fixed */}
           <Dock onClickApp={(app) => handleOnClickApp(app)} />

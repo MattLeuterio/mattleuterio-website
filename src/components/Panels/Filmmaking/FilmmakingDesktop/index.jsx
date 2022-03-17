@@ -29,15 +29,17 @@ const FilmmakingDesktop = ({
     onClickContainer, onClose, theme,
     active, dragConstraints, onClickMenuProject,
     videoSelected, toggleMenu, listProjects,
-    setToggleMenu
+    setToggleMenu, open
   }
 }) => {
 
   return (
     <PanelContainer
+      id="panel-filmmaking"
       dragConstraintsRef={dragConstraints}
       onClickPanelContainer={() => onClickContainer()}
       active={active}
+      open={open}
       theme={theme}
       widthPan={950}
       heightPan={650}

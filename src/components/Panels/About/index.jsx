@@ -30,14 +30,17 @@ const About = ({
   onClose,
   theme,
   active,
+  open,
   dragConstraints,
 }) => {
   return (
     <PanelContainer
+      id="panel-about"
       dragConstraintsRef={dragConstraints}
       onClickPanelContainer={() => onClickContainer()}
       active={active}
       theme={theme}
+      open={open}
       widthPan={600}
       heightPan={340}
       top={150}

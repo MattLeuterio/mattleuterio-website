@@ -41,14 +41,17 @@ const ProfileDesktop = ({
     section,
     setSection,
     listSkills,
-    setListSkills
+    setListSkills,
+    open
   }
 }) => {
   return (
     <PanelContainer
+      id="panel-profile"
       dragConstraintsRef={dragConstraints}
       onClickPanelContainer={() => onClickContainer()}
       active={active}
+      open={open}
       theme={theme}
       widthPan={585}
       heightPan={610}

@@ -27,6 +27,7 @@ const Profile = ({
   theme,
   active,
   dragConstraints,
+  open
 }) => {
   const [section, setSection] = useState("about");
   const [listSkills, setListSkills] = useState([]);
@@ -61,9 +62,11 @@ const Profile = ({
 
   return (
     <PanelContainer
+      id="panel-trash"
       dragConstraintsRef={dragConstraints}
       onClickPanelContainer={() => onClickContainer()}
       active={active}
+      open={open}
       theme={theme}
       widthPan={580}
       heightPan={330}

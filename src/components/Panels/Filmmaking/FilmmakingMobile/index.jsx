@@ -29,7 +29,7 @@ const FilmmakingMobile = ({
    onClickContainer, theme,
    active, dragConstraints, onClickMenuProject,
    videoSelected, toggleMenu, listProjects,
-   setToggleMenu
+   setToggleMenu, open
  }
 }) => {
   return (
@@ -37,6 +37,7 @@ const FilmmakingMobile = ({
           dragConstraintsRef={dragConstraints}
           onClickPanelContainer={() => onClickContainer()}
           active={active}
+          open={open}
           theme={theme}
           widthPan={950}
           heightPan={650}

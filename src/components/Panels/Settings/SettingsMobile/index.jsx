@@ -29,14 +29,17 @@ const SettingsMobile = ({
     active,
     bgSelected,
     dragConstraints,
-    bgsList
+    bgsList,
+    open
   }
 }) => {
   return (
     <PanelContainer
+      id="panel-settings"
       dragConstraintsRef={dragConstraints}
       onClickPanelContainer={() => onClickContainer()}
       active={active}
+      open={open}
       theme={theme}
       widthPan={675}
       heightPan={381}

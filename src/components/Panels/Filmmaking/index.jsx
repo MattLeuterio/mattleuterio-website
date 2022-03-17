@@ -14,6 +14,7 @@ const Filmmaking = ({
   theme,
   active,
   dragConstraints,
+  open,
 }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [listProjects, setListProjects] = useState([]);
@@ -43,7 +44,8 @@ const Filmmaking = ({
     videoSelected,
     toggleMenu,
     listProjects,
-    setToggleMenu
+    setToggleMenu,
+    open
   }
 
   if (mediaIsPhone || mediaIsTablet) {
