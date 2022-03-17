@@ -171,7 +171,6 @@ export const LogoWrapper = styled.div`
 
 export const Container = styled.div`
   z-index: ${theme.zIndex.menus};
-  //background: rgba(79, 79, 79, 0.2);
   position: relative;
   height: 24px;
   width: 100%;

@@ -49,20 +49,22 @@ const Header = ({ isLoginPage, mediaIsPhone, mediaIsTablet, theme }) => {
     <Container login={isLoginPage} isIOS={mediaIsPhone || mediaIsTablet}>
       {(!mediaIsPhone && !mediaIsTablet) && <BackgroundBlur />}
         <>
-          <LeftCtn>
-            <LogoWrapper open={toggleOption}>
-              <Image
-                src={
-                  theme === 'light' && Boolean(panels.find(el => el.open && el.name != 'development'))
-                  && (mediaIsPhone || mediaIsTablet) ? LogoGray : LogoWhite
-                }
-                width="24px"
-                onClick={() => setToggleOption(!toggleOption)}
-              />
-            </LogoWrapper>
-            <Name isLight={theme === 'light' && Boolean(panels.find(el => el.open && el.name != 'development'))
-            && (mediaIsPhone || mediaIsTablet)}>Matt Leuterio</Name>
-          </LeftCtn>
+          {!isLoginPage && (
+            <LeftCtn>
+              <LogoWrapper open={toggleOption}>
+                <Image
+                    src={
+                      theme === 'light' && Boolean(panels.find(el => el.open && el.name != 'development'))
+                      && (mediaIsPhone || mediaIsTablet) ? LogoGray : LogoWhite
+                    }
+                    width="24px"
+                    onClick={() => setToggleOption(!toggleOption)}
+                />
+              </LogoWrapper>
+              <Name isLight={theme === 'light' && Boolean(panels.find(el => el.open && el.name != 'development'))
+                  && (mediaIsPhone || mediaIsTablet)}>Matt Leuterio</Name>
+            </LeftCtn>
+          )}
           {toggleOption && (
             <>
               <Overlay onClick={() => setToggleOption(false)} />

@@ -25,7 +25,7 @@ const Login = ({
           background={backgroundChoice(theme, background)}
           theme={theme}
       >
-        <Header isLoginPage/>
+        <Header isLoginPage />
         <LoginWrapper>
           {(!mediaIsPhone && !mediaIsTablet) ? (
               <ProfileImg>

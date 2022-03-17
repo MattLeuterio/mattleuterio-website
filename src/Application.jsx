@@ -77,7 +77,6 @@ function Application({ mediaIsPhone, mediaIsTablet }) {
   };
 
   const handleOnClickApp = (app) => {
-    console.log('app', app);
     dispatch(openPanel(app));
   };
 
