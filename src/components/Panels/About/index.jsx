@@ -56,7 +56,7 @@ const About = ({
         <InfoWrapper>
           <Title>
             <Inter type="h1" configuration={{ fontSize: 24 }}>
-              <span>mattleuterio</span>.com
+              <span>mattleuterio</span>.dev
             </Inter>
             <Inter type="h3">
               <span>Version</span> 2.0
