@@ -135,7 +135,7 @@ function Application({ mediaIsPhone, mediaIsTablet }) {
           {/* Mobile */}
           {(mediaIsPhone || mediaIsTablet) && (
               <AppsContainer>
-                <a href="mailto:matteoleuterio@gmail.com">
+                <a href="mailto:matteoleuterio@gmail.com" target="_blank" rel="noopener noreferrer">
                   <IconApp name="Mail">
                     <Image src={IconMail} width="60px" />
                   </IconApp>
